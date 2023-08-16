@@ -1,0 +1,5 @@
+// Color selector
+@function getColor($key) {
+  @return map-get($light-theme-colors, $key);
+}
+

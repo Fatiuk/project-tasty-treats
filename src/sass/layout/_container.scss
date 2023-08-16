@@ -1,0 +1,22 @@
+.container {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  max-width: 335px;
+
+  @include respondTo(tablet) {
+    max-width: 704px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  @include respondTo(desktop) {
+    max-width: 1080px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
