@@ -1,7 +1,6 @@
 // <---------------------- Colors ---------------------->
 $light-theme-colors: (
   //   Black
-  'black-full': rgba(5, 5, 5, 1),
   'black-high': rgba(5, 5, 5, 0.8),
   'black-semi': rgba(5, 5, 5, 0.5),
   'black-low': rgba(5, 5, 5, 0.3),
@@ -17,7 +16,6 @@ $light-theme-colors: (
 
 $dark-theme-colors: (
   // Black
-  'black-full': rgba(5, 5, 5, 1),
   'dark-black': rgba(22, 22, 22, 1),
   // White
   'white-full': rgba(255, 255, 255, 1),
@@ -30,6 +28,8 @@ $dark-theme-colors: (
   'white-semi-very-low': rgba(255, 255, 255, 0.1)
 );
 
+// Black
+$black-full: rgba(5, 5, 5, 1);
 //   Gray
 $gray-full: rgba(206, 205, 205, 1);
 //   Green
