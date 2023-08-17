@@ -7,5 +7,3 @@
 @function darkColor($key) {
   @return map-get($dark-theme-colors, $key);
 }
-
-
