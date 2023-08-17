@@ -1,0 +1,126 @@
+// --------- Global header styles --------- //
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// --------- Site navigation --------- //
+.nav-list {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+}
+
+.nav-link {
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  transition: text-shadow $transition;
+
+  &:hover {
+    text-shadow: 0px 0px 10px currentColor;
+  }
+}
+
+.current {
+  color: $green-full;
+}
+
+// --------- Header Logo --------- //
+.header-logo {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25rem;
+  letter-spacing: -0.045rem;
+}
+.header-logo-span {
+  color: $green-full;
+}
+
+// --------- Utility bar --------- //
+.utility-bar {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+}
+
+.cart-button {
+  line-height: 0;
+}
+
+.cart-icon {
+  fill: transparent;
+  stroke: $black-full;
+  transition: stroke $transition;
+
+  body.light-theme & {
+    stroke: $black-full;
+    &:hover {
+      stroke: $green-full;
+    }
+  }
+
+  body.dark-theme & {
+    stroke: darkColor('white-full');
+    &:hover {
+      stroke: $green-full;
+    }
+  }
+}
+
+// Switch theme (toggle)
+.switch {
+  display: block;
+  width: 46px;
+  height: 20px;
+  position: relative;
+}
+
+.checkbox {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background-color: $gray-full;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+body.light-theme {
+  .slider {
+    box-shadow: 8px 5px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+body.dark-theme {
+  .slider {
+    box-shadow: 8px 5px 15px rgba(255, 255, 255, 0.15);
+  }
+}
+
+.slider::before {
+  position: absolute;
+  content: '';
+  top: 0px;
+  left: 0px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: lightColor('white-full');
+  border: 1px solid $gray-full;
+  transform: translateX(0);
+  transition: all 0.5s ease-out;
+}
+
+.checkbox:checked + .slider {
+  background-color: $green-full;
+}
+
+.checkbox:checked + .slider::before {
+  transform: translateX(26px);
+}
