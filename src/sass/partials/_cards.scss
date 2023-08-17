@@ -1,0 +1,68 @@
+.cards-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cards-item {
+    background-image: url(../images/test-card-img.png);
+    padding: 16px;
+    width: 335px;
+    height: 335px;
+    margin-bottom: auto;
+}
+
+.cards-item-title {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: #F8F8F8;
+    margin-bottom: 8px;
+
+}
+
+.cards-item-text {
+    color: #F8F8F8;
+    margin-bottom: 16px;
+    height: 32px;
+    overflow: hidden;
+}
+
+.cards-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cards-raiting {
+    font-size: 12px;
+    color: #F8F8F8;
+}
+
+.cards-item-btn {
+    font-size: 12px;
+    width: 90px;
+    height: 30px;
+    border-radius: 8px;
+    color: #F8F8F8;
+    background-color: #9BB537;
+    transition: color $transition;
+
+    &:hover, &:focus {
+        color: #050505;
+    }
+}
+
+.cards-heard-icon {
+    fill: transparent;
+    stroke: #F8F8F8;
+    width: 22px;
+    height: 22px;
+    margin-left: 281px;
+    margin-bottom: 176px;
+    cursor: pointer;
+    transition: fill $transition;
+
+    &:hover {
+        fill: #fff;
+    }
+}
