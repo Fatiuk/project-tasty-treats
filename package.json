@@ -24,10 +24,12 @@
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
     "slim-select": "^2.6.0",
+    "swiper": "^10.2.0",
     "video.js": "^8.3.0"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
+    "buffer": "^6.0.3",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"

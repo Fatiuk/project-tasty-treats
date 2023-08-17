@@ -1,0 +1,90 @@
+.hero-container{
+    display: inline-block;
+    gap: 16px;
+    @include respondTo(desktop) {
+        display: flex;}
+    }
+.hero{
+    padding-top: 50px;
+}
+.hero-text{
+width: 100%;
+font-weight: 600;
+ font-size: 34px;
+ line-height: 1.2;
+padding-bottom: 16px;
+@include respondTo(tablet){
+width: 446px;
+font-size: 36px;
+font-weight: 600;
+line-height: 1.2;
+padding-bottom: 16px;
+}
+}
+
+.hero-text-tasty{
+    color:$green-full;
+    font-style: italic;
+}
+.hero-title{
+width: 100%;
+font-weight: 400;
+font-size: 11px;
+line-height: 1.2;
+padding-bottom: 16px;
+ @include respondTo(tablet) {
+ width: 408px;
+ font-weight: 400;
+ font-size: 16px;
+ line-height: 1.5;
+ padding-bottom: 16px;}
+}
+
+.button-hero {
+    width: 111px;
+    height: 37px;
+    border: 1px solid $green-full ;
+    border-radius: 12px;
+    background-color: lightColor('white-full');
+    margin-bottom:20px;
+    @include respondTo(tablet){
+    width: 127px;
+    height: 45px;
+    border-radius: 15px;
+    margin-bottom: 28;
+  }
+}
+
+.button-hero:hover {
+    background-color: $green-full;
+}
+.button-text:hover{
+    color: lightColor('white-full');
+ 
+}
+// ------------------CARD-------------------------//
+.swiper-slide{
+    display: flex;
+    gap: 16px;
+    
+}
+
+.card-shef{
+    width: 80px;
+    height: 280px;
+    border-radius: 15px;
+    background-color: black;
+    @include respondTo(tablet) {
+    width: 137px;
+    height: 442px;
+   }
+}
+.card-food{
+width:200px;
+height: 280px;
+border-radius: 15px;
+background-color: black;
+@include respondTo(tablet) {
+width: 351px;
+height: 442px;
+    }}
