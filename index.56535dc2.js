@@ -1,2 +1,0 @@
-document.addEventListener("DOMContentLoaded",(function(){const e=document.querySelector(".checkbox"),t=document.body;function c(){t.classList.remove("dark-theme"),t.classList.add("light-theme")}function a(){t.classList.remove("light-theme"),t.classList.add("dark-theme")}"dark"===localStorage.getItem("theme")?(a(),e.checked=!0):(c(),e.checked=!1),e.addEventListener("click",(function(){t.classList.contains("dark-theme")?(c(),localStorage.setItem("theme","light")):(a(),localStorage.setItem("theme","dark"))}))}));
-//# sourceMappingURL=index.56535dc2.js.map
