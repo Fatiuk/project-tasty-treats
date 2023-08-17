@@ -1,5 +1,11 @@
-// Color selector
-@function getColor($key) {
+// Color selector for light theme
+@function lightColor($key) {
   @return map-get($light-theme-colors, $key);
 }
+
+// Color selector for dark theme
+@function darkColor($key) {
+  @return map-get($dark-theme-colors, $key);
+}
+
 

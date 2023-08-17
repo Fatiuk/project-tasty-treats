@@ -1,7 +1,15 @@
 body {
   font-family: $fontPrimary;
-  color: getColor('black-full');
-  background-color: getColor('background-primary');
+}
+
+body.light-theme {
+  background-color: lightColor('white-full');
+  color: $black-full;
+}
+
+body.dark-theme {
+  background-color: darkColor('dark-black');
+  color: darkColor('white-full');
 }
 
 .visually-hidden {
