@@ -4,3 +4,6 @@ import './js/request-handler.js';
 
 //* Toggle the theme color between light and dark mode.
 import './js/toggle-theme.js';
+
+// Exaple how to use request-handler
+import './js/example.js';

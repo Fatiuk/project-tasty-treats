@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 import TastyTreatsAPI from './tasty-treats-api.js';
 
 const tastyTreatsApi = new TastyTreatsAPI();
-async function fetchDataByPath(
+export async function fetchDataByPath(
   apiPath,
   page,
   limit,
