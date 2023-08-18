@@ -1,7 +1,6 @@
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
 
-
 const areasSelectForm = document.querySelector('.area');
 const ingredientsSelectForm = document.querySelector('.ingredients');
 const timeSelectForm = document.querySelector('.time-select');
@@ -13,10 +12,20 @@ function createMarkupSelect(data) {
     .map(({ _id, name }) => `<option value="${_id}">${name}</option>`)
     .join('');
 }
+function createMarkupSelectAreas(data) {
+  return data
+    .map(({ name }) => `<option value="${name}">${name}</option>`)
+    .join('');
+}
 async function loadDataAndInsertOptions(apiPath, selectForm) {
   try {
     const data = await fetchDataByPath(apiPath);
-    selectForm.insertAdjacentHTML('beforeend', createMarkupSelect(data));
+    if (apiPath === '/areas') {
+      selectForm.insertAdjacentHTML('beforeend', createMarkupSelectAreas(data));
+    } else {
+      selectForm.insertAdjacentHTML('beforeend', createMarkupSelect(data));
+    }
+
     new SlimSelect({
       select: selectForm,
       settings: {
@@ -50,5 +59,3 @@ document.addEventListener('DOMContentLoaded', () => {
   loadDataAndInsertOptions('/areas', areasSelectForm);
   initializeSelectTime();
 });
-
-
