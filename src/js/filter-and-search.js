@@ -1,8 +1,7 @@
-// import axios from 'axios';
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
 
-// const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
+
 const areasSelectForm = document.querySelector('.area');
 const ingredientsSelectForm = document.querySelector('.ingredients');
 const timeSelectForm = document.querySelector('.time-select');
@@ -14,19 +13,6 @@ function createMarkupSelect(data) {
     .map(({ _id, name }) => `<option value="${_id}">${name}</option>`)
     .join('');
 }
-
-// Reusable function to fetch data from an API endpoint
-// async function fetchData(endpoint) {
-//   try {
-//     const response = await axios.get(`${BASE_URL}/${endpoint}`);
-//     return response.data;
-//   } catch (error) {
-//     console.error(`Error fetching ${endpoint}:`, error);
-//     return [];
-//   }
-// }
-
-// Reusable function for loading data and creating markup
 async function loadDataAndInsertOptions(apiPath, selectForm) {
   try {
     const data = await fetchDataByPath(apiPath);
