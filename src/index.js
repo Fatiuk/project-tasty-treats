@@ -7,3 +7,7 @@ import './js/toggle-theme.js';
 
 // Exaple how to use request-handler
 import './js/example.js';
+
+import './js/filter-and-search.js';
+
+

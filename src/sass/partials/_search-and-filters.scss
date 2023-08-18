@@ -1,0 +1,101 @@
+.search-and-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @include respondTo(tablet) {
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+  }
+  @include respondTo(tablet) {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+}
+.search-form {
+  @include respondTo(tablet) {
+    height: 100%;
+  }
+}
+.search-form-text {
+  line-height: 14px;
+  font-size: 12px;
+  color: lightColor('black-semi');
+  margin-bottom: 8px;
+  body.light-theme & {
+    color: lightColor('black-semi');
+  }
+
+  body.dark-theme & {
+    color: darkColor('white-semi-light');
+  }
+}
+.input-wrapper {
+  position: relative;
+}
+.input {
+  width: 100%;
+  border: 1px solid lightColor('black-very-low');
+  border-radius: 15px;
+  background-color: transparent;
+  padding: 14px 18px 14px;
+  padding-left: 35px;
+  body.light-theme & {
+    border: 1px solid lightColor('black-very-low');
+  }
+
+  body.dark-theme & {
+    border: 2px solid darkColor('white-semi-very-very-low');
+  }
+  &::placeholder {
+    color: lightColor('black-semi');
+    line-height: 18px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  body.light-theme &::placeholder {
+    color: lightColor('black-semi');
+  }
+
+  body.dark-theme &::placeholder {
+    color: darkColor('white-semi-light');
+  }
+  @include respondTo(tablet) {
+    width: 278px;
+  }
+}
+.input-icon {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 14px;
+  fill: lightColor('black-semi');
+  body.light-theme & {
+    fill: lightColor('black-semi');
+  }
+
+  body.dark-theme & {
+    fill: darkColor('white-semi-light');
+  }
+}
+.filter-wrapper {
+  margin: 10px 0px 8px;
+  width: calc((100% - 10px) / 2);
+  @include respondTo(tablet) {
+    width: calc((100% - 18px) / 2);
+  }
+  @include respondTo(desktop) {
+    width: calc((100% - 400px) / 3);
+  }
+}
+.last-child {
+  width: auto;
+  @include respondTo(tablet) {
+    width: calc((100% - 18px) / 2);
+  }
+  @include respondTo(desktop) {
+    width: calc((100% - 300px) / 3);
+  }
+}
