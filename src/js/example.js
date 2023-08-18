@@ -15,11 +15,11 @@ import { fetchDataByPath } from './request-handler.js';
 // fetchDataByPath('/areas');
 
 //TODO Приклад запиту на бек, З ПАРАМЕТРАМИ
-const queryPage = 2;
-const queryLimit = 3;
-const queryCategory = 'Beef';
-const queryTime = 160;
-const queryArea = 'Irish';
+// const queryPage = 2;
+// const queryLimit = 3;
+// const queryCategory = 'Beef';
+// const queryTime = 160;
+// const queryArea = 'Irish';
 
 // fetchDataByPath('/recipes', queryPage); // Випадок коли параметр знаходитья другим
 // fetchDataByPath('/recipes', queryPage, queryLimit); // Третій параметр
@@ -27,8 +27,8 @@ const queryArea = 'Irish';
 //! ________________________________________________________________________________
 // Особливий випадок, коли параметр останній є вирішення двома способами:
 // 1. Створити порожні змінні і задати їм значення null
-const nCategory = null;
-const nTime = null;
+// const nCategory = null;
+// const nTime = null;
 
 // fetchDataByPath('/recipes', queryPage, queryLimit, nCategory, nTime, queryArea);
 
