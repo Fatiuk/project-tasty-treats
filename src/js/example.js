@@ -12,7 +12,7 @@ import { fetchDataByPath } from './request-handler.js';
 // (https://tasty-treats-backend.p.goit.global/api-docs/)
 
 //TODO Приклад звичайного запиту на бек, БЕЗ ПАРАМЕТРІВ!
-fetchDataByPath('/areas');
+// fetchDataByPath('/areas');
 
 //TODO Приклад запиту на бек, З ПАРАМЕТРАМИ
 const queryPage = 2;
