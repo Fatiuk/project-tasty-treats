@@ -1,0 +1,43 @@
+.favorites-default{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+@include respondTo(tablet) {
+    gap: 32px;
+}    
+}
+
+.favorites-img-dafault {
+    width: 68px;
+    height: 58px;
+
+@include respondTo(tablet) {
+    width: 97px;
+    height: 83px;    
+}
+}
+
+.favorites-text {
+    width: 335px;
+    color:$black-full;
+    text-align: center;
+    font-size: 14px;
+    line-height: 18px;
+
+body.dark-theme & {
+    color: darkColor('white-full');
+          
+}    
+
+@include respondTo(tablet) {
+    width: 481px; 
+    font-size: 16px;
+    line-height: 24px;
+}
+}
+
+.is-hidden {
+    display: none;
+}

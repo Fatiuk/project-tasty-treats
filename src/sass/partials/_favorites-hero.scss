@@ -1,0 +1,24 @@
+.favorites-hero {
+    padding-top: 50px;
+}
+.hero-container{
+    background-image: url(/src/images/favorites-hero-mobile.jpg);
+    height: 516px;
+    border-radius: 15px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    
+@include respondTo(tablet) {
+    background-image: url(/src/images/favorites-hero-tablet.jpg);
+    height: 356px;
+}
+
+@include respondTo(desktop) {
+    background-image: url(/src/images/favorites-hero-desctop.jpg);
+}
+}
+
+
+
+
