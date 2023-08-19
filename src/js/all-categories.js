@@ -7,7 +7,7 @@ const categoriesList = categoryContainer.querySelector('.category-list');
 
 allCategoriesBtn.addEventListener('click', () => {
   setActiveCategory(allCategoriesBtn);
-  fetchDataByCategory(null);
+  // fetchDataByCategory(null);
 });
 
 fetchDataByPath('/categories')
@@ -29,7 +29,7 @@ function createCategoryList(categories) {
 
     categoryItem.addEventListener('click', () => {
       setActiveCategory(categoryItem);
-      fetchDataByCategory(category.id);
+      // fetchDataByCategory(category.id);
     });
   });
 }
