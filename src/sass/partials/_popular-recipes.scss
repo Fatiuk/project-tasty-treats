@@ -1,0 +1,112 @@
+.popular-recipes-wrap:nth-last-child(-n+2) {
+    display: none;
+
+    @include respondTo(tablet) {   
+        display: flex; 
+  }
+  }
+
+.popular-recipes {
+    min-width: 335px;
+
+    @include respondTo(tablet) {   
+        display: block; 
+        // width: 176px;
+  }
+}
+.popular-recipes-title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.33; 
+    text-transform: uppercase;
+
+    @include respondTo(tablet) {   
+        margin-bottom: 32px;
+  }
+
+  @include respondTo(desktop) {
+    font-size: 24px;
+    line-height: 1.17;
+}
+
+}
+.popular-recipes-container { 
+    @include respondTo(tablet) {
+        max-width: 176px;
+    }
+    
+    @include respondTo(desktop) {
+        max-width: 235px;
+    }
+    
+}
+
+.popular-recipes-wrap {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+
+    @include respondTo(tablet) {   
+        gap: 8px; 
+        margin-bottom: 16px;
+  }
+
+     @include respondTo(desktop) {
+        margin-bottom: 32px;
+        gap: 16px  ;
+}
+
+}
+
+.popular-recipes-img {
+    max-width: 64px;
+    max-height: 64px;
+    border-radius: 8px;
+    
+    @include respondTo(tablet) {
+        max-width: 48px;
+        max-height: 48px;
+    }
+
+    @include respondTo(desktop) {
+        max-width: 64px;
+        max-height: 64px;
+    }
+}
+.popular-recipes-info-wrap {
+    // width: 120px; /* Задайте ширину контейнера */
+    // height: 68px; /* Задайте висоту контейнера */
+    // text-align: justify; /* Вирівнювання тексту по ширині */
+    // border: 1px solid #ccc; /* Додайте рамку для візуальності */
+    // overflow: hidden; /* Обрізати вміст, який не влазить */
+    // position: relative; /* Для позиціонування тексту */
+}
+.popular-recipes-subtitle {
+    font-size: 14px;
+    line-height: 1.28;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    
+}
+.popular-recipes-text {
+    font-size: 12px;
+    line-height: 1.33;
+//   width: 100%;
+// //   white-space: nowrap;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+
+    body.light-theme & {
+        color: lightColor('black-high');
+      }
+    
+      body.dark-theme & {
+        color: darkColor('white-semi-medium')
+      }
+
+      @include respondTo(tablet) {
+       font-size: 10px;
+       line-height: 1.4;
+      }
+}
+

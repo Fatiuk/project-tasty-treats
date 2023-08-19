@@ -10,4 +10,4 @@ import './js/example.js';
 
 import './js/filter-and-search.js';
 
-
+import './js/popular-recipes.js';
