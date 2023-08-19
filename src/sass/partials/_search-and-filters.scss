@@ -7,14 +7,18 @@
     justify-content: flex-start;
     gap: 18px;
   }
-  @include respondTo(tablet) {
+  @include respondTo(desktop) {
     justify-content: space-between;
-    flex-wrap: nowrap;
   }
 }
 .search-form {
+  width: 100%;
   @include respondTo(tablet) {
     height: 100%;
+    width: 50%;
+  }
+  @include respondTo(desktop) {
+    width: 335px;
   }
 }
 .search-form-text {
@@ -42,10 +46,12 @@
   padding-left: 35px;
   body.light-theme & {
     border: 1px solid lightColor('black-very-low');
+    color: $black-full;
   }
 
   body.dark-theme & {
-    border: 2px solid darkColor('white-semi-very-very-low');
+    border: 1px solid darkColor('white-semi-very-very-low');
+    color: darkColor('white-full');
   }
   &::placeholder {
     color: lightColor('black-semi');
@@ -63,7 +69,19 @@
   @include respondTo(tablet) {
     width: 278px;
   }
+  @include respondTo(desktop) {
+    width: 335px;
+    margin-right: 50px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+  &:focus + .input-icon {
+    fill: $green-full;
+  }
 }
+
 .input-icon {
   width: 15px;
   height: 15px;
@@ -82,20 +100,36 @@
 }
 .filter-wrapper {
   margin: 10px 0px 8px;
-  width: calc((100% - 10px) / 2);
-  @include respondTo(tablet) {
-    width: calc((100% - 18px) / 2);
-  }
-  @include respondTo(desktop) {
-    width: calc((100% - 400px) / 3);
-  }
-}
-.last-child {
   width: auto;
   @include respondTo(tablet) {
-    width: calc((100% - 18px) / 2);
+    margin: 0;
+  }
+  &:first-of-type {
+    @include respondTo(desktop) {
+      margin: 0;
+    }
+  }
+}
+.time-wrapper {
+  width: calc((100% - 18px) / 2);
+  @include respondTo(tablet) {
+    width: 125px;
+    margin-right: 20px;
   }
   @include respondTo(desktop) {
-    width: calc((100% - 300px) / 3);
+    width: 119px;
+    margin-right: 0;
+  }
+}
+.area-wrapper {
+  width: calc((100% - 18px) / 2);
+  @include respondTo(tablet) {
+    width: 147px;
+  }
+}
+.ingredients-wrapper {
+  width: 188px;
+  @include respondTo(tablet) {
+    width: 188px;
   }
 }
