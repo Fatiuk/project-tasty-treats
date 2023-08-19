@@ -1,12 +1,9 @@
 .container {
-  margin-top: 0;
-  margin-bottom: 0;
   margin-left: auto;
   margin-right: auto;
   padding-left: 20px;
   padding-right: 20px;
   width: 100%;
-  max-width: 335px;
 
   @include respondTo(tablet) {
     max-width: 704px;

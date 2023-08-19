@@ -4,81 +4,91 @@
   }
 }
 .hero {
-  padding-top: 50px;
-  padding-right: 16px;
-}
-.hero-text {
-  width: 100%;
-  font-weight: 600;
-  font-size: 34px;
-  line-height: 1.2;
-  padding-bottom: 16px;
-
+  margin-bottom: 48px;
   @include respondTo(tablet) {
-    width: 446px;
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 1.2;
-    padding-bottom: 16px;
+    margin-bottom: 64px;
+  }
+  @include respondTo(desktop) {
+    margin-bottom: 0;
+    margin-right: 32px;
+    min-width: 446px;
+    margin-top: 64px;
   }
 }
-.hero-text-tasty {
+.hero-title {
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  max-width: 335px;
+  text-transform: uppercase;
+
+  @include respondTo(tablet) {
+    max-width: 446px;
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+}
+.hero-span {
+  font-weight: 400;
   color: $green-full;
   font-style: italic;
 }
-.hero-title {
-  width: 100%;
+.hero-text {
+  max-width: 335px;
   font-weight: 400;
-  font-size: 11px;
-  line-height: 1.2;
-  padding-bottom: 16px;
+  font-size: 14px;
+  line-height: 1.28;
+  margin-bottom: 28px;
 
   @include respondTo(tablet) {
-    width: 408px;
-    font-weight: 400;
+    max-width: 408px;
     font-size: 16px;
     line-height: 1.5;
-    padding-bottom: 16px;
+    margin-bottom: 32px;
   }
 }
-
 .button-hero {
-  width: 111px;
-  height: 37px;
-  border: 1px solid $green-full;
-  margin-bottom: 20px;
+  display: block;
+  font-size: 14px;
+  padding: 10px 20px;
   border-radius: 15px;
-  transition: background-color $transition;
+  border: 1px solid $green-full;
+  transition: background-color $transition, color $transition;
+
+  body.dark-theme & {
+    color: darkColor('white-full');
+  }
+
   @include respondTo(tablet) {
-    width: 127px;
-    height: 45px;
-    border-radius: 15px;
-    margin-bottom: 28;
+    padding: 14px 28px;
   }
   @include respondTo(desktop) {
     margin-bottom: 0px;
   }
+
+  &:hover {
+    color: lightColor('white-full');
+    background-color: $green-full;
+  }
 }
-.button-hero:hover {
-  background-color: $green-full;
-}
-body.dark-theme .button-text {
-  color: darkColor('white-full');
-}
-.button-text:hover {
-  color: lightColor('white-full');
-}
+
 // ------------------CARD-------------------------//
+.swiper-wrapper {
+  display: flex;
+  position: relative;
+}
+
 .swiper-slide {
   display: flex;
-  gap: 16px;
 }
 
 .card-shef {
-  width: 80px;
+  display: block;
   height: 280px;
-  border-radius: 15px;
+  width: 80px;
   background-color: black;
+  border-radius: 15px;
 
   @include respondTo(tablet) {
     width: 137px;
@@ -86,10 +96,26 @@ body.dark-theme .button-text {
   }
 }
 .card-food {
+  display: block;
+  width: 200px;
+  height: 280px;
+  margin: 0 10px;
+  border-radius: 15px;
+  background-color: black;
+
+  @include respondTo(tablet) {
+    width: 351px;
+    height: 442px;
+  }
+}
+
+.card-tasty {
+  display: block;
   width: 200px;
   height: 280px;
   border-radius: 15px;
   background-color: black;
+  margin-right: -20px;
 
   @include respondTo(tablet) {
     width: 351px;
