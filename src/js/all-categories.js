@@ -7,7 +7,7 @@ const categoriesList = categoryContainer.querySelector('.category-list');
 
 allCategoriesBtn.addEventListener('click', () => {
   setActiveCategory(allCategoriesBtn);
-  // fetchDataByCategory(null);
+  fetchDataByCategory(null);
 });
 
 fetchDataByPath('/categories')
@@ -20,17 +20,22 @@ fetchDataByPath('/categories')
   });
 
 function createCategoryList(categories) {
-  categoriesList.innerHTML = ''; // Очищаємо список перед додаванням категорій
+  categoriesList.innerHTML = '';
   categories.forEach(category => {
+    console.log();
     const categoryItem = document.createElement('li');
-    categoryItem.textContent = category.name;
-    categoryItem.classList.add('category-item');
-    categoriesList.appendChild(categoryItem);
 
-    categoryItem.addEventListener('click', () => {
-      setActiveCategory(categoryItem);
+    const categoryButton = document.createElement('button');
+    categoryButton.textContent = category.name;
+    categoryButton.classList.add('category-button');
+    categoryItem.appendChild(categoryButton);
+
+    categoryButton.addEventListener('click', () => {
+      setActiveCategory(categoryButton.parentElement);
       // fetchDataByCategory(category.id);
     });
+
+    categoriesList.appendChild(categoryItem);
   });
 }
 
@@ -47,7 +52,7 @@ function createCategoryList(categories) {
 // }
 
 function setActiveCategory(activeItem) {
-  const categoryItems = categoriesList.querySelectorAll('.category-item');
+  const categoryItems = categoriesList.querySelectorAll('.category-button');
   categoryItems.forEach(item => item.classList.remove('active'));
   activeItem.classList.add('active');
 }
