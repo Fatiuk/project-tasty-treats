@@ -1,5 +1,5 @@
 import SlimSelect from 'slim-select';
-import 'slim-select/dist/slimselect.css';
+import '../css/filter.css';
 
 const areasSelectForm = document.querySelector('.area');
 const ingredientsSelectForm = document.querySelector('.ingredients');
