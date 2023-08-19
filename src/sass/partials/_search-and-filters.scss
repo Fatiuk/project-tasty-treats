@@ -4,17 +4,18 @@
   justify-content: space-between;
   @include respondTo(tablet) {
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 18px;
   }
-  @include respondTo(tablet) {
+  @include respondTo(desktop) {
     justify-content: space-between;
-    flex-wrap: nowrap;
   }
 }
 .search-form {
+  width: 100%;
   @include respondTo(tablet) {
     height: 100%;
+    width: 278px;
   }
 }
 .search-form-text {
@@ -32,6 +33,7 @@
 }
 .input-wrapper {
   position: relative;
+  width: 100%;
 }
 .input {
   width: 100%;
@@ -42,10 +44,12 @@
   padding-left: 35px;
   body.light-theme & {
     border: 1px solid lightColor('black-very-low');
+    color: $black-full;
   }
 
   body.dark-theme & {
-    border: 2px solid darkColor('white-semi-very-very-low');
+    border: 1px solid darkColor('white-semi-very-very-low');
+    color: darkColor('white-full');
   }
   &::placeholder {
     color: lightColor('black-semi');
@@ -63,7 +67,18 @@
   @include respondTo(tablet) {
     width: 278px;
   }
+  @include respondTo(desktop) {
+    width: 335px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+  &:focus + .input-icon {
+    fill: $green-full;
+  }
 }
+
 .input-icon {
   width: 15px;
   height: 15px;
@@ -85,17 +100,25 @@
   width: calc((100% - 10px) / 2);
   @include respondTo(tablet) {
     width: calc((100% - 18px) / 2);
+    margin: 0;
   }
   @include respondTo(desktop) {
-    width: calc((100% - 400px) / 3);
+    width: calc((100% - 400px) / 5);
+  }
+  &:first-of-type {
+    @include respondTo(desktop) {
+      margin: 0;
+    }
   }
 }
 .last-child {
-  width: auto;
   @include respondTo(tablet) {
     width: calc((100% - 18px) / 2);
   }
   @include respondTo(desktop) {
     width: calc((100% - 300px) / 3);
   }
+}
+.filter {
+  height: 49.55px;
 }
