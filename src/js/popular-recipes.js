@@ -1,22 +1,13 @@
 import axios from 'axios';
+import { fetchDataByPath } from './request-handler';
 
-const API_URL =
-  'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
-
-const getRecipes = async () => {
-  try {
-    const { data } = await axios(API_URL);
-    return data;
-  } catch (error) {
-    console.log(error.message);
-  }
-};
+const API_URL = '/recipes/popular';
 
 const recipesContainer = document.querySelector('.popular-recipes-container');
 
 async function createMarkup() {
   try {
-    const recipesData = await getRecipes();
+    const recipesData = await fetchDataByPath(API_URL);
     const sortedRecipes = recipesData.sort(
       (a, b) => b.popularity - a.popularity
     );
@@ -36,7 +27,7 @@ async function createMarkup() {
     }
 
     const markup = sortedRecipes
-      .map(({ _id, title, description, preview, popularity }) => {
+      .map(({ title, description, preview }) => {
         const reducedDescription =
           description.length > maxDescriptionLength
             ? description.substring(0, maxDescriptionLength) + '...'
