@@ -13,3 +13,6 @@ import './js/all-categories.js';
 import './js/filter-and-search.js';
 
 import './js/popular-recipes.js';
+
+//templ cards of recipes
+import './js/cards-recipes-tmpl.js'
