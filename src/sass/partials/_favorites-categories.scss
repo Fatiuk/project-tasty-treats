@@ -1,0 +1,41 @@
+.favorites-categories{
+    padding-bottom: 32px;
+}
+
+.favorites-categories-btn {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+
+    border-radius: 15px;
+    padding: 14px 18px;
+    
+    body.light-theme & {
+        color: lightColor('black-low');
+        border: 1px solid lightColor('black-very-low');
+        &:hover {
+            background-color: $green-full;
+            color: lightColor( 'white-full');
+            border: none;
+          }
+    }
+
+    body.dark-theme & {
+        color: darkColor('white-semi-low');
+        border: 1px solid darkColor('white-semi-very-very-low');
+        &:hover {
+            background-color: $green-full;
+            color: lightColor( 'white-full');
+            border: none;
+          }    
+          }
+    transition: background-color $transition;  
+    transition: color $transition;
+
+@include respondTo(tablet) {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+}
+
