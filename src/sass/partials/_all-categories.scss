@@ -6,39 +6,51 @@
   }
 }
 
-.category-btn {
+.all-categories {
   width: 176px;
   padding: 14px 29px;
   border-radius: 15px;
+  font-weight: 500;
   border: 1px solid lightColor('black-very-low');
-  color: lightColor('black-semi');
-  background-color: lightColor('white-full');
 
   transition: $transition;
-  &:hover {
-    color: lightColor('white-full');
-    background-color: $green-full;
-    border-color: transparent;
+
+  body.light-theme & {
+    color: lightColor('black-semi');
+    background-color: lightColor('white-full');
+    &:hover {
+      color: lightColor('white-full');
+      background-color: $green-full;
+    }
+  }
+
+  body.dark-theme & {
+    color: darkColor('white-semi-light');
+    background-color: darkColor('dark-black');
+    border-color: darkColor('white-semi-very-very-low');
+    &:hover {
+      color: lightColor('white-full');
+      background-color: $green-full;
+    }
   }
 }
 
 .categories-block {
   margin-top: 24px;
-  color: lightColor('black-semi');
-  max-width: 326px;
+  width: 100%;
   max-height: 198px;
   overflow: hidden;
   overflow-y: auto;
 
   @include respondTo(tablet) {
     margin-top: 30px;
-    max-width: 176px;
+    width: 176px;
     max-height: 416px;
   }
 
   @include respondTo(desktop) {
     margin-top: 42px;
-    max-width: 235px;
+    width: 235px;
   }
 }
 
@@ -47,16 +59,45 @@
   padding: 0;
 }
 
-.category-item {
-  margin-bottom: 18px;
+.category-button {
+  body.light-theme & {
+    color: lightColor('black-low');
+    &:hover {
+      color: $green-full;
+    }
+  }
+  body.dark-theme & {
+    color: darkColor('white-semi-low');
+    &:hover {
+      color: $green-full;
+    }
+  }
+
+  padding-top: 9px;
+  padding-bottom: 9px;
+  font-weight: 500;
   cursor: pointer;
 
   transition: $transition;
-  &:hover {
-    color: $green-full;
-  }
 
   @include respondTo(tablet) {
-    margin-bottom: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
+}
+
+.categories-block::-webkit-scrollbar {
+  width: 8px;
+}
+
+.categories-block::-webkit-scrollbar-thumb {
+  body.light-theme & {
+    background-color: lightColor('black-max-opacity');
+  }
+
+  body.dark-theme & {
+    background-color: darkColor('white-semi-max-opacity');
+  }
+
+  border-radius: 5px;
 }
