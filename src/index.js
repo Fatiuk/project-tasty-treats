@@ -21,3 +21,5 @@ import './js/popular-recipes.js';
 
 //templ cards of recipes
 import './js/cards-recipes-tmpl.js';
+
+import './js/order-now.js';
