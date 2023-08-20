@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Report } from 'notiflix';
 
 export default class TastyTreatsAPI {
   #BASE_URL = 'https://tasty-treats-backend.p.goit.global/api';
@@ -25,8 +26,19 @@ export default class TastyTreatsAPI {
   }
 
   // Create new treats data using the Tasty Treats API.
-  async createTreats(apiPath) {
-    return await axios.post(`${this.#BASE_URL}${apiPath}`);
+  async createTreats(apiPath, formData) {
+    try{
+      const response = await axios.post(`${this.#BASE_URL}${apiPath}`, formData);
+      Report.success(
+        'Notiflix Success',
+        '"Do not try to become a person of success but try to become a person of value." <br/><br/>- Albert Einstein',
+        'Okay',
+        );
+      return response.data
+      }catch(error){
+      console.log(error);
+    }
+    
   }
 
   // Update existing treats data using the Tasty Treats API.
