@@ -7,6 +7,8 @@ import './js/toggle-theme.js';
 
 import './js/mobile.js';
 
+import './js/scroll-to-top.js';
+
 // Exaple how to use request-handler
 
 import './js/example.js';
