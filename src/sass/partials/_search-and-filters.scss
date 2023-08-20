@@ -2,23 +2,22 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 44px;
   @include respondTo(tablet) {
     align-items: center;
     justify-content: flex-start;
     gap: 18px;
   }
-  @include respondTo(desktop) {
-    justify-content: space-between;
-  }
+  
 }
 .search-form {
   width: 100%;
   @include respondTo(tablet) {
     height: 100%;
-    width: 50%;
+    width: 278px;
   }
   @include respondTo(desktop) {
-    width: 335px;
+    width: 278px;
   }
 }
 .search-form-text {
@@ -70,7 +69,6 @@
     width: 278px;
   }
   @include respondTo(desktop) {
-    width: 335px;
     margin-right: 50px;
   }
 
@@ -126,10 +124,16 @@
   @include respondTo(tablet) {
     width: 147px;
   }
+  @include respondTo(desktop) {
+    width: 141px;
+  }
 }
 .ingredients-wrapper {
   width: 188px;
   @include respondTo(tablet) {
+    width: 188px;
+  }
+  @include respondTo(desktop) {
     width: 188px;
   }
 }
