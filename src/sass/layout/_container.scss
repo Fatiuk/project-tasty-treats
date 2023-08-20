@@ -13,7 +13,10 @@
 
   @include respondTo(desktop) {
     max-width: 1080px;
-    padding-left: 100px;
-    padding-right: 100px;
+    // padding-left: 100px;
+    // padding-right: 100px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }
+

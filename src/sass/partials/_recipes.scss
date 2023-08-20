@@ -1,0 +1,22 @@
+.recipes {
+}
+.recipes-wrap{
+    @include respondTo(tablet) {
+    display: flex;
+    gap: 30px;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+  @include respondTo(desktop) {
+  }
+}
+.categories-and-popular {
+}
+.search-and-cards {
+    @include respondTo(tablet) {
+    width: 497px;
+  }
+  @include respondTo(desktop) {
+    width: auto;
+  }
+}

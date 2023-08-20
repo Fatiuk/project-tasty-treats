@@ -7,11 +7,11 @@
   }
 
 .popular-recipes {
-    min-width: 335px;
+    // min-width: 335px;
 
     @include respondTo(tablet) {   
         display: block; 
-        // width: 176px;
+         width: 176px;
   }
 }
 .popular-recipes-title {
