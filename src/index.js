@@ -25,3 +25,5 @@ import './js/cards-recipes-tmpl.js';
 import './js/order-now.js';
 
 import './js/order-form.js'
+
+import './js/create-cads-func.js'
