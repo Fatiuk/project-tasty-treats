@@ -1,32 +1,57 @@
 .favorites-hero {
-    padding-top: 50px;
-    padding-bottom: 64px;
-    
+  padding-top: 50px;
+  padding-bottom: 64px;
 }
-.hero-photo{
-    background-image: url(/src/images/favorites-hero-mobile.jpg);
-    width: 335px;
-    height: 516px;
-    border-radius: 15px;
-    background-repeat: no-repeat;
-    margin: 0 auto;
-    background-size: contain;
-    // background-position: center;
-    
-@include respondTo(tablet) {
-    background-image: url(/src/images/favorites-hero-tablet.jpg);
+.hero-photo {
+  width: 335px;
+  height: 516px;
+  border-radius: 15px;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  background-size: contain;
+  // background-position: center;
+
+  /* 0px > 767px (1x)*/
+  background-image: url(/src/images/favorites-hero-mobile-1x-min.jpg);
+  /* 0px > 767px (2x)*/
+  @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+    screen and (min-resolution: 192dpi) and (max-width: 767px),
+    screen and (min-resolution: 2dppx) and (max-width: 767px) {
+    .hero-photo {
+      background-image: var(--bg-gradient),
+        url(/src/images/favorites-hero-mobile-2x-min.jpg);
+    }
+  }
+
+  @include respondTo(tablet) {
     width: 704px;
     height: 356px;
-    
+    /* 768px > 1280px (1x)*/
+    background-image: url(/src/images/favorites-hero-tablet-1x-min.jpg);
+    /* 768px > 1280px (2x)*/
+    @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1279px),
+      screen and (min-resolution: 192dpi) and (min-width: 768px) and (max-width: 1279px),
+      screen and (min-resolution: 2dppx) and (min-width: 768px) and (max-width: 1279px) {
+      .hero-photo {
+        background-image: var(--bg-gradient),
+          url(/src/images/favorites-hero-tablet-2x-min.jpg);
+      }
+    }
+
+    @include respondTo(desktop) {
+      width: 1080px;
+
+      /* 768px > 1280px (1x)*/
+      background-image: url(/src/images/favorites-hero-desktop-1x-min.jpg);
+      /* 768px > 1280px (2x)*/
+      @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+        screen and (min-resolution: 192dpi) and (min-width: 1280px),
+        screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+        .hero-photo {
+          background-image: var(--bg-gradient),
+            url(/src/images/favorites-hero-desktop-2x-min.jpg);
+        }
+      }
+    }
+  }
 }
-
-@include respondTo(desktop) {
-    background-image: url(/src/images/favorites-hero-desctop.jpg);
-    width: 1080px;
-    
-}
-}
-
-
-
-
