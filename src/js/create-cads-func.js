@@ -49,7 +49,6 @@ export function createCard(data) {
     // startList.innerHTML = murcup.join('')
     // fillStars()
 
-
 }
 
 // let fetchRecipes = fetchDataByPath('/recipes', null, null, 'Beef');
