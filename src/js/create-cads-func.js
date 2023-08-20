@@ -1,7 +1,6 @@
 import { fillStars } from "./fill-stars";
 import { fetchDataByPath } from "./request-handler";
 
-
 const startList = document.querySelector(".cards-list");
 
 export function createCard(data) {
@@ -49,7 +48,6 @@ export function createCard(data) {
     return murcup.join('');
     // startList.innerHTML = murcup.join('')
     // fillStars()
-
 
 }
 
