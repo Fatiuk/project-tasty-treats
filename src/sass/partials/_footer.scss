@@ -1,0 +1,77 @@
+.footer-container {
+  display: flex;
+  background-color: $green-low;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @include respondTo(tablet) {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+  @include respondTo(desktop) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+.footer-logo {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.125rem;
+  letter-spacing: -0.04rem;
+  margin-right: 0;
+  @include respondTo(tablet) {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.25rem;
+    letter-spacing: -0.045rem;
+  }
+}
+.footer-logo-span {
+  color: $green-full;
+}
+.current.footer-link {
+  color: $green-full;
+}
+.footer-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+.footer-link {
+  display: block;
+  text-align: justify;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: normal;
+  transition: text-shadow $transition;
+
+  &:hover {
+    text-shadow: 0px 0px 10px currentColor;
+  }
+}
+.footer-information {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+  @include respondTo(tablet) {
+    flex-direction: row;
+    gap: 20px;
+  }
+  @include respondTo(tablet) {
+    gap: 24px;
+  }
+}
+.footer-information-item {
+  display: block;
+  text-align: justify;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: normal;
+  @include respondTo(tablet) {
+    font-weight: 500;
+    font-size: 12px;
+  }
+}
