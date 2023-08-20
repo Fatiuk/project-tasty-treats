@@ -3,18 +3,18 @@ export function fillStars() {
   const starRatings = document.querySelectorAll('.card_star-rating');
   starRatings.forEach(starRating => {
     
-    // Получаем рейтинг из элемента <p> с классом 'star-rating_value'
+    //Отримую рейтинг(текст контент) з елемента який має клас'star-rating_value'
     const rating = parseFloat(
       starRating.querySelector('.cards-raiting').textContent
     );
 
-    // Округляем рейтинг до ближайшего целого числа
+    //Округлюю до цілого числа
     const roundedRating = Math.round(rating);
 
-    // Получаем все звездочки (элементы <svg>) внутри текущего 'card_star-rating'
+    //Знахожу всі зірки в даній 'card_star-rating' через айдішку
     const stars = starRating.querySelectorAll('#all-stars');
 
-    // Проходимся по каждой звезде и добавляем класс 'filled', если ее индекс меньше округленного рейтинга
+    // Циклом по кожній зірці замальовую 
     stars.forEach((star, index) => {
       if (index < roundedRating) {
         star.classList.add('js-stars');

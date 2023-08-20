@@ -1,7 +1,6 @@
 import { fillStars } from "./fill-stars";
 import { fetchDataByPath } from "./request-handler";
 
-
 const startList = document.querySelector(".cards-list");
 
 export function createCard(data) {

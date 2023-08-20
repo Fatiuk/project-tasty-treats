@@ -1,56 +1,11 @@
 import { fillStars } from "./fill-stars";
-import { save, load, remove } from "./localStorage";
+import { saveIdToLocaleStorage } from "./localStorage";
 import { fetchDataByPath } from "./request-handler";
-
 
 import Notiflix from 'notiflix';
 
 const startList = document.querySelector(".cards-list");
-console.log(startList)
-// startList.innerHTML = '';
-// function createCard(data) {
-//     const murcup = data.map(({ results }) => {
-//         return `
-//         <li class="cards-item">
-//                 <img src="./images/test-card-img.png" alt="" class="card-img">
-//                 <svg class="cards-heard-icon">
-//                     <use href="./images/icons.svg#icon-heart-card"></use>
-//                 </svg>
-//                 <h2 class="cards-item-title">BANANA PANCAKES</h2>
-//                 <p class="cards-item-text">
-//                     Banana pancakes are a fluffy and sweet breakfast dish made with mashed ripe bananas, eggs, flour,
-//                     and a touch of cinnamon, cooked to perfection on a skillet and served with toppings of your choice.
-
-//                 </p>
-//                 <!-- <div class="cards-wrapper"> -->
-//                 <p class="cards-raiting">4.5</p>
-//                 <div class="rating-wrapper">
-//                     <svg class="card-rating-icon">
-//                         <use href="./images/icons.svg#star"></use>
-//                     </svg>
-//                     <svg class="card-rating-icon">
-//                         <use href="./images/icons.svg#star"></use>
-//                     </svg>
-//                     <svg class="card-rating-icon">
-//                         <use href="./images/icons.svg#star"></use>
-//                     </svg>
-//                     <svg class="card-rating-icon">
-//                         <use href="./images/icons.svg#star"></use>
-//                     </svg>
-//                     <svg class="card-rating-icon">
-//                         <use href="./images/icons.svg#star"></use>
-//                     </svg>
-//                 </div>
-//                 <button type="button" class="cards-item-btn">See recipe</button>
-
-//                 <!-- </div> -->
-//             </li>
-//     `
-//     })
-//     startList.innerHTML = murcup.joun('')
-// }
-// // fetchDataByPath('/recipes');
-// createCard(fetchDataByPath('/recipes'));
+// console.log(startList)
 let fetchRecipes = null;
 
 const viewportWidth = window.innerWidth;
@@ -66,7 +21,7 @@ if (viewportWidth < 768) {
 
 
 // const fetchRecipes = fetchDataByPath('/recipes');
-console.log('fetchRecipes', fetchRecipes)
+// console.log('fetchRecipes', fetchRecipes)
 
 fetchRecipes.then((data) => {
     console.log(data.results)
@@ -76,8 +31,7 @@ fetchRecipes.then((data) => {
     
 })
 function createCard(data) {
-        
-    
+
     const murcup = data.map(({ _id, title, description, rating, preview, thumb }) => {
         return `
         <li class="cards-item">
@@ -121,60 +75,20 @@ function createCard(data) {
     
     startList.innerHTML = murcup.join('')
     fillStars()
-    const btnIconeHeardEl = document.querySelector(".btn-heard-icone");
-console.log( btnIconeHeardEl)
+    saveIdToLocaleStorage()
 
-    btnIconeHeardEl.addEventListener("click", handlerIconeClick);
-
-}
-
-
-//по кліку на сердечко замальовую сердечко карточки
+//     const btnIconeHeardEl = document.querySelector(".btn-heard-icone");
 // console.log( btnIconeHeardEl)
 
+//     btnIconeHeardEl.addEventListener("click", handlerIconeClick);
 
-function handlerIconeClick(e) {
-    console.log('target',e.target)
-    const svgHeardEl = document.querySelector('.cards-heard-icon');
-    console.log('svgHeardEl',svgHeardEl)
-    svgHeardEl.classList.toggle('js-fill')
 }
+
+
+// function handlerIconeClick(e) {
+//     console.log('target',e.target)
+//     const svgHeardEl = document.querySelector('.cards-heard-icon');
+//     console.log('svgHeardEl',svgHeardEl)
+//     svgHeardEl.classList.toggle('js-fill')
+// }
   
-/*-----------------------------------------------------------------*/
-//  function heartsFillStorage() {
-
-//   const cardFavouritesBtns = document.querySelectorAll('.btn-heard-icone');
-
-//   let storedData = load('cardData');
-//   if (storedData) {
-
-//     const identArray = storedData.map(item => item.ident);
-
-//     cardFavouritesBtns.forEach(button => {
-
-//       const cardId = button.parentNode.querySelector('.cards-item-btn').id;
-//       const hertWaihte = button.parentNode.querySelector('.cards-heard-icon');
-
-//      if (identArray.includes(cardId)) {
-//       button.classList.add('js-fill');
-//       hertWaihte.classList.add('js-fill');
-//      } else {
-//       button.classList.remove('js-fill');
-//       hertWaihte.classList.remove('js-fill');
-//       }
-
-//     })
-//   } else {
-//     cardFavouritesBtns.forEach(button => {
-//       const hertWaihte = button.parentNode.querySelector('.cards-heard-icon');
-//       button.classList.remove('js-fill');
-//       hertWaihte.classList.remove('js-fill');
-//     })
-
-//     }
-//     console.log('Функція heartsFillStorage відпрацювала')
-// }; 
-
-
-
-
