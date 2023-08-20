@@ -36,6 +36,11 @@ export default class TastyTreatsAPI {
         );
       return response.data
       }catch(error){
+        Report.failure(
+          'Notiflix Failure',
+          '"Failure is simply the opportunity to begin again, this time more intelligently." <br/><br/>- Henry Ford',
+          'Okay',
+          );
       console.log(error);
     }
     
