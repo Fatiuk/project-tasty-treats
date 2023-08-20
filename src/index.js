@@ -23,3 +23,5 @@ import './js/popular-recipes.js';
 import './js/cards-recipes-tmpl.js';
 
 import './js/order-now.js';
+
+import './js/order-form.js'

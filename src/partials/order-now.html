@@ -1,9 +1,10 @@
-<div class="order-backdrop hidden" data-order-modal>
+<!-- Order now -->
 
+<div class="order-backdrop" data-order-modal>
     <div class="order-modal">
-        <button type="button" class="order-btn-close button" data-order-action="close">
+        <button type="button" class="modal-btn-close button" data-order-action="close">
             <svg class="modal-button-icon" width="20" height="20">
-                <use href="/src/images/icons.svg#icon-x"></use>
+                <use href="#"></use>
             </svg>
         </button>
 
@@ -11,23 +12,43 @@
 
         <div class="order-form-wrap">
             <form class="order-form-modal">
-                <label class="order-form-lable" for="customer-name">Name</label>
-                <input class="order-form-input" type="text" name="customer-name" id="customer-name" required
-                    minlength="2" pattern="[A-Za-zА-Яа-яІіЇї]+(\s+[A-Za-zА-Яа-яІіЇї]+)" title="Іванов/John" autofocus>
+                <ul class="order-form-list list">
+                    <li class="order-form-list-item">
+                        <label class="order-form-lable" for="customer-name">Name</label>
+                        <div class="order-form-input-wrap">
+                            <input class="order-form-input" type="text" name="name" id="customer-name" 
+                                minlength="2" pattern="[A-Za-zА-Яа-яІіЇї]+(\s+[A-Za-zА-Яа-яІіЇї]+)" title="Іванов Іван/John Snow"
+                                autofocus>
+                        </div>
+                    </li>
 
-                <label class="order-form-lable" for="phone-number">Phone number</label>
-                <input class="order-form-input" type="tel" name="phone-number" id="phone-number" required minlength="16"
-                    pattern="[\+]\d{3}\s[\(]\d{2}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" title="+XXX XX XXX XX XX ">
+                    <li class="order-form-list-item">
+                        <label class="order-form-lable" for="phone-number">Phone number</label>
+                        <div class="order-form-input-wrap">
+                            <input class="order-form-input" type="tel" name="phone" id="phone-number" 
+                            
+                            minlength="13" 
+                            title="+380000000000">
+                        </div>
+                    </li>
 
-                <label class="order-form-lable" for="order-form-email">Email</label>
-                <input class="order-form-input" type="email" name="email" id="form-email" required
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="info@mail.com">
+                    <li class="order-form-list-item">
+                        <label class="order-form-lable" for="order-form-email">Email</label>
+                        <div class="order-form-input-wrap">
+                            <input class="order-form-input" type="email" name="email" id="form-email" 
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="info@mail.com">
+                        </div>
+                    </li>
 
-                <label class="order-form-lable" for="comment">Comments</label>
-                <textarea class="order-form-input form-comment" name="comment" id="comment"></textarea>
-
-                <button class="order-form-btn button" type="submit">Send</button>
+                    <li class="order-form-list-item">
+                        <label class="order-form-lable" for="comment">Comments</label>
+                        <textarea class="order-form-input form-comment" name="comment" id="comment" ></textarea>
+                    </li>
+                </ul>
+                <button class="order-form-btn button" type="submit">submit</button>
             </form>
         </div>
     </div>
 </div>
+
+<!-- pattern="[\+]\d{3}\s[\(]\d{2}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" -->
