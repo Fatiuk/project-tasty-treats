@@ -7,6 +7,7 @@ const refs = {
   modalCuttonClose: document.querySelector('.modal-btn-close'),
   giveRatingModalBtn: document.querySelector('.modal-give-rating'),
   ratingModal: document.querySelector('.rating-backdrop'),
+  ratingButton: document.querySelector('.rating-send-btn'),
   ratingClose: document.querySelector('.modal-rating-close'),
 };
 
@@ -17,8 +18,8 @@ async function handlerGetIdCard(event) {
     return;
   }
   const buttonId = event.target.getAttribute('id');
+  refs.ratingButton.id = buttonId;
   const dataById = await fetchDataByPath(`/recipes/${buttonId}`);
-  console.log(dataById);
   const modalMarkup = createMarkupModal(dataById);
   refs.modalCardCont.innerHTML = modalMarkup;
 
