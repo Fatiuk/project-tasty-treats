@@ -104,6 +104,11 @@
     overflow: hidden;
     width: 303px;
     font-size: 12px;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
 
     @include respondTo(tablet) {
         top: 163px;
