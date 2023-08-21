@@ -5,15 +5,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 20px;
-  padding-bottom: 44px;
-  @include respondTo(tablet) {
-    padding-top: 28px;
-    padding-bottom: 50px;
-  }
-  @include respondTo(desktop) {
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
+  padding-bottom: 20px;
 }
 
 // --------- Site navigation --------- //

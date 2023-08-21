@@ -1,20 +1,19 @@
 .container {
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
+  min-width: 375px;
+  max-width: 375px;
   padding-left: 20px;
   padding-right: 20px;
-  width: 100%;
 
   @include respondTo(tablet) {
-    max-width: 768px;
+    min-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
   }
 
   @include respondTo(desktop) {
-    max-width: 1280px;
-    // padding-left: 100px;
-    // padding-right: 100px;
+    max-width: 1104px;
     padding-left: 12px;
     padding-right: 12px;
   }

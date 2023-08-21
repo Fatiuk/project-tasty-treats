@@ -1,11 +1,12 @@
-import { fillStars } from "./fill-stars";
-import { fetchDataByPath } from "./request-handler";
+import { fillStars } from './fill-stars';
+import { fetchDataByPath } from './request-handler';
 
-const startList = document.querySelector(".cards-list");
+const startList = document.querySelector('.cards-list');
 
 export function createCard(data) {
-    const murcup = data.map(({ _id, title, description, rating, preview, thumb }) => {
-        return `
+  const murcup = data.map(
+    ({ _id, title, description, rating, preview, thumb }) => {
+      return `
         <li class="cards-item">
                 <img src="${preview}" alt="${title}" class="card-img">
                 <div class="test-div"></div>
@@ -42,22 +43,9 @@ export function createCard(data) {
 
                  </div> 
             </li>
-    `
-    })
-    
-    return murcup.join('');
-    // startList.innerHTML = murcup.join('')
-    // fillStars()
+    `;
+    }
+  );
 
+  return murcup.join('');
 }
-
-// let fetchRecipes = fetchDataByPath('/recipes', null, null, 'Beef');
-// console.log('fetchRecipes НОВА ФУНКЦІЯ', fetchRecipes);
-
-// fetchRecipes.then((data) => {
-//     console.log(data.results)
-//     createCard(data.results);
-// }).catch((err) => {
-//     Notiflix.Notify.failure(err.message);
-    
-// })

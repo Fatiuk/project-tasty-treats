@@ -1,6 +1,8 @@
 .category-container {
   margin-bottom: 40px;
-
+  @include respondTo(tablet) {
+    margin-top: 22px;
+  }
   @include respondTo(desktop) {
     margin-bottom: 64px;
   }
