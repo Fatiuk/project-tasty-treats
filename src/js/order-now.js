@@ -10,23 +10,17 @@ refs.headerOpenCartBtn.addEventListener('click', openOrderModal);
 refs.heroOrderBtn.addEventListener('click', openOrderModal);
 
 function openOrderModal() {
-  if (refs.orderBackdrop.classList.contains('hidden')) {
-    refs.orderBackdrop.classList.remove('hidden');
-    refs.headerOpenCartBtn.removeEventListener('click', openOrderModal);
-    refs.heroOrderBtn.removeEventListener('click', openOrderModal);
-    refs.orderBtnClose.addEventListener('click', closeOrderModal);
-  } else {
-    return;
-  }
+  refs.orderBackdrop.classList.add('is-open');
+  refs.headerOpenCartBtn.removeEventListener('click', openOrderModal);
+  refs.heroOrderBtn.removeEventListener('click', openOrderModal);
+  refs.orderBtnClose.addEventListener('click', closeOrderModal);
+  document.body.style.overflow = 'hidden';
 }
 
 function closeOrderModal() {
-  if (!refs.orderBackdrop.classList.contains('hidden')) {
-    refs.orderBackdrop.classList.add('hidden');
-    refs.headerOpenCartBtn.addEventListener('click', openOrderModal);
-    refs.heroOrderBtn.addEventListener('click', openOrderModal);
-    refs.headerOpenCartBtn.removeEventListener('click', closeOrderModal);
-  } else {
-    return;
-  }
+  refs.orderBackdrop.classList.remove('is-open');
+  refs.orderBtnClose.removeEventListener('click', closeOrderModal);
+  refs.headerOpenCartBtn.addEventListener('click', openOrderModal);
+  refs.heroOrderBtn.addEventListener('click', openOrderModal);
+  document.body.style.overflow = 'auto';
 }

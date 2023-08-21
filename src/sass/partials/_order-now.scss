@@ -1,97 +1,41 @@
-.hidden {
-  display: none;
-}
-
-.order-backdrop {
-  position: fixed;
-  padding: 0px 0px;
-  left: 0px;
-  top: 0px;
-  z-index: 200;
-  width: 100%;
-  height: 100%;
-
-  background-color: rgba(30, 40, 39, 0.5);
-  overflow: auto;
-  opacity: 1;
-  transition: opacity $transition, visibility $transition;
-
-  @include respondTo(tablet) {
-    padding: 10px 20px;
-  }
-}
-
-.order-backdrop.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition-delay: $transition;
-}
-.order-backdrop.is-hidden > .order-modal {
-  transform: translate(-100%, -100%) scale(0%);
-  opacity: 0;
-}
-
 .order-modal {
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 335px;
-  height: 582px;
-  background-color: lightColor('white-full');
+  transform: translate(-50%);
+
+  max-width: 250px;
+  padding: 40 20;
   border-radius: 15px;
-  overflow: hidden;
-  padding: 28px 20px;
+  background-color: lightColor('white-full');
 
-  transition-delay: 150ms;
+  overflow-y: auto;
 
+  @include respondTo(mobile) {
+    min-width: 335px;
+  }
   @include respondTo(tablet) {
-    padding: 40px 40px;
-    width: 440px;
-    height: 623px;
+    min-width: 424px;
+    padding: 32px;
   }
 }
 
 .order-btn-close {
-  position: fixed;
-  top: 14px;
-  right: 14px;
-  float: right;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  right: 0px;
-  top: 0px;
-  width: 20px;
-  height: 20px;
-  padding: 3px;
-
-  background-color: lightColor('white-full');
-  transform: translate(-16px, 16px);
-
-  @include respondTo(tablet) {
-    width: 24px;
-    height: 24px;
-    top: 16px;
-    right: 16px;
-  }
+  position: absolute;
+  top: 14;
+  right: 14;
+  stroke: $black-full;
 }
-.modal-button-icon {
-  background-repeat: no-repeat;
-  background-position: center;
 
-  fill: black;
+.order-btn-close {
+  transition: transform $transition;
 }
+
+.order-btn-close:hover .modal-button-icon {
+  transform: scale(1.2);
+}
+
 .order-title {
-  color: #050505;
-  font-family: Inter;
   font-size: 18px;
-  font-style: normal;
   font-weight: 600;
   line-height: 1.22;
   text-transform: uppercase;
@@ -103,66 +47,88 @@
 }
 
 .order-form-lable {
-  color: rgba(5, 5, 5, 0.5);
-  font-family: Inter;
+  color: lightColor('black-semi');
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
-  line-height: 1.29px;
+  line-height: 1.28px;
 }
 
 .order-form-input {
   margin-top: 8px;
   margin-bottom: 16px;
-  width: 295px;
+  width: 100%;
   height: 46px;
   padding: 14px 18px;
   border-radius: 15px;
-  border: 1px solid rgba(5, 5, 5, 0.2);
+  outline: transparent;
+  background-color: transparent;
+  border: 1px solid lightColor('black-very-low');
   @include respondTo(tablet) {
-    width: 360px;
     height: 48px;
     margin-bottom: 18px;
   }
 }
 
+.order-form-input:valid:focus {
+  border-color: green;
+}
+
+.order-form-input:invalid:focus {
+  border-color: red;
+}
+
 .form-comment {
-  width: 295px;
+  width: 100%;
   height: 100px;
-  padding: 14px 169px 14px 18px;
+  padding: 14 18;
   margin-top: 8px;
   margin-bottom: 40px;
   border-radius: 15px;
-  border: 1px solid rgba(5, 5, 5, 0.2);
+  outline: transparent;
+  background-color: transparent;
+  border: 1px solid lightColor('black-very-low');
   resize: none;
   @include respondTo(tablet) {
-    width: 360px;
     height: 100px;
   }
 }
 
 .order-form-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 295px;
-  padding: 15px 0px;
+  width: 100%;
+  padding: 15px 0;
 
-  color: #f8f8f8;
-  font-family: Inter;
+  color: lightColor('white-full');
   font-size: 14px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
   border-radius: 15px;
-  background-color: #9bb537;
+  background-color: $green-full;
+  transition: color $transition;
   @include respondTo(tablet) {
-    width: 360px;
-    padding: 14px 142px;
+    padding: 14px 0;
   }
 }
 
 .order-form-btn:focus,
 .order-form-btn:hover {
-  color: #050505;
+  color: $black-full;
+}
+
+// ======== Темна тема ========
+body.dark-theme {
+  .order-modal {
+    color: #fff;
+    background-color: darkColor('dark-black');
+  }
+  .order-btn-close {
+    stroke: darkColor('white-full');
+  }
+  .order-form-lable {
+    color: darkColor('white-semi-light');
+  }
+
+  .order-form-input,
+  .form-comment {
+    color: darkColor('white-full');
+    border: 1px solid darkColor('white-semi-very-very-low');
+  }
 }
