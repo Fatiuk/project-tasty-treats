@@ -176,6 +176,9 @@ body.dark-theme {
   width: 32px;
   height: 32px;
   stroke: $black-full;
+  body.dark-theme & {
+    stroke: white;
+  }
 }
 
 // mobile-menu
@@ -191,6 +194,9 @@ body.dark-theme {
   flex-direction: column;
   transform: translateX(200%);
   transition: transform $transition;
+  body.dark-theme & {
+    background-color: $black-full;
+  }
 }
 .is-open {
   transform: translateX(0%);
