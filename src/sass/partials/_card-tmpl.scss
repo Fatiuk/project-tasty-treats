@@ -80,8 +80,6 @@
   color: #f8f8f8;
   // color: #000;
   margin-bottom: 8px;
-
-  /////
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
   line-clamp: 2;
@@ -89,8 +87,6 @@
   display: -webkit-box;
   position: absolute;
   overflow: hidden;
-  /// 
-
   @include respondTo(tablet) {
     top: 143px;
   }
