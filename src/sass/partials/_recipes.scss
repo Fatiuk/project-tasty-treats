@@ -1,14 +1,17 @@
-.recipes-section {
-  padding-top: 0;
+.recipes {
 }
 .recipes-wrap {
   @include respondTo(tablet) {
     display: flex;
-    flex-wrap: nowrap;
     gap: 30px;
+    padding-right: 0px;
+    padding-left: 0px;
   }
   @include respondTo(desktop) {
+    gap: 64px;
   }
+}
+.categories-and-popular {
 }
 .search-and-cards {
   @include respondTo(tablet) {

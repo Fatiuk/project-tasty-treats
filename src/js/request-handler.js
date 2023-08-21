@@ -10,15 +10,16 @@ export async function fetchDataByPath(
   category,
   time,
   area,
-  ingredients
+  ingredient,
+  title
 ) {
   tastyTreatsApi.page = page;
   tastyTreatsApi.limit = limit;
   tastyTreatsApi.category = category;
   tastyTreatsApi.time = time;
   tastyTreatsApi.area = area;
-  tastyTreatsApi.ingredients = ingredients;
-
+  tastyTreatsApi.ingredient = ingredient;
+  tastyTreatsApi.title = title;
   try {
     const { data } = await tastyTreatsApi.fetchTreats(apiPath);
     console.log(data);

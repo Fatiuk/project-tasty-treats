@@ -9,7 +9,8 @@ export default class TastyTreatsAPI {
   category = null;
   time = null;
   area = null;
-  ingredients = null;
+  ingredient = null;
+  title = null;
 
   // Create new treats data using the Tasty Treats API.
   async fetchTreats(apiPath) {
@@ -20,30 +21,33 @@ export default class TastyTreatsAPI {
         category: this.category,
         time: this.time,
         area: this.area,
-        ingredients: this.ingredients,
+        ingredient: this.ingredient,
+        title: this.title,
       },
     });
   }
 
   // Create new treats data using the Tasty Treats API.
   async createTreats(apiPath, formData) {
-    try{
-      const response = await axios.post(`${this.#BASE_URL}${apiPath}`, formData);
+    try {
+      const response = await axios.post(
+        `${this.#BASE_URL}${apiPath}`,
+        formData
+      );
       Report.success(
         'Notiflix Success',
         '"Do not try to become a person of success but try to become a person of value." <br/><br/>- Albert Einstein',
-        'Okay',
-        );
-      return response.data
-      }catch(error){
-        Report.failure(
-          'Notiflix Failure',
-          '"Failure is simply the opportunity to begin again, this time more intelligently." <br/><br/>- Henry Ford',
-          'Okay',
-          );
+        'Okay'
+      );
+      return response.data;
+    } catch (error) {
+      Report.failure(
+        'Notiflix Failure',
+        '"Failure is simply the opportunity to begin again, this time more intelligently." <br/><br/>- Henry Ford',
+        'Okay'
+      );
       console.log(error);
     }
-    
   }
 
   // Update existing treats data using the Tasty Treats API.

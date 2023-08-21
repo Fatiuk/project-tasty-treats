@@ -28,4 +28,4 @@ import './js/order-now.js';
 
 import './js/order-form.js';
 
-import './js/create-cads-func.js';
+import './js/filter-and-search-render.js';
