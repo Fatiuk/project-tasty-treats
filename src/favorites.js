@@ -8,3 +8,5 @@ import './js/toggle-theme.js';
 import './js/mobile.js';
 
 import './js/scroll-to-top.js';
+
+import './js/favorites-card.js';
