@@ -22,8 +22,10 @@ import './js/popular-recipes.js';
 //templ cards of recipes
 import './js/cards-recipes-tmpl.js';
 
+import './js/modal.js';
+
 import './js/order-now.js';
 
-import './js/order-form.js'
+import './js/order-form.js';
 
-import './js/create-cads-func.js'
+import './js/create-cads-func.js';

@@ -1,162 +1,125 @@
-.hidden {
-  display: none;
-}
-
-.rating-backdrop {
-  position: fixed;
-  padding: 0px 0px;
-  left: 0px;
-  top: 0px;
-  z-index: 300;
-  width: 100%;
-  height: 100%;
-
-  background-color: rgba(30, 40, 39, 0.5);
-  overflow: auto;
-  opacity: 1;
-  transition: opacity $transition, visibility $transition;
-
-  @include respondTo(tablet) {
-    padding: 10px 20px;
-  }
-}
-
-.rating-backdrop.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition-delay: $transition;
-}
-
-.rating-modal-wrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.rating-backdrop.is-hidden > .rating-modal-wrap {
-  transform: translate(-100%, -100%) scale(0%);
-}
 .rating-modal-card {
-  margin: 0 auto;
-  padding: 20px;
-  background-color: lightColor('white-full');
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+
+  max-width: 250px;
+  padding: 40 20;
   border-radius: 15px;
-  overflow: hidden;
-  width: 335px;
-  height: 216px;
+  background-color: lightColor('white-full');
+
+  overflow-y: auto;
+
+  @include respondTo(mobile) {
+    min-width: 335px;
+  }
   @include respondTo(tablet) {
+    min-width: 424px;
     padding: 32px;
-    width: 424px;
-    height: 254px;
   }
 }
-.modal-btn-close {
-  position: fixed;
+
+.modal-rating-close {
+  position: absolute;
+  top: 14;
+  right: 14;
+  stroke: $black-full;
+}
+
+.modal-rating-close {
+  transition: transform $transition;
+}
+
+.modal-rating-close:hover .modal-button-icon {
+  transform: scale(1.2);
+}
+
+.rating-form-paragraph {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.28;
+  margin-bottom: 4px;
+}
+
+.rating-cover {
+  display: flex;
+  gap: 8;
+  margin-bottom: 24px;
+}
+
+#ratingForm {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 14px;
-  right: 14px;
-  float: right;
+}
+
+.star {
   width: 20px;
   height: 20px;
-  padding: 5px;
-
-  @include respondTo(tablet) {
-    width: 24px;
-    height: 24px;
-    top: 16px;
-    right: 16px;
-  }
+  fill: $gray-full;
+  cursor: pointer;
 }
 
-.modal-button-icon {
-  background-repeat: no-repeat;
-  background-position: center;
-
-  //   // fill: black;
-  //   // fill-opacity: 2; /* прозрачность заливки */
-  //   // stroke: rgb(20, 20, 20); /* цвет обводки */
-  //   stroke-width: 0px; /* толщина обводки */
-}
-.rating-cover {
-  margin-bottom: 24px;
-  @include respondTo(tablet) {
-    margin-bottom: 46px;
-  }
-  @include respondTo(desktop) {
-    margin-bottom: 32px;
-  }
-}
-.rating-form-paragraph {
-  color: #050505;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.29;
-  margin-bottom: 4px;
-}
-.rating-rating-value {
-  color: #050505;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.5;
+.star.active,
+input[type='radio']:checked ~ svg.star {
+  fill: $orange-full;
 }
 
-// .rating-range {
-// }
-// .rating-input-wrap {
-// }
-.rating-email-input {
+.rating-input-wrap {
   display: flex;
-  width: 295px;
-  padding: 14px 18px;
-  border-radius: 15px;
-  border: 1px solid rgba(5, 5, 5, 0.2);
+  flex-direction: column;
+  width: 100%;
+}
 
-  color: rgba(5, 5, 5, 0.5);
-  font-size: 14px;
-  font-style: normal;
+.rating-email-input {
+  height: 46px;
+  padding-left: 18px;
+  margin-bottom: 16px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 1.29;
-
-  margin-bottom: 14px;
-
-  @include respondTo(tablet) {
-    width: 360px;
-    margin-bottom: 16px;
-  }
+  border-radius: 15px;
+  border: 1px solid lightColor('black-very-low');
+  outline: transparent;
+  background-color: transparent;
 }
 
-.rating-email-input:not(:placeholder-shown):required:valid {
-  border: 1px solid $green-full;
+.rating-email-input::placeholder {
+  color: lightColor('black-semi');
 }
 
-.rating-email-input:not(:placeholder-shown):required:invalid {
+.rating-email-input:valid:focus {
+  border-color: green;
+}
+
+.rating-email-input:invalid:focus {
   border-color: red;
 }
 
-.rating-modal-btn {
-  width: 100%;
+.rating-send-btn {
+  padding: 14 28;
   border-radius: 15px;
-  background-color: #9bb537;
-  padding: 15px 16px;
-  justify-content: center;
-  color: #f8f8f8;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-
-  @include respondTo(tablet) {
-    padding: 14px 16px;
+  color: lightColor('white-full');
+  background-color: $green-full;
+  transition: color $transition;
+  &:hover {
+    color: $black-full;
   }
 }
 
-.rating-modal-btn:focus,
-.rating-modal-btn:hover {
-  color: #050505;
+// ======== Темна тема ========
+body.dark-theme {
+  .rating-modal-card {
+    color: #fff;
+    background-color: darkColor('dark-black');
+  }
+  .modal-rating-close {
+    stroke: darkColor('white-full');
+  }
+  .rating-email-input {
+    color: #fff;
+    border: 1px solid darkColor('white-semi-very-very-low');
+  }
+  .rating-email-input::placeholder {
+    color: darkColor('white-semi-light');
+  }
 }
