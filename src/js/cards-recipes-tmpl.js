@@ -30,7 +30,7 @@ fetchRecipes.then((data) => {
     Notiflix.Notify.failure(err.message);
     
 })
-function createCard(data) {
+export function createCard(data) {
 
     const murcup = data.map(({ _id, title, description, rating, preview, thumb }) => {
         return `
