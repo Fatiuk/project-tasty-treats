@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Tasty Treats</title>
+    <link rel="stylesheet" href="./sass/main.scss" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <title>Tasty Treats</title>
-  <link rel="stylesheet" href="./sass/main.scss" />
-</head>
+  <body>
+    <!-- Header -->
+    <include src="./partials/header.html"></include>
+    <main>
+      <a id="button"></a>
+      <!-- Section 1: Hero -->
+      <include src="./partials/hero.html"></include>
+      <!-- Section 2: Recipes -->
+      <include src="./partials/recipes.html"></include>
+      <!-- Pagination -->
+      <include src="./partials/pagination.html"></include>
+    </main>
 
-<body>
-  <!-- Header -->
-  <include src="./partials/header.html"></include>
-  <main>
-    <a id="button"></a>
-    <!-- Section 1: Hero -->
-    <include src="./partials/hero.html"></include>
+    <!-- footer -->
+    <include src="./partials/footer.html"></include>
+    <!-- Modal recipe -->
+    <include src="./partials/modal.html"></include>
+    <!-- Modal order -->
+    <include src="./partials/order-now.html"></include>
+    <!-- Modal rating -->
+    <include src="./partials/rating-modal.html"></include>
 
-    <include src="./partials/recipes.html"></include>
-  </main>
-
-  <!-- footer -->
-  <include src="./partials/footer.html"></include>
-  <!-- Modal recipe -->
-  <include src="./partials/modal.html"></include>
-  <!-- Modal order -->
-  <include src="./partials/order-now.html"></include>
-  <!-- Modal rating -->
-  <include src="./partials/rating-modal.html"></include>
-
-  <script type="module" src="./index.js"></script>
-</body>
-
+    <script type="module" src="./index.js"></script>
+  </body>
 </html>
