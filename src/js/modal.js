@@ -35,7 +35,7 @@ async function handlerGetIdCard(event) {
   });
 }
 
-function createMarkupModal(data) {
+export function createMarkupModal(data) {
   const youtubeLink = data.youtube;
 
   function getYoutubeVideoId(url) {

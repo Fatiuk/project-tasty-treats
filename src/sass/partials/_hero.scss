@@ -1,5 +1,7 @@
 .hero-section {
+  overflow: hidden;
   padding-top: 70px;
+  padding-bottom: 0;
   @include respondTo(tablet) {
     padding-top: 80px;
   }
@@ -8,6 +10,7 @@
 .hero-container {
   @include respondTo(desktop) {
     display: flex;
+    column-gap: 32;
   }
 }
 .hero {
@@ -17,7 +20,6 @@
   }
   @include respondTo(desktop) {
     margin-bottom: 0;
-    margin-right: 32px;
     min-width: 446px;
     margin-top: 64px;
   }
@@ -81,20 +83,10 @@
 }
 
 // ------------------CARD-------------------------//
-.swiper-wrapper {
-  display: flex;
-  position: relative;
-}
-
-.swiper-slide {
-  display: flex;
-}
-
 .card-shef {
   display: block;
   height: 280px;
   width: 80px;
-  background-color: black;
   border-radius: 15px;
 
   @include respondTo(tablet) {
@@ -108,11 +100,21 @@
   height: 280px;
   margin: 0 10px;
   border-radius: 15px;
-  background-color: black;
+  background-image: radial-gradient(
+    circle at center,
+    rgb(54, 62, 20) 0.01%,
+    $black-full 150px
+  );
 
   @include respondTo(tablet) {
     width: 351px;
     height: 442px;
+
+    background-image: radial-gradient(
+      circle at center,
+      rgb(54, 62, 20) 0.01%,
+      $black-full 280px
+    );
   }
 }
 
@@ -121,8 +123,8 @@
   width: 200px;
   height: 280px;
   border-radius: 15px;
-  background-color: black;
   margin-right: -20px;
+  overflow: hidden;
 
   @include respondTo(tablet) {
     width: 351px;

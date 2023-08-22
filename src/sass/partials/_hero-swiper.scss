@@ -1,0 +1,137 @@
+.swiper-container {
+  width: 497px;
+  @include respondTo(tablet) {
+    width: 871px;
+  }
+}
+
+.swiper {
+  filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.slider-cards {
+  display: flex;
+}
+
+.swiper-title {
+  margin: 0 auto;
+  margin-bottom: 14px;
+  text-align: center;
+  width: 144px;
+  @include respondTo(tablet) {
+    width: auto;
+  }
+}
+
+.swiper-name {
+  margin: 0 auto;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: lightColor('white-semi-dark');
+  text-transform: uppercase;
+  margin-bottom: 8px;
+
+  @include respondTo(tablet) {
+    font-size: 14px;
+    line-height: 1.28;
+  }
+}
+.swiper-area {
+  color: lightColor('white-semi-faint');
+  text-align: center;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 1.2;
+
+  @include respondTo(tablet) {
+    font-size: 12px;
+    line-height: 1.16;
+  }
+}
+
+.img-shef {
+  height: 280px;
+  object-fit: cover;
+  object-position: 45%;
+  border-radius: 15px;
+
+  @include respondTo(tablet) {
+    height: 442px;
+  }
+}
+.img-food {
+  height: 150px;
+  margin: 0 auto;
+  margin-top: 52px;
+  margin-bottom: 20px;
+
+  @include respondTo(tablet) {
+    height: 262px;
+    margin-top: 76px;
+    margin-bottom: 32px;
+  }
+}
+
+.img-tasty {
+  min-height: 350px;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 15px;
+  object-position: 30% -40px;
+  background-color: $black-full;
+  @include respondTo(tablet) {
+    height: 650px;
+    object-position: 30% -130px;
+  }
+}
+
+.js-hero-pagination .swiper-pagination-bullet {
+  display: block;
+  margin-top: 30px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  opacity: 1;
+  cursor: pointer;
+
+  background-color: $black-full;
+  transition: background-color $transition;
+}
+
+.js-hero-pagination .swiper-pagination-bullet-active {
+  background-color: $green-full;
+}
+
+/* Перемещение пагинации снаружи слайдера */
+.swiper-container {
+  position: relative;
+  height: 315px;
+
+  @include respondTo(tablet) {
+    height: 480px;
+  }
+}
+
+.js-hero-pagination {
+  left: -50px !important;
+}
+
+.js-hero-pagination {
+  display: flex;
+  justify-content: center;
+}
+
+body.dark-theme {
+  .swiper {
+    filter: drop-shadow(4px 4px 12px rgba(255, 255, 255, 0.08));
+  }
+
+  .js-hero-pagination .swiper-pagination-bullet {
+    background-color: darkColor('white-full');
+  }
+
+  .js-hero-pagination .swiper-pagination-bullet-active {
+    background-color: $green-full;
+  }
+}

@@ -13,6 +13,8 @@ import './js/scroll-to-top.js';
 
 import './js/example.js';
 
+import './js/slider.js';
+
 import './js/all-categories.js';
 
 import './js/filter-and-search.js';
