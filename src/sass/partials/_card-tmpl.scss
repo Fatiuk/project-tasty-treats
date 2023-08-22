@@ -75,7 +75,8 @@
   top: 214px;
   left: 16px;
   font-size: 14px;
-  line-height: 16px;
+  font-weight: 600;
+  line-height: 18px;
   letter-spacing: 0;
   color: #f8f8f8;
   // color: #000;
@@ -104,9 +105,11 @@
   // color: #000;
   margin-bottom: 16px;
   height: 30px;
+  // height: 29px;
   overflow: hidden;
   width: 303px;
   font-size: 12px;
+  line-height: 16px;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
   line-clamp: 2;
@@ -143,6 +146,7 @@
   right: 16px;
   bottom: 16px;
   font-size: 12px;
+  font-weight: 500;
   width: 90px;
   height: 30px;
   border-radius: 8px;

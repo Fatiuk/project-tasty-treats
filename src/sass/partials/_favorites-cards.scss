@@ -1,0 +1,56 @@
+.favorites-list {
+  @include respondTo(desktop) {
+    row-gap: 32px;
+  }
+}
+
+.favorites-li {
+  @include respondTo(tablet) {
+    width: 224px;
+    height: 244px;
+  }
+
+  @include respondTo(desktop) {
+    width: 258px;
+    height: 287px;
+  }
+}
+
+.favorites-img {
+  @include respondTo(tablet) {
+    width: 224px;
+    height: 244px;
+  }
+
+  @include respondTo(desktop) {
+    width: 258px;
+    height: 287px;
+  }
+}
+
+.favorites-icone-btn {
+}
+
+.favorites-heart-icone {
+}
+
+.favorites-item-title {
+}
+
+.favorites-item-text {
+}
+
+.favorites_star-rating {
+}
+
+.favorites-rating {
+}
+
+.favorites-rating-wrap {
+}
+
+.favorites-rating-icon {
+}
+
+.favorites-item-btn {
+}
