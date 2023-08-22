@@ -25,6 +25,7 @@
     "notiflix": "^3.2.6",
     "slim-select": "^2.6.0",
     "swiper": "^10.2.0",
+    "tui-pagination": "^3.4.1",
     "video.js": "^8.3.0"
   },
   "devDependencies": {
