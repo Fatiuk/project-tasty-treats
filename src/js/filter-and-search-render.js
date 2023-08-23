@@ -1,6 +1,7 @@
 import { fetchDataByPath } from './request-handler.js';
 import debounce from 'lodash.debounce';
 import { createCard } from './cards-recipes-tmpl.js';
+import Pagination from 'tui-pagination';
 
 const API_PATH = '/recipes';
 const searchEl = document.querySelector('.input');
@@ -9,7 +10,9 @@ const ingredientsSelectForm = document.querySelector('.ingredients');
 const timeSelectForm = document.querySelector('.time-select');
 const allCategoriesBtn = document.querySelector('.all-categories');
 const categoriesSelectorList = document.querySelector('.category-list');
+const container = document.getElementById('pagination');
 const viewportWidth = window.innerWidth;
+
 
 let inputValueArea = null;
 let inputValueTime = null;
@@ -17,42 +20,65 @@ let inputValueIngredients = null;
 let inputValueSearch = null;
 let selectedCategory = null;
 let clickedCategoryBtn = null;
+let itemsPerPage = 9;
+let totalItems = 360;
+let page = 1;
 
+const options = {
+  totalItems: totalItems,
+  itemsPerPage: itemsPerPage,
+  visiblePages: 3, // Кількість видимих сторінок в пагінаторі
+  page: 1, // Початкова активна сторінка
+  centerAlign: true,
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+  template: {
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
+    currentPage: '<span class="tui-page-btn tui-is-selected">{{page}}</span>',
+    moveButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}"></span>' +
+      '</a>',
+    disabledMoveButton:
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-ico-{{type}}"></span>' +
+      '</span>',
+    moreButton:
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<span class="tui-ico-ellip">...</span>' +
+      '</a>',
+  },
+};
+const pagination = new Pagination(container, options);
+
+function getCurrentPage() {
+  pagination.on('afterMove', async event => {
+    page = event.page;
+    console.log('Current page:', page);
+    const data = await viewportAnalizer(API_PATH);
+    createCard(data.results);
+  });
+}
+
+getCurrentPage();
 async function viewportAnalizer(API_PATH) {
   if (viewportWidth < 768) {
-    return await fetchDataByPath(
-      API_PATH,
-      null,
-      null,
-      selectedCategory,
-      inputValueTime,
-      inputValueArea,
-      inputValueIngredients,
-      inputValueSearch
-    );
+    itemsPerPage = 6;
   } else if (viewportWidth >= 768 && viewportWidth < 1280) {
-    return await fetchDataByPath(
-      API_PATH,
-      null,
-      8,
-      selectedCategory,
-      inputValueTime,
-      inputValueArea,
-      inputValueIngredients,
-      inputValueSearch
-    );
+    itemsPerPage = 8;
   } else {
-    return await fetchDataByPath(
-      API_PATH,
-      null,
-      9,
-      selectedCategory,
-      inputValueTime,
-      inputValueArea,
-      inputValueIngredients,
-      inputValueSearch
-    );
+    itemsPerPage = 9;
   }
+  return await fetchDataByPath(
+    API_PATH,
+    page,
+    itemsPerPage,
+    selectedCategory,
+    inputValueTime,
+    inputValueArea,
+    inputValueIngredients,
+    inputValueSearch
+  );
 }
 
 console.log('Filter and search file on');
@@ -101,10 +127,10 @@ async function handleFilterChange(event, filterType) {
   }
 
   const data = await viewportAnalizer(API_PATH);
+  totalItems = Number(data.totalPages) * itemsPerPage;
+  console.log(totalItems);
   createCard(data.results);
 }
-
-
 
 function resetAllParams() {
   inputValueArea = null;
@@ -112,6 +138,8 @@ function resetAllParams() {
   inputValueIngredients = null;
   inputValueSearch = null;
   selectedCategory = null;
+  itemsPerPage = 9;
+  totalItems = 360;
 }
 
 function clearAllFilters() {
@@ -124,36 +152,39 @@ async function handleAllCategoriesBtn(event) {
   resetAllParams();
   clearAllFilters();
   allCategoriesBtn.classList.add('active-all');
-  
+
   if (!selectedCategory && clickedCategoryBtn) {
     clickedCategoryBtn.classList.remove('active');
   }
-  
+
   const data = await viewportAnalizer(API_PATH);
+  totalItems = Number(data.totalPages) * itemsPerPage;
   createCard(data.results);
 }
 
 async function handleCategoriesSelectorList(event) {
   event.preventDefault();
-  
+
   if (event.target.nodeName !== 'BUTTON') {
     return;
   }
-  
+
   if (!selectedCategory) {
     allCategoriesBtn.classList.remove('active-all');
   }
-  
+
   if (clickedCategoryBtn != null) {
     clickedCategoryBtn.classList.remove('active');
   }
-  
+
   clickedCategoryBtn = event.target;
   clickedCategoryBtn.classList.add('active');
   selectedCategory = clickedCategoryBtn.textContent;
-  
+
   const data = await viewportAnalizer(API_PATH);
+  totalItems = Number(data.totalPages) * itemsPerPage;
   createCard(data.results);
+  
 }
 
 searchEl.addEventListener(
@@ -171,3 +202,12 @@ ingredientsSelectForm.addEventListener('change', event =>
 );
 allCategoriesBtn.addEventListener('click', handleAllCategoriesBtn);
 categoriesSelectorList.addEventListener('click', handleCategoriesSelectorList);
+
+
+
+
+
+
+
+
+
