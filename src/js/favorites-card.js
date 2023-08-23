@@ -9,23 +9,12 @@ function fetchCardsFromLocal() {
 
   if (localData !== null) {
     const parsedData = JSON.parse(localData);
-    console.log('parsedData', parsedData);
-    // let arrFavoritesCards = [];
-    // for (const data of parsedData) {
-    // const dataById = await fetchDataByPath(`/recipes/${data}`);
-    // console.log(dataById); // Тут можна додатково обробити отримані дані
-    // arrFavoritesCards.push(dataById);
     createCard(parsedData);
     saveIdToLocaleStorage();
     removeIdToLocaleStorage();
-    // }
-  } else {
-    console.log('Збережених даних не знайдено');
   }
 }
 
-// Виклик функції
-// const dataFromLocal = fetchCardsFromLocal();
 fetchCardsFromLocal();
 function createCard(data) {
   const murcup = data.map(
@@ -35,7 +24,7 @@ function createCard(data) {
                 <picture>
                   <source srcset="${preview}" type="image/webp">
                   <source srcset="${preview}" type="image/jpeg">
-                  <img src="${preview}" width="335" height="335" alt="${title}" class="card-img" loading="lazy">
+                  <img src="${preview}" width="335" height="335" alt="${title}" class="card-img favorites-img" loading="lazy">
                 </picture>
                 <div class="test-div"></div>
                 <button type="button" class="btn-heard-icone favorites-icone-btn" aria-label="Add to Favorites">
@@ -48,7 +37,7 @@ function createCard(data) {
                 
                  <div class="card_star-rating favorites_star-rating"> 
                 <p class="cards-raiting favorites-rating">${rating}</p>
-                <div class="rating-wrapper favorites-rating-wrap">
+                <div class="rating-wrapper wrapper favorites-rating-wrap">
                     <svg class="card-rating-icon favorites-rating-icon" data-raiting="one" id="all-stars">
                         <path id="Star 1" d="M6.04894 1.42705C6.3483 0.505742 7.6517 0.505741 7.95106 1.42705L8.79611 4.02786C8.92999 4.43989 9.31394 4.71885 9.74717 4.71885H12.4818C13.4505 4.71885 13.8533 5.95846 13.0696 6.52786L10.8572 8.13525C10.5067 8.3899 10.3601 8.84127 10.494 9.25329L11.339 11.8541C11.6384 12.7754 10.5839 13.5415 9.80017 12.9721L7.58779 11.3647C7.2373 11.1101 6.7627 11.1101 6.41221 11.3647L4.19983 12.9721C3.41612 13.5415 2.36164 12.7754 2.66099 11.8541L3.50604 9.25329C3.63992 8.84127 3.49326 8.3899 3.14277 8.13525L0.930391 6.52787C0.146678 5.95846 0.549452 4.71885 1.51818 4.71885H4.25283C4.68606 4.71885 5.07001 4.43989 5.20389 4.02786L6.04894 1.42705Z" sroke="black"></path>
                     </svg>
@@ -73,19 +62,15 @@ function createCard(data) {
     }
   );
 
-  // return murcup.join('');
   startList.innerHTML = murcup.join('');
   fillStars();
 }
 
 function removeIdToLocaleStorage() {
-  //Знайшов всі кнопки з сердечками
   const heartButtons2 = document.querySelectorAll('.btn-heard-icone');
 
-  //Даю кожній кнопці слухача
   heartButtons2.forEach(button => {
     button.addEventListener('click', () => {
-      //Шукаю карточку для кнопки
       const card2 = button.closest('.cards-item');
       card2.style.display = 'none';
     });

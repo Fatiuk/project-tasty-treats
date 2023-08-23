@@ -7,7 +7,6 @@ export function saveIdToLocaleStorage() {
       const buttonId = card.querySelector('.cards-item-btn').getAttribute('id');
       let savedData = localStorage.getItem('heartedButtons');
       savedData = savedData ? JSON.parse(savedData) : [];
-
       const cardData = {
         _id: buttonId,
         categories: card.querySelector('.cards-item-title').textContent,
@@ -17,8 +16,8 @@ export function saveIdToLocaleStorage() {
         description: card.querySelector('.cards-item-text').textContent,
       };
 
-      if (savedData.some(data => data.id === buttonId)) {
-        savedData = savedData.filter(data => data.id !== buttonId);
+      if (savedData.some(data => data._id === buttonId)) {
+        savedData = savedData.filter(data => data._id !== buttonId);
         button.querySelector('path').classList.remove('js-fill');
       } else {
         savedData.push(cardData);
