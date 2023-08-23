@@ -6,13 +6,13 @@ const startList = document.querySelector('.cards-list');
 
 export function createCard(data) {
   const murcup = data.map(
-    ({ _id, title, description, rating, preview, thumb }) => {
+    ({ _id, title, description, rating, preview, category }) => {
       return `
         <li class="cards-item">
                 <picture>
                   <source srcset="${preview}" type="image/webp">
                   <source srcset="${preview}" type="image/jpeg">
-                  <img src="${preview}" width="335" height="335" alt="${title}" class="card-img" loading="lazy">
+                  <img src="${preview}" width="335" height="335" alt="${category}" class="card-img" loading="lazy">
                 </picture>
                 <div class="test-div"></div>
                 <button type="button" class="btn-heard-icone" aria-label="Add to Favorites">
