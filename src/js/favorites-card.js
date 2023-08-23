@@ -1,6 +1,6 @@
 import { fetchDataByPath } from './request-handler';
 import { fillStars } from './fill-stars.js';
-import { saveIdToLocaleStorage } from './localStorage';
+import { saveIdToLocaleStorage } from './local-storage';
 
 const startList = document.querySelector('.cards-list');
 
@@ -18,14 +18,6 @@ async function fetchCardsFromLocal() {
       saveIdToLocaleStorage();
       removeIdToLocaleStorage();
     }
-    // /////////////////////////////////////
-    // const allCatecoriesEl = document.querySelector('.all-categories');
-    // console.log(allCatecoriesEl);
-
-    // allCatecoriesEl.addEventListener('click', event => {
-    //   console.log('djndjnvdvd', arrFavoritesCards);
-    //   createCard(arrFavoritesCards);
-    // });
   } else {
     console.log('Збережених даних не знайдено');
   }
@@ -39,7 +31,11 @@ function createCard(data) {
     ({ _id, title, description, rating, preview, thumb }) => {
       return `
         <li class="cards-item favorites-li">
-                <img src="${preview}" alt="${title}" class="card-img favorites-img">
+                <picture>
+                  <source srcset="${preview}" type="image/webp">
+                  <source srcset="${preview}" type="image/jpeg">
+                  <img src="${preview}" alt="${title}" class="card-img" loading="lazy">
+                </picture>
                 <div class="test-div"></div>
                 <button type="button" class="btn-heard-icone favorites-icone-btn">
                     <svg class="cards-heard-icon favorites-heart-icone js-fill" width="22" height="22" viewBox="0 0 32 32">
