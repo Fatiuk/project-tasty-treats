@@ -1,0 +1,254 @@
+:root {
+  --main-color: #9bb537;
+  --primary-text-CH-color: #050505;
+  --primary-text-CH-color-08: rgba(5, 5, 5, 0.8);
+  --primary-text-CH-color-05: rgba(5, 5, 5, 0.5);
+  --primary-text-CH-color-03: rgba(5, 5, 5, 0.3);
+  --primary-text-CH-color-02: rgba(5, 5, 5, 0.2);
+  --primary-text-CH-color-01: rgba(5, 5, 5, 0.1);
+  --primary-text-CH-color-RATING: #f8f8f8;
+  --primary-text-CH-color-RATING-modal: rgba(5, 5, 5, 0.5);
+  --primary-text-CH-color-STARS: rgba(248, 248, 248, 0.1);
+  --primary-text-CH-color-CardTitle-Description: #f8f8f8;
+  --primary-text-CH-color-menu-mob: #f8f8f8;
+  --bgc-CH-background: #f8f8f8;
+  --bgc-CH-background-mob-menu: #9bb537;
+  --border-paginatio: #9bb537;
+}
+.link {
+  text-decoration: none;
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 25px;
+}
+
+.logo-header {
+  color: var(--main-color);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: -0.64px;
+}
+
+.logo-color {
+  color: var(--primary-text-CH-color);
+}
+
+body.dark-theme .logo-color {
+  color: var(--color-white-text);
+}
+
+.header-btn-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.shopping-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.shopping-icon {
+  fill: transparent;
+  stroke: currentColor;
+}
+
+.shopping-icon:hover,
+.shopping-icon:focus{
+   stroke: var(--color-green);
+}
+
+.burger-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.burger-menu-icon {
+  width: 32px;
+  height: 32px;
+  stroke: var(--primary-text-CH-color);
+}
+
+body.dark-theme .burger-menu-icon {
+  stroke: var(--color-white-text);
+}
+
+.burger-menu-icon:hover,
+.burger-menu-icon:focus {
+  stroke: var(--color-green);
+}
+
+body.dark-theme .burger-menu-icon:hover,
+body.dark-theme .burger-menu-icon:focus {
+  stroke: var(--color-green);
+}
+
+/* ---TOGGLE SWITCH--- */
+.switcher-input[type='checkbox'] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.input-label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 46px;
+  height: 20px;
+  background: #cecdcd;
+  display: block;
+  border-radius: 18px;
+  position: relative;
+}
+
+.input-label:after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 18px;
+  height: 18px;
+  background: #f8f8f8;
+  border-radius: 18px;
+  transition: 0.3s;
+}
+
+.switcher-input:checked + .input-label {
+  background: #9bb537;
+}
+
+.switcher-input:checked + .input-label:after {
+  left: calc(100% - 1px);
+  transform: translateX(-100%);
+}
+
+.input-label:active:after {
+  width: 26px;
+}
+
+/* MOBIL WINDOW */
+.menu-toggle {
+  min-height: 40px;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.block {
+  overflow: hidden;
+}
+
+/* --my-css--- */
+#mobile-switch {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+
+/* ----- Media----- */
+@media screen and (max-width: 767px) {
+  .nav-list {
+    display: none;
+  }
+
+  .theme-switcher.main {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav-header {
+    padding-top: 30px;
+  }
+
+  .burger-menu {
+    display: none;
+  }
+
+  .theme-switcher {
+    height: 20px;
+  }
+
+  .header-btn-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: 16;
+  }
+
+  .nav-link {
+    color: inherit;
+    font-size: 12px;
+    font-family: Inter;
+    font-weight: 500;
+  }
+
+  .nav-link.current {
+    color: var(--main-color);
+  }
+
+  .logo-header {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.72px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .nav-header {
+    padding-top: 42px;
+  }
+
+  .header-btn-box {
+    gap: 18px;
+  }
+}

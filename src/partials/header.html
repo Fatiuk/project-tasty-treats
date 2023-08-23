@@ -6,7 +6,9 @@
         <li class="nav-item">
           <a href="./index.html" class="nav-link current">Home</a>
         </li>
-        <li class="nav-item"><a href="./favorites.html" class="nav-link">Favorites</a></li>
+        <li class="nav-item">
+          <a href="./favorites.html" class="nav-link">Favorites</a>
+        </li>
       </ul>
     </nav>
     <!-- Logo -->
@@ -15,21 +17,25 @@
     >
     <div class="utility-bar">
       <!-- Tasty cart -->
-      <button type="button" class="cart-button">
+      <button type="button" class="cart-button" aria-label="Open order now">
         <svg class="cart-icon" width="24" height="24">
           <use xlink:href="./images/icons.svg#cart"></use>
         </svg>
       </button>
       <!-- Theme toggle -->
-      <label class="switch">
-        <input class="checkbox" type="checkbox" />
+      <label class="switch" for="burger-checkbox">
+        <input
+          id="burger-checkbox"
+          class="checkbox checkbox-burger"
+          type="checkbox"
+        />
         <span class="slider"></span>
       </label>
     </div>
     <button
-      aria-label="Open mobile-menu"
       type="button"
       class="header-btn js-open-menu"
+      aria-label="Open mobile menu"
     >
       <svg class="header-btn-svg">
         <use xlink:href="./images/icons.svg#burger"></use>
@@ -38,9 +44,9 @@
   </div>
   <div class="menu js-menu-container">
     <button
-      aria-label="Close mobile-menu"
       type="button"
       class="menu-close-btn js-close-menu"
+      aria-label="Close mobile menu"
     >
       <svg class="menu-btn-svg">
         <use xlink:href="./images/icons.svg#icon-x"></use>
@@ -54,8 +60,12 @@
         <a href="./favorites.html" class="menu-link-favorites">Favorites</a>
       </li>
       <!-- Theme toggle -->
-      <label class="switch">
-        <input class="checkbox checkbox-burger" type="checkbox" />
+      <label class="switch" for="burger-checkbox">
+        <input
+          id="burger-checkbox"
+          class="checkbox checkbox-burger"
+          type="checkbox"
+        />
         <span class="slider"></span>
       </label>
     </ul>

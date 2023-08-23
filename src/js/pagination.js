@@ -13,18 +13,19 @@ const options = {
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
   template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage: '<span class="tui-page-btn tui-is-selected">{{page}}</span>',
+    page: '<a href="#recipes" class="tui-page-btn" aria-label="Go to page {{page}}">{{page}}</a>',
+    currentPage:
+      '<span class="tui-page-btn tui-is-selected" aria-label="Current page {{page}}">{{page}}</span>',
     moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}">' +
+      '<a href="#" class="tui-page-btn tui-{{type}}" aria-label="{{type}}">' +
       '<span class="tui-ico-{{type}}"></span>' +
       '</a>',
     disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
+      '<span class="tui-page-btn tui-is-disabled tui-{{type}}" aria-label="Disabled {{type}}">' +
       '<span class="tui-ico-{{type}}"></span>' +
       '</span>',
     moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip" aria-label="More {{type}}">' +
       '<span class="tui-ico-ellip">...</span>' +
       '</a>',
   },

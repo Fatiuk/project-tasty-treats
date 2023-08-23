@@ -62,12 +62,14 @@
 }
 .img-food {
   height: 150px;
+  width: 150px;
   margin: 0 auto;
   margin-top: 52px;
   margin-bottom: 20px;
 
   @include respondTo(tablet) {
     height: 262px;
+    width: 262px;
     margin-top: 76px;
     margin-bottom: 32px;
   }

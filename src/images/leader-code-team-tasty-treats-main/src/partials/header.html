@@ -1,0 +1,63 @@
+<header class="header section-header">
+  <div class="container container-header">
+    <nav class="nav-header">
+      <ul class="nav-list list">
+        <li class="nav-item item">
+          <a class="nav-link current" href="./index.html">Home</a>
+        </li>
+        <li class="nav-item item">
+          <a class="nav-link" href="./favorites.html">Favorites</a>
+        </li>
+      </ul>
+
+      <a class="logo-header link" href="./index.html">tasty<span class="logo-color">treats.</span></a>
+      <!-- href="tel:+380730000000" -->
+      <div class="header-btn-box">
+        <!-- SHOPPING -->
+        <a href="#" class="shopping-link link" rel="noopener noreferrer" aria-label="shopping-cart" data-popup="order">
+          <svg class="shopping-icon" width="24" height="24">
+            <use href="/src/images/icons.svg#icon-shopping-cart-dark"></use>
+          </svg>
+        </a>
+        <!-- BURGER MOBILE -->
+        <button type="button" class="burger-menu js-open-menu">
+          <svg class="burger-menu-icon" width="32" height="32">
+            <use href="/src/images/icons.svg#icon-menu-dark "></use>
+          </svg>
+        </button>
+        <!-- TOGGLE SWITCH -->
+        <div class="theme-switcher main js-switcher">
+          <input type="checkbox" class="switcher-input" id="switch" /><label class="input-label" for="switch">Toggle</label>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- MOBIL WINDOW -->
+  <div class="mobil-menu-wrapper">
+    <nav class="mobil-menu-body">
+      <button class="mobil-menu-close js-close-menu">
+        <svg fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+          <path
+            fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </button>
+
+      <ul class="mobile-menu">
+        <li class="mobile-menu__item">
+          <a class="nav-link current" href="./index.html">Home</a>
+        </li>
+        <li class="mobile-menu__item">
+          <a class="nav-link" href="./favorites.html">Favorites</a>
+        </li>
+      </ul>
+      <div class="mobile-switcher-wrapper">
+        <input type="checkbox" class="switcher-input" id="mobile-switch" />
+        <label class="input-label" for="mobile-switch">Toggle</label>
+      </div>
+    </nav>
+  </div>
+</header>

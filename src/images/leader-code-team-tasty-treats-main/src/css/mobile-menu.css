@@ -1,0 +1,117 @@
+.mobil-menu-wrapper {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 5000;
+  transform: translate(100%, 0%);
+  opacity: 0;
+  transition: opacity var(--transform-hover-focus) 500ms, transform 0ms linear 750ms;
+  overflow: hidden;
+}
+
+.mobil-menu-wrapper.is-open {
+  transform: translate(0%, 0%);
+  transition: opacity var(--transform-hover-focus);
+  opacity: 1;
+}
+
+.mobil-menu-body .input-label {
+  border: 1px solid #cecdcd;
+}
+.mobil-menu-body .input-label:after {
+  top: 0px;
+  left: 0px;
+}
+.mobil-menu-body .switcher-input:checked + .input-label:after {
+  left: 100%;
+  top: 0px;
+}
+
+.mobil-menu-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+  width: 60%;
+  max-width: 375px;
+  min-width: 200px;
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: 20px;
+  background: var(--color-green);
+  transition: 500ms;
+  transform: translate(100%, 0%);
+}
+
+body.dark-theme .mobil-menu-body {
+  background: var(--color-dark-theme);
+}
+
+.mobil-menu-wrapper.is-open .mobil-menu-body {
+  transform: translate(0%, 0%);
+}
+
+.mobile-menu {
+  display: inline-block;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 50%;
+  text-align: center;
+}
+
+.mobile-menu__item {
+  width: 100%;
+  text-align: center;
+  margin-top: 16px;
+  color: var(--color-white-text);
+}
+
+.mobile-menu__item .nav-link {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.mobile-menu__item .nav-link.current {
+  font-weight: 500;
+}
+
+.mobile-switcher-wrapper {
+  width: 100%;
+}
+
+.mobil-menu-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: none;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin-left: auto;
+}
+.mobil-menu-close svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--color-white-text);
+  pointer-events: none;
+}
+
+.ingredients-list p {
+  color: var(--color-black-text);
+}
+
+@media screen and (min-width: 768px) {
+  .mobil-menu-wrapper {
+    display: none;
+  }
+}

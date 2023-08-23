@@ -1,0 +1,104 @@
+.fav-categoty-btn {
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  color: rgba(5, 5, 5, 0.2);
+  border-radius: 15px;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.29;
+  background: rgba(0, 0, 0, 0);
+  transition: var(--transform-hover-focus);
+}
+
+.fav-categoty-btn:hover,
+.fav-categoty-btn:focus,
+.fav-categoty-btn.active {
+  background: var(--color-green);
+  color: var(--color-white-text);
+  border: 1px solid var(--color-green);
+}
+
+body.dark-theme .fav-categoty-btn {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+body.dark-theme .fav-categoty-btn:hover,
+body.dark-theme .fav-categoty-btn:focus,
+body.dark-theme .fav-categoty-btn.active {
+  color: #fff;
+}
+
+@media screen and (min-width: 1280px) {
+  .favorite-render-cards {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 32px 16px;
+  }
+
+  .favorite-render-cards .recipe-item {
+    width: 258px;
+    height: 287px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .favorite-render-cards {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 16px 16px;
+    /* flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 40px; */
+  }
+
+  .favorite-render-cards .recipe-item {
+    width: 224px;
+    height: 244px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .favorite-render-cards {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    /* gap: 24px; */
+    /* flex-direction: row;
+            flex-wrap: wrap;
+            margin-bottom: 40px; */
+  }
+
+  .favorite-render-cards .recipe-item {
+    width: 335px;
+    height: 335px;
+  }
+}
+
+/* ============== ALL CATEGORIES BUTTON */
+
+.swiper-favorite-navigation .swiper-slide {
+  width: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .all-fav-btn {
+    margin-bottom: 32px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .all-fav-btn {
+    margin-bottom: 24px;
+  }
+  .fav-categoty-btn {
+    border: 1px solid rgba(5, 5, 5, 0.31);
+    color: rgba(5, 5, 5, 0.3);
+    border-radius: 15px;
+    padding: 14px 18px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.29;
+  }
+}
