@@ -9,7 +9,7 @@ export function saveIdToLocaleStorage() {
       savedData = savedData ? JSON.parse(savedData) : [];
       const cardData = {
         _id: buttonId,
-        categories: card.querySelector('.cards-item-title').textContent,
+        category: card.querySelector('.card-img').getAttribute('alt'),
         preview: card.querySelector('.card-img').getAttribute('src'),
         title: card.querySelector('.cards-item-title').textContent,
         rating: card.querySelector('.cards-raiting').textContent,
