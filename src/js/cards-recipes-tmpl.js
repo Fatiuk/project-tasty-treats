@@ -41,9 +41,7 @@ export function createCard(data) {
                     </svg>
                 </button>
                 <h2 class="cards-item-title">${title}</h2>
-                <p class="cards-item-text">
-                    ${description}
-                </p>
+                <p class="cards-item-text">${description}</p>
                 
                  <div class="card_star-rating"> 
                 <p class="cards-raiting">${rating}</p>
