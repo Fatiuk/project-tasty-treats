@@ -1,117 +1,112 @@
-.popular-recipes-wrap:nth-last-child(-n+2) {
-    display: none;
+.popular-recipes-wrap:nth-last-child(-n + 2) {
+  display: none;
 
-    @include respondTo(tablet) {   
-        display: flex; 
+  @include respondTo(tablet) {
+    display: flex;
   }
-  }
+}
 
 .popular-recipes {
-    @include respondTo(tablet) {   
-        display: block; 
-       
+  @include respondTo(tablet) {
+    display: block;
   }
 }
 
 .popular-recipes-title {
-    margin-bottom: 20px;
-    font-size: 18px;
-    line-height: 1.33; 
-    text-transform: uppercase;
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 1.33;
+  text-transform: uppercase;
 
-    @include respondTo(tablet) {   
-        margin-bottom: 32px;
+  @include respondTo(tablet) {
+    margin-bottom: 32px;
   }
 
   @include respondTo(desktop) {
     font-size: 24px;
     line-height: 1.17;
+  }
 }
+.popular-recipes-container {
+  @include respondTo(tablet) {
+    max-width: 176px;
+  }
 
-}
-.popular-recipes-container { 
-    @include respondTo(tablet) {
-        max-width: 176px;
-    }
-    
-    @include respondTo(desktop) {
-        max-width: 235px;
-    }
-    
+  @include respondTo(desktop) {
+    max-width: 235px;
+  }
 }
 
 .popular-recipes-wrap {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 24px;
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  cursor: pointer;
 
-    @include respondTo(tablet) {   
-        gap: 8px; 
-        margin-bottom: 16px;
+  @include respondTo(tablet) {
+    gap: 8px;
+    margin-bottom: 16px;
   }
 
-     @include respondTo(desktop) {
-        margin-bottom: 32px;
-        gap: 16px  ;
-}
-
+  @include respondTo(desktop) {
+    margin-bottom: 32px;
+    gap: 16px;
+  }
 }
 
 .popular-recipes-img {
+  max-width: 64px;
+  max-height: 64px;
+  border-radius: 8px;
+
+  @include respondTo(tablet) {
+    max-width: 48px;
+    max-height: 48px;
+  }
+
+  @include respondTo(desktop) {
     max-width: 64px;
     max-height: 64px;
-    border-radius: 8px;
-    
-    @include respondTo(tablet) {
-        max-width: 48px;
-        max-height: 48px;
-    }
-
-    @include respondTo(desktop) {
-        max-width: 64px;
-        max-height: 64px;
-    }
+  }
 }
 
 .popular-recipes-subtitle {
-    font-size: 14px;
-    line-height: 1.28;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    overflow: hidden;
-    
+  font-size: 14px;
+  line-height: 1.28;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
 }
 .popular-recipes-text {
-    font-size: 12px;
-    line-height: 1.33;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    overflow: hidden;
+  font-size: 12px;
+  line-height: 1.33;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
 
-    @include respondTo(tablet) {
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-    }
+  @include respondTo(tablet) {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
 
-    body.light-theme & {
-        color: lightColor('black-high');
-      }
-    
-      body.dark-theme & {
-        color: darkColor('white-semi-medium')
-      }
+  body.light-theme & {
+    color: lightColor('black-high');
+  }
 
-      @include respondTo(tablet) {
-       font-size: 10px;
-       line-height: 1.4;
-      }
+  body.dark-theme & {
+    color: darkColor('white-semi-medium');
+  }
+
+  @include respondTo(tablet) {
+    font-size: 10px;
+    line-height: 1.4;
+  }
 }
-

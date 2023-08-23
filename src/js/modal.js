@@ -4,7 +4,7 @@ const refs = {
   allCards: document.querySelector('.cards-list'),
   modalCardCont: document.querySelector('.card-markup-modal'),
   modalBackdrop: document.querySelector('.modal-backdrop'),
-  modalCuttonClose: document.querySelector('.modal-btn-close'),
+  modalButtonClose: document.querySelector('.modal-btn-close'),
   giveRatingModalBtn: document.querySelector('.modal-give-rating'),
   ratingModal: document.querySelector('.rating-backdrop'),
   ratingButton: document.querySelector('.rating-send-btn'),
@@ -26,12 +26,23 @@ async function handlerGetIdCard(event) {
   refs.modalBackdrop.classList.add('is-open');
   refs.allCards.removeEventListener('click', handlerGetIdCard);
 
+  //  Додаю слухачі
+  refs.modalBackdrop.addEventListener('click', closeModalsOnBackdropOrEsc);
+  document.addEventListener('keydown', closeModalsOnBackdropOrEsc);
+  // Для зупинки відео після закриття модалки
+  const youtubeIframe = document.querySelector('.iframe-video');
+
   document.body.style.overflow = 'hidden';
 
-  refs.modalCuttonClose.addEventListener('click', () => {
+  refs.modalButtonClose.addEventListener('click', () => {
     refs.modalBackdrop.classList.remove('is-open');
     refs.allCards.addEventListener('click', handlerGetIdCard);
     document.body.style.overflow = 'auto';
+    //  Знімаю слухачі
+    refs.modalBackdrop.removeEventListener('click', closeModalsOnBackdropOrEsc);
+    document.removeEventListener('keydown', closeModalsOnBackdropOrEsc);
+    // зупиняю відео
+    youtubeIframe.src = '';
   });
 }
 
@@ -46,6 +57,23 @@ export function createMarkupModal(data) {
   const videoId = getYoutubeVideoId(youtubeLink);
 
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+
+  // !------------------------------------------
+  // отримую рейтинг округлений до десятих
+
+  const roundedRating = parseFloat(data.rating).toFixed(1);
+  // !------------------------------------------
+  const tagsToRender = data.tags.slice(0, 3);
+  console.log(tagsToRender);
+
+  const tagsMarkup = tagsToRender
+    .map(
+      tag => `
+      <li class="hashtag-btn-item">#${tag}</li>
+    `
+    )
+    .join('');
+  // !------------------------------------------
 
   const ingredientsMarkup = data.ingredients
     .map(
@@ -70,7 +98,7 @@ export function createMarkupModal(data) {
         <h2 class="modal-recipe-name">${data.title}</h2>
         <div class="modal-general-inf">
           <div class="card-star-modal">
-            <p class="modal-raiting">${data.rating}</p>
+            <p class="modal-raiting">${roundedRating}</p>
             <div class="starts-modal">
               <svg class="card-rating-icon" data-raiting="one" id="all-stars">
                 <path
@@ -111,11 +139,7 @@ export function createMarkupModal(data) {
             <p class="modal-card-time">${data.time} min</p>
           </div>
           <ul class="modal-ingr-list">${ingredientsMarkup}</ul>
-          <ul class="hashtag-btn-list-tablet list">
-            <li class="hashtag-btn-item">#${data.tags[0]}</li>
-            <li class="hashtag-btn-item">#${data.tags[1]}</li>
-            <li class="hashtag-btn-item">#${data.tags[2]}</li>
-          </ul>
+          <ul class="hashtag-btn-list-tablet list">${tagsMarkup}</ul>
           <p class="modal-recipe-instructions">${data.instructions}</p>
         </div>
   `;
@@ -128,10 +152,38 @@ refs.giveRatingModalBtn.addEventListener('click', handlerOpenRating);
 function handlerOpenRating(event) {
   refs.modalBackdrop.classList.remove('is-open');
   refs.ratingModal.classList.add('is-open');
+  refs.ratingModal.addEventListener('click', closeModalsOnBackdropOrEsc);
+  document.addEventListener('keydown', closeModalsOnBackdropOrEsc);
 
   refs.ratingClose.addEventListener('click', () => {
     refs.ratingModal.classList.remove('is-open');
     refs.allCards.addEventListener('click', handlerGetIdCard);
     document.body.style.overflow = 'auto';
+
+    refs.ratingModal.removeEventListener('click', closeModalsOnBackdropOrEsc);
+    document.removeEventListener('keydown', closeModalsOnBackdropOrEsc);
   });
+}
+
+// Закриття модалки по кліку та Esc
+// !------------------------------------------
+function closeModalsOnBackdropOrEsc(event) {
+  if (event.code === 'Escape' || event.target === refs.modalBackdrop) {
+    refs.modalBackdrop.classList.remove('is-open');
+    refs.allCards.addEventListener('click', handlerGetIdCard);
+    document.body.style.overflow = 'auto';
+    refs.modalBackdrop.removeEventListener('click', closeModalsOnBackdropOrEsc);
+    document.removeEventListener('keydown', closeModalsOnBackdropOrEsc);
+    // зупинка відео
+    const youtubeIframe = document.querySelector('.iframe-video');
+    youtubeIframe.src = '';
+  }
+
+  if (event.code === 'Escape' || event.target === refs.ratingModal) {
+    refs.ratingModal.classList.remove('is-open');
+    refs.allCards.addEventListener('click', handlerGetIdCard);
+    document.body.style.overflow = 'auto';
+    refs.ratingModal.removeEventListener('click', closeModalsOnBackdropOrEsc);
+    document.removeEventListener('keydown', closeModalsOnBackdropOrEsc);
+  }
 }
