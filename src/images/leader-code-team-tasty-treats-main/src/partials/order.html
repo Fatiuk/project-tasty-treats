@@ -1,0 +1,55 @@
+<div class="custom-popup" id="order">
+  <div class="custom-popup__content">
+    <button type="button" class="popup__close js-popup-close">close</button>
+    <h2 class="custom-popup__title">Order now</h2>
+    <form action="#!" method="POST" class="custom-form order-form" autocomplete="off" novalidate>
+      <!-- name -->
+      <label class="label">
+        <span class="label__text">Name</span>
+        <input type="text" class="custom-input" name="name" required />
+      </label>
+      <!-- Phone -->
+      <label class="label">
+        <span class="label__text">Phone number</span>
+        <input type="tel" class="custom-input" name="phone" required />
+      </label>
+      <!-- email -->
+      <label class="label">
+        <span class="label__text">Email</span>
+        <input type="email" class="custom-input" name="email" required />
+      </label>
+      <label class="label">
+        <span class="label__text">Comment</span>
+        <textarea class="custom-input custom-input--textarea custom-scrollbar" name="comment"></textarea>
+      </label>
+      <div class="btn-wrapper">
+        <button type="submit" class="green-btn green-btn--full">Send</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="custom-popup" id="loading">
+  <div class="custom-popup__content">
+    <div class="loader"></div>
+  </div>
+</div>
+
+<div class="custom-popup" id="error">
+  <div class="custom-popup__content">
+    <button type="button" class="popup__close js-popup-close">close</button>
+    <h2 class="custom-popup__title red js-error-title">Error!</h2>
+    <p class="custom-popup__subtitle red js-error-text">Something went wrong.</p>
+  </div>
+</div>
+
+<div class="custom-popup" id="ok">
+  <div class="custom-popup__content">
+    <button type="button" class="popup__close js-popup-close">close</button>
+    <h2 class="custom-popup__title green">Thank you</h2>
+    <p class="custom-popup__subtitle">Your form has been successfully submitted and our manager will contact you shortly</p>
+    <div class="btn-wrapper ta--c">
+      <button type="button" class="green-btn js-popup-close">Ок</button>
+    </div>
+  </div>
+</div>

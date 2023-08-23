@@ -34,10 +34,10 @@ function createCard(data) {
                 <picture>
                   <source srcset="${preview}" type="image/webp">
                   <source srcset="${preview}" type="image/jpeg">
-                  <img src="${preview}" alt="${title}" class="card-img" loading="lazy">
+                  <img src="${preview}" width="335" height="335" alt="${title}" class="card-img" loading="lazy">
                 </picture>
                 <div class="test-div"></div>
-                <button type="button" class="btn-heard-icone favorites-icone-btn">
+                <button type="button" class="btn-heard-icone favorites-icone-btn" aria-label="Add to Favorites">
                     <svg class="cards-heard-icon favorites-heart-icone js-fill" width="22" height="22" viewBox="0 0 32 32">
                         <path  stroke-linecap="round" stroke-linejoin="round" stroke-width="2.909" d="M15.991 6.848C13.325 3.731 8.88 2.893 5.54 5.747s-3.81 7.625-1.187 11c2.181 2.806 8.781 8.725 10.944 10.641.242.214.363.321.504.364a.668.668 0 0 0 .381 0c.141-.042.262-.149.504-.364 2.163-1.916 8.763-7.834 10.944-10.641 2.623-3.375 2.21-8.177-1.187-11.001s-7.785-2.015-10.451 1.101z" opacity=".5"/>
                     </svg>

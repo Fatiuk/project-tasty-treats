@@ -9,47 +9,49 @@
   background-repeat: no-repeat;
   margin: 0 auto;
   background-size: contain;
-  // background-position: center;
 
-  /* 0px > 767px (1x)*/
+  /* 0px > 767px (1x) */
   background-image: url(/src/images/favorites-hero-mobile-1x-min.jpg);
-  /* 0px > 767px (2x)*/
+  /* 0px > 767px (2x) */
   @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
     screen and (min-resolution: 192dpi) and (max-width: 767px),
     screen and (min-resolution: 2dppx) and (max-width: 767px) {
     .hero-photo {
       background-image: var(--bg-gradient),
-        url(/src/images/favorites-hero-mobile-2x-min.jpg);
+        url(/src/images/favorites-hero-mobile-2x-min.jpg),
+        url(/src/images/favorites-hero-mobile-2x-min.webp);
     }
   }
 
   @include respondTo(tablet) {
     width: 704px;
     height: 356px;
-    /* 768px > 1280px (1x)*/
+    /* 768px > 1280px (1x) */
     background-image: url(/src/images/favorites-hero-tablet-1x-min.jpg);
-    /* 768px > 1280px (2x)*/
+    /* 768px > 1280px (2x) */
     @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px) and (max-width: 1279px),
       screen and (min-resolution: 192dpi) and (min-width: 768px) and (max-width: 1279px),
       screen and (min-resolution: 2dppx) and (min-width: 768px) and (max-width: 1279px) {
       .hero-photo {
         background-image: var(--bg-gradient),
-          url(/src/images/favorites-hero-tablet-2x-min.jpg);
+          url(/src/images/favorites-hero-tablet-2x-min.jpg),
+          url(/src/images/favorites-hero-tablet-2x-min.webp);
       }
     }
 
     @include respondTo(desktop) {
       width: 1080px;
 
-      /* 768px > 1280px (1x)*/
+      /* 768px > 1280px (1x) */
       background-image: url(/src/images/favorites-hero-desktop-1x-min.jpg);
-      /* 768px > 1280px (2x)*/
+      /* 768px > 1280px (2x) */
       @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
         screen and (min-resolution: 192dpi) and (min-width: 1280px),
         screen and (min-resolution: 2dppx) and (min-width: 1280px) {
         .hero-photo {
           background-image: var(--bg-gradient),
-            url(/src/images/favorites-hero-desktop-2x-min.jpg);
+            url(/src/images/favorites-hero-desktop-2x-min.jpg),
+            url(/src/images/favorites-hero-desktop-2x-min.webp);
         }
       }
     }
