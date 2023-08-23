@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       <picture>
         <source srcset="${item.cook.imgUrl}" type="image/webp">
         <source srcset="${item.cook.imgUrl}" type="image/jpeg">
-        <img class="img-shef" src="${item.cook.imgUrl}" width="125" height="305" alt="${item.cook.name}" loading="lazy">
+        <img class="img-shef" src="${item.cook.imgUrl}" width="125" height="305" alt="${item.cook.name}">
       </picture>
     </div>
     <div class="card-food">
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       <picture>
         <source srcset="${item.topic.imgUrl}" type="image/webp">
         <source srcset="${item.topic.imgUrl}" type="image/jpeg">
-        <img class="img-tasty" src="${item.topic.imgUrl}" width="185" height="280" alt="${item.topic.name}" loading="lazy">
+        <img class="img-tasty" src="${item.topic.imgUrl}" width="185" height="280" alt="${item.topic.name}">
       </picture>
     </div>
   </div>
