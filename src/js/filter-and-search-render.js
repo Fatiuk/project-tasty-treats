@@ -1,14 +1,14 @@
 import { fetchDataByPath } from './request-handler.js';
 import debounce from 'lodash.debounce';
-import { Notify } from 'notiflix';
 import { createCard } from './cards-recipes-tmpl.js';
-import '../css/filter.css';
 
 const API_PATH = '/recipes';
 const searchEl = document.querySelector('.input');
 const areasSelectForm = document.querySelector('.area');
 const ingredientsSelectForm = document.querySelector('.ingredients');
 const timeSelectForm = document.querySelector('.time-select');
+const allCategoriesBtn = document.querySelector('.all-categories');
+const categoriesSelectorList = document.querySelector('.category-list');
 const viewportWidth = window.innerWidth;
 
 let inputValueArea = null;
@@ -16,10 +16,9 @@ let inputValueTime = null;
 let inputValueIngredients = null;
 let inputValueSearch = null;
 let selectedCategory = null;
+let clickedCategoryBtn = null;
 
-async function viewportAnalizer(
-  API_PATH,
-) {
+async function viewportAnalizer(API_PATH) {
   if (viewportWidth < 768) {
     return await fetchDataByPath(
       API_PATH,
@@ -58,46 +57,117 @@ async function viewportAnalizer(
 
 console.log('Filter and search file on');
 
-searchEl.addEventListener('input', debounce(handleFormSearching, 300));
-areasSelectForm.addEventListener('change', handleAreaSelectForm);
-timeSelectForm.addEventListener('change', handleTimeSelectForm);
-ingredientsSelectForm.addEventListener('change', handleIngredientsSelectForm);
+async function handleFilterChange(event, filterType) {
+  event.preventDefault();
 
-async function handleFormSearching(event) {
-  event.preventDefault();
-  inputValueSearch = event.target.value.trim();
-  if (!inputValueSearch) {
+  let inputValue = null;
+
+  switch (filterType) {
+    case 'search':
+      inputValue = event.target.value.trim();
+      break;
+    case 'area':
+      inputValue = areasSelectForm.value.trim();
+      break;
+    case 'time':
+      inputValue = timeSelectForm.value.trim();
+      break;
+    case 'ingredients':
+      inputValue = ingredientsSelectForm.value.trim();
+      break;
+    default:
+      break;
+  }
+
+  if (!inputValue) {
     return;
   }
+
+  switch (filterType) {
+    case 'search':
+      inputValueSearch = inputValue;
+      break;
+    case 'area':
+      inputValueArea = inputValue;
+      break;
+    case 'time':
+      inputValueTime = inputValue;
+      break;
+    case 'ingredients':
+      inputValueIngredients = inputValue;
+      break;
+    default:
+      break;
+  }
+
   const data = await viewportAnalizer(API_PATH);
   createCard(data.results);
 }
-async function handleAreaSelectForm(event) {
+
+
+
+function resetAllParams() {
+  inputValueArea = null;
+  inputValueTime = null;
+  inputValueIngredients = null;
+  inputValueSearch = null;
+  selectedCategory = null;
+}
+
+function clearAllFilters() {
+  searchEl.value = '';
+  console.log('Filters are clear');
+}
+
+async function handleAllCategoriesBtn(event) {
   event.preventDefault();
-  inputValueArea = areasSelectForm.value.trim();
-  if (!inputValueArea) {
-    return;
+  resetAllParams();
+  clearAllFilters();
+  allCategoriesBtn.classList.add('active-all');
+  
+  if (!selectedCategory && clickedCategoryBtn) {
+    clickedCategoryBtn.classList.remove('active');
   }
+  
   const data = await viewportAnalizer(API_PATH);
   createCard(data.results);
 }
-async function handleTimeSelectForm(event) {
+
+async function handleCategoriesSelectorList(event) {
   event.preventDefault();
-  inputValueTime = timeSelectForm.value.trim();
-  if (!inputValueTime) {
+  
+  if (event.target.nodeName !== 'BUTTON') {
     return;
   }
+  
+  if (!selectedCategory) {
+    allCategoriesBtn.classList.remove('active-all');
+  }
+  
+  if (clickedCategoryBtn != null) {
+    clickedCategoryBtn.classList.remove('active');
+  }
+  
+  clickedCategoryBtn = event.target;
+  clickedCategoryBtn.classList.add('active');
+  selectedCategory = clickedCategoryBtn.textContent;
+  
   const data = await viewportAnalizer(API_PATH);
   createCard(data.results);
 }
-async function handleIngredientsSelectForm(event) {
-  event.preventDefault();
-  inputValueIngredients = ingredientsSelectForm.value.trim();
-  if (!inputValueIngredients) {
-    return;
-    }
-    console.log(inputValueIngredients);
-    const data = await viewportAnalizer(API_PATH);
-    console.log(data.results);
-  createCard(data.results);
-}
+
+searchEl.addEventListener(
+  'input',
+  debounce(event => handleFilterChange(event, 'search'), 300)
+);
+areasSelectForm.addEventListener('change', event =>
+  handleFilterChange(event, 'area')
+);
+timeSelectForm.addEventListener('change', event =>
+  handleFilterChange(event, 'time')
+);
+ingredientsSelectForm.addEventListener('change', event =>
+  handleFilterChange(event, 'ingredients')
+);
+allCategoriesBtn.addEventListener('click', handleAllCategoriesBtn);
+categoriesSelectorList.addEventListener('click', handleCategoriesSelectorList);

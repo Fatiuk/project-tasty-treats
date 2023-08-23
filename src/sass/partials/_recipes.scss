@@ -1,17 +1,11 @@
-.recipes {
-}
 .recipes-wrap {
   @include respondTo(tablet) {
     display: flex;
     gap: 30px;
-    padding-right: 0px;
-    padding-left: 0px;
   }
   @include respondTo(desktop) {
-    gap: 64px;
+    gap: 63px;
   }
-}
-.categories-and-popular {
 }
 .search-and-cards {
   @include respondTo(tablet) {

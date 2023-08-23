@@ -103,3 +103,21 @@
 
   border-radius: 5px;
 }
+.active-all {
+  body.light-theme & {
+    background-color: $green-full;
+    color: white;
+  }
+  body.dark-theme & {
+    background-color: $green-full;
+    color: white;
+  }
+}
+.active{
+  body.light-theme & {
+    color: $green-full;
+  }
+  body.dark-theme & {
+    color: $green-full;
+  }
+}

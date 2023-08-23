@@ -5,10 +5,10 @@ const categoryContainer = document.querySelector('.category-container');
 const allCategoriesBtn = categoryContainer.querySelector('.all-categories');
 const categoriesList = categoryContainer.querySelector('.category-list');
 
-allCategoriesBtn.addEventListener('click', () => {
-  setActiveCategory(allCategoriesBtn);
-  fetchDataByCategory(null);
-});
+// allCategoriesBtn.addEventListener('click', () => {
+//   setActiveCategory(allCategoriesBtn);
+//   fetchDataByCategory(null);
+// });
 
 fetchDataByPath('/categories')
   .then(categories => {
