@@ -1,6 +1,6 @@
 .favorites-list {
   @include respondTo(desktop) {
-    row-gap: 32pxnpm i;
+    row-gap: 32px;
   }
 }
 

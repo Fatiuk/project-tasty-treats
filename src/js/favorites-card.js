@@ -24,7 +24,7 @@ function createCard(data) {
                 <picture>
                   <source srcset="${preview}" type="image/webp">
                   <source srcset="${preview}" type="image/jpeg">
-                  <img src="${preview}" width="335" height="335" alt="${title}" class="card-img" loading="lazy">
+                  <img src="${preview}" width="335" height="335" alt="${title}" class="card-img favorites-img" loading="lazy">
                 </picture>
                 <div class="test-div"></div>
                 <button type="button" class="btn-heard-icone favorites-icone-btn" aria-label="Add to Favorites">
