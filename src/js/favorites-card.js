@@ -1,6 +1,12 @@
-import { fetchDataByPath } from './request-handler';
 import { fillStars } from './fill-stars.js';
 import { saveIdToLocaleStorage } from './local-storage';
+
+// Change current color
+const homeNavLink = document.querySelector('.nav-item:first-child');
+const favoritesNavLink = document.querySelector('.nav-item:nth-child(2)');
+homeNavLink.classList.remove('current');
+favoritesNavLink.classList.add('current');
+// ----
 
 const startList = document.querySelector('.cards-list');
 
