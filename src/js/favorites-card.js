@@ -4,28 +4,29 @@ import { saveIdToLocaleStorage } from './local-storage';
 
 const startList = document.querySelector('.cards-list');
 
-async function fetchCardsFromLocal() {
+function fetchCardsFromLocal() {
   const localData = localStorage.getItem('heartedButtons');
 
   if (localData !== null) {
     const parsedData = JSON.parse(localData);
-    let arrFavoritesCards = [];
-    for (const data of parsedData) {
-      const dataById = await fetchDataByPath(`/recipes/${data}`);
-      console.log(dataById); // Тут можна додатково обробити отримані дані
-      arrFavoritesCards.push(dataById);
-      createCard(arrFavoritesCards);
-      saveIdToLocaleStorage();
-      removeIdToLocaleStorage();
-    }
+    console.log('parsedData', parsedData);
+    // let arrFavoritesCards = [];
+    // for (const data of parsedData) {
+    // const dataById = await fetchDataByPath(`/recipes/${data}`);
+    // console.log(dataById); // Тут можна додатково обробити отримані дані
+    // arrFavoritesCards.push(dataById);
+    createCard(parsedData);
+    saveIdToLocaleStorage();
+    removeIdToLocaleStorage();
+    // }
   } else {
     console.log('Збережених даних не знайдено');
   }
 }
 
 // Виклик функції
-const dataFromLocal = fetchCardsFromLocal();
-
+// const dataFromLocal = fetchCardsFromLocal();
+fetchCardsFromLocal();
 function createCard(data) {
   const murcup = data.map(
     ({ _id, title, description, rating, preview, thumb }) => {
@@ -43,9 +44,7 @@ function createCard(data) {
                     </svg>
                 </button>
                 <h2 class="cards-item-title favorites-item-title">${title}</h2>
-                <p class="cards-item-text favorites-item-text">
-                    ${description}
-                </p>
+                <p class="cards-item-text favorites-item-text">${description}</p>
                 
                  <div class="card_star-rating favorites_star-rating"> 
                 <p class="cards-raiting favorites-rating">${rating}</p>
