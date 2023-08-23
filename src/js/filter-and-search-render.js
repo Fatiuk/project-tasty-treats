@@ -125,9 +125,10 @@ async function handleFilterChange(event, filterType) {
     default:
       break;
   }
-
+  page = 1;
   const data = await viewportAnalizer(API_PATH);
   totalItems = Number(data.totalPages) * itemsPerPage;
+  
   console.log(totalItems);
   createCard(data.results);
 }
@@ -156,9 +157,10 @@ async function handleAllCategoriesBtn(event) {
   if (!selectedCategory && clickedCategoryBtn) {
     clickedCategoryBtn.classList.remove('active');
   }
-
+  page = 1;
   const data = await viewportAnalizer(API_PATH);
   totalItems = Number(data.totalPages) * itemsPerPage;
+  
   createCard(data.results);
 }
 
@@ -180,9 +182,10 @@ async function handleCategoriesSelectorList(event) {
   clickedCategoryBtn = event.target;
   clickedCategoryBtn.classList.add('active');
   selectedCategory = clickedCategoryBtn.textContent;
-
+  page = 1;
   const data = await viewportAnalizer(API_PATH);
   totalItems = Number(data.totalPages) * itemsPerPage;
+  
   createCard(data.results);
   
 }
