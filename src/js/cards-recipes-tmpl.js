@@ -6,24 +6,24 @@ import Notiflix from 'notiflix';
 
 const startList = document.querySelector('.cards-list');
 // console.log(startList)
-let fetchRecipes = null;
+// let fetchRecipes = null;
 
-const viewportWidth = window.innerWidth;
-if (viewportWidth < 768) {
-  fetchRecipes = fetchDataByPath('/recipes');
-} else if (viewportWidth >= 768 && viewportWidth < 1280) {
-  fetchRecipes = fetchDataByPath('/recipes', null, 8);
-} else {
-  fetchRecipes = fetchDataByPath('/recipes', null, 9);
-}
-fetchRecipes
-  .then(data => {
-    console.log(data.results);
-    createCard(data.results);
-  })
-  .catch(err => {
-    Notiflix.Notify.failure(err.message);
-  });
+// const viewportWidth = window.innerWidth;
+// if (viewportWidth < 768) {
+//   fetchRecipes = fetchDataByPath('/recipes');
+// } else if (viewportWidth >= 768 && viewportWidth < 1280) {
+//   fetchRecipes = fetchDataByPath('/recipes', null, 8);
+// } else {
+//   fetchRecipes = fetchDataByPath('/recipes', null, 9);
+// }
+// fetchRecipes
+//   .then(data => {
+//     console.log(data.results);
+//     createCard(data.results);
+//   })
+//   .catch(err => {
+//     Notiflix.Notify.failure(err.message);
+//   });
 export function createCard(data) {
   const murcup = data.map(
     ({ _id, title, description, rating, preview, thumb }) => {

@@ -13,7 +13,6 @@ const categoriesSelectorList = document.querySelector('.category-list');
 const container = document.getElementById('pagination');
 const viewportWidth = window.innerWidth;
 
-
 let inputValueArea = null;
 let inputValueTime = null;
 let inputValueIngredients = null;
@@ -23,6 +22,15 @@ let clickedCategoryBtn = null;
 let itemsPerPage = 9;
 let totalItems = 360;
 let page = 1;
+
+
+if (viewportWidth < 768) {
+  itemsPerPage = 6;
+} else if (viewportWidth >= 768 && viewportWidth < 1280) {
+  itemsPerPage = 8;
+} else {
+  itemsPerPage = 9;
+}
 
 const options = {
   totalItems: totalItems,
@@ -61,15 +69,8 @@ function getCurrentPage() {
   });
 }
 
-getCurrentPage();
+
 async function viewportAnalizer(API_PATH) {
-  if (viewportWidth < 768) {
-    itemsPerPage = 6;
-  } else if (viewportWidth >= 768 && viewportWidth < 1280) {
-    itemsPerPage = 8;
-  } else {
-    itemsPerPage = 9;
-  }
   return await fetchDataByPath(
     API_PATH,
     page,
@@ -127,11 +128,7 @@ async function handleFilterChange(event, filterType) {
       break;
   }
   page = 1;
-  const data = await viewportAnalizer(API_PATH);
-  totalItems = Number(data.totalPages) * itemsPerPage;
-  
-  console.log(totalItems);
-  createCard(data.results);
+  dataAndPagination();
 }
 
 function resetAllParams() {
@@ -140,7 +137,6 @@ function resetAllParams() {
   inputValueIngredients = null;
   inputValueSearch = null;
   selectedCategory = null;
-  itemsPerPage = 9;
   totalItems = 360;
 }
 
@@ -159,10 +155,7 @@ async function handleAllCategoriesBtn(event) {
     clickedCategoryBtn.classList.remove('active');
   }
   page = 1;
-  const data = await viewportAnalizer(API_PATH);
-  totalItems = Number(data.totalPages) * itemsPerPage;
-  
-  createCard(data.results);
+  dataAndPagination();
 }
 
 async function handleCategoriesSelectorList(event) {
@@ -184,13 +177,14 @@ async function handleCategoriesSelectorList(event) {
   clickedCategoryBtn.classList.add('active');
   selectedCategory = clickedCategoryBtn.textContent;
   page = 1;
+  dataAndPagination();
+}
+async function dataAndPagination() {
   const data = await viewportAnalizer(API_PATH);
   totalItems = Number(data.totalPages) * itemsPerPage;
-  
+  pagination.reset(totalItems);
   createCard(data.results);
-  
 }
-
 searchEl.addEventListener(
   'input',
   debounce(event => handleFilterChange(event, 'search'), 300)
@@ -207,11 +201,8 @@ ingredientsSelectForm.addEventListener('change', event =>
 allCategoriesBtn.addEventListener('click', handleAllCategoriesBtn);
 categoriesSelectorList.addEventListener('click', handleCategoriesSelectorList);
 
-
-
-
-
-
-
-
-
+document.addEventListener(
+  'DOMContentLoaded',
+  dataAndPagination(),
+  getCurrentPage()
+);
