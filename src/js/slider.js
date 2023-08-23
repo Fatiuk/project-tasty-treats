@@ -47,17 +47,29 @@ document.addEventListener('DOMContentLoaded', async () => {
 <div class="swiper-slide">
   <div class="slider-cards">
     <div class="card-shef">
-      <img class="img-shef" src="${item.cook.imgUrl}" alt="${item.cook.name}"/>
+      <picture>
+        <source srcset="${item.cook.imgUrl}" type="image/webp">
+        <source srcset="${item.cook.imgUrl}" type="image/jpeg">
+        <img class="img-shef" src="${item.cook.imgUrl}" alt="${item.cook.name}" loading="lazy">
+      </picture>
     </div>
     <div class="card-food">
-      <img class="img-food" src="${item.topic.previewUrl}" alt="${item.topic.name}"  alt="{item.topic.name}"/>
+      <picture>
+        <source srcset="${item.topic.previewUrl}" type="image/webp">
+        <source srcset="${item.topic.previewUrl}" type="image/jpeg">
+        <img class="img-food" src="${item.topic.previewUrl}" alt="${item.topic.name}" loading="lazy">
+      </picture>
       <div class="swiper-title">
         <p class="swiper-name">${item.topic.name}</p>
         <p class="swiper-area">${item.topic.area}</p>
       </div>
     </div>
     <div class="card-tasty">
-      <img class="img-tasty" src="${item.topic.imgUrl}" alt="${item.topic.name}" />
+      <picture>
+        <source srcset="${item.topic.imgUrl}" type="image/webp">
+        <source srcset="${item.topic.imgUrl}" type="image/jpeg">
+        <img class="img-tasty" src="${item.topic.imgUrl}" alt="${item.topic.name}" loading="lazy">
+      </picture>
     </div>
   </div>
 </div>`;

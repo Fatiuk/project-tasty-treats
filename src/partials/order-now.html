@@ -21,8 +21,9 @@
                 type="text"
                 name="name"
                 id="customer-name"
+                required
                 minlength="2"
-                pattern="[A-Za-zА-Яа-яІіЇї]+(\s+[A-Za-zА-Яа-яІіЇї]+)"
+                pattern="([A-Za-zА-Яа-яІіЇї]+\s)*[A-Za-zА-Яа-яІіЇї]+"
                 title="Іванов Іван/John Snow"
                 autofocus
               />
@@ -39,6 +40,8 @@
                 type="tel"
                 name="phone"
                 id="phone-number"
+                required
+                pattern="\+380\d{9}"
                 minlength="13"
                 title="+380000000000"
               />
@@ -53,6 +56,7 @@
                 type="email"
                 name="email"
                 id="form-email"
+                required
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 title="info@mail.com"
               />

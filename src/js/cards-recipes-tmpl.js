@@ -1,41 +1,39 @@
-import { fillStars } from "./fill-stars";
-import { saveIdToLocaleStorage } from "./localStorage";
-import { fetchDataByPath } from "./request-handler";
+import { fillStars } from './fill-stars';
+import { saveIdToLocaleStorage } from './local-storage';
+import { fetchDataByPath } from './request-handler';
 
 import Notiflix from 'notiflix';
 
-const startList = document.querySelector(".cards-list");
+const startList = document.querySelector('.cards-list');
 // console.log(startList)
 let fetchRecipes = null;
 
 const viewportWidth = window.innerWidth;
 if (viewportWidth < 768) {
-     fetchRecipes = fetchDataByPath('/recipes');
-    
+  fetchRecipes = fetchDataByPath('/recipes');
 } else if (viewportWidth >= 768 && viewportWidth < 1280) {
-     fetchRecipes = fetchDataByPath('/recipes', null, 8);    
+  fetchRecipes = fetchDataByPath('/recipes', null, 8);
 } else {
-     fetchRecipes = fetchDataByPath('/recipes', null, 9);
-
+  fetchRecipes = fetchDataByPath('/recipes', null, 9);
 }
-
-
-// const fetchRecipes = fetchDataByPath('/recipes');
-// console.log('fetchRecipes', fetchRecipes)
-
-fetchRecipes.then((data) => {
-    console.log(data.results)
+fetchRecipes
+  .then(data => {
+    console.log(data.results);
     createCard(data.results);
-}).catch((err) => {
+  })
+  .catch(err => {
     Notiflix.Notify.failure(err.message);
-    
-})
+  });
 export function createCard(data) {
-
-    const murcup = data.map(({ _id, title, description, rating, preview, thumb }) => {
-        return `
+  const murcup = data.map(
+    ({ _id, title, description, rating, preview, thumb }) => {
+      return `
         <li class="cards-item">
-                <img src="${preview}" alt="${title}" class="card-img">
+                <picture>
+                  <source srcset="${preview}" type="image/webp">
+                  <source srcset="${preview}" type="image/jpeg">
+                  <img src="${preview}" alt="${title}" class="card-img" loading="lazy">
+                </picture>
                 <div class="test-div"></div>
                 <button type="button" class="btn-heard-icone">
                     <svg class="cards-heard-icon" width="22" height="22" viewBox="0 0 32 32">
@@ -70,25 +68,11 @@ export function createCard(data) {
 
                  </div> 
             </li>
-    `
-    })
-    
-    startList.innerHTML = murcup.join('')
-    fillStars()
-    saveIdToLocaleStorage()
+    `;
+    }
+  );
 
-//     const btnIconeHeardEl = document.querySelector(".btn-heard-icone");
-// console.log( btnIconeHeardEl)
-
-//     btnIconeHeardEl.addEventListener("click", handlerIconeClick);
-
+  startList.innerHTML = murcup.join('');
+  fillStars();
+  saveIdToLocaleStorage();
 }
-
-
-// function handlerIconeClick(e) {
-//     console.log('target',e.target)
-//     const svgHeardEl = document.querySelector('.cards-heard-icon');
-//     console.log('svgHeardEl',svgHeardEl)
-//     svgHeardEl.classList.toggle('js-fill')
-// }
-  

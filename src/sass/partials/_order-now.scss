@@ -113,6 +113,10 @@
   color: $black-full;
 }
 
+.order-form-btn:disabled {
+  background-color: $gray-full;
+}
+
 // ======== Темна тема ========
 body.dark-theme {
   .order-modal {
