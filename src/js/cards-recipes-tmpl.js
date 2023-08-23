@@ -2,28 +2,8 @@ import { fillStars } from './fill-stars';
 import { saveIdToLocaleStorage } from './local-storage';
 import { fetchDataByPath } from './request-handler';
 
-import Notiflix from 'notiflix';
-
 const startList = document.querySelector('.cards-list');
-// console.log(startList)
-// let fetchRecipes = null;
 
-// const viewportWidth = window.innerWidth;
-// if (viewportWidth < 768) {
-//   fetchRecipes = fetchDataByPath('/recipes');
-// } else if (viewportWidth >= 768 && viewportWidth < 1280) {
-//   fetchRecipes = fetchDataByPath('/recipes', null, 8);
-// } else {
-//   fetchRecipes = fetchDataByPath('/recipes', null, 9);
-// }
-// fetchRecipes
-//   .then(data => {
-//     console.log(data.results);
-//     createCard(data.results);
-//   })
-//   .catch(err => {
-//     Notiflix.Notify.failure(err.message);
-//   });
 export function createCard(data) {
   const murcup = data.map(
     ({ _id, title, description, rating, preview, thumb }) => {
@@ -43,8 +23,8 @@ export function createCard(data) {
                 <h2 class="cards-item-title">${title}</h2>
                 <p class="cards-item-text">${description}</p>
                 
-                 <div class="card_star-rating"> 
-                <p class="cards-raiting">${rating}</p>
+                <div class="card_star-rating"> 
+                <p class="text-rating cards-raiting">${rating}</p>
                 <div class="rating-wrapper wrapper">
                     <svg class="card-rating-icon" data-raiting="one" id="all-stars">
                         <path id="Star 1" d="M6.04894 1.42705C6.3483 0.505742 7.6517 0.505741 7.95106 1.42705L8.79611 4.02786C8.92999 4.43989 9.31394 4.71885 9.74717 4.71885H12.4818C13.4505 4.71885 13.8533 5.95846 13.0696 6.52786L10.8572 8.13525C10.5067 8.3899 10.3601 8.84127 10.494 9.25329L11.339 11.8541C11.6384 12.7754 10.5839 13.5415 9.80017 12.9721L7.58779 11.3647C7.2373 11.1101 6.7627 11.1101 6.41221 11.3647L4.19983 12.9721C3.41612 13.5415 2.36164 12.7754 2.66099 11.8541L3.50604 9.25329C3.63992 8.84127 3.49326 8.3899 3.14277 8.13525L0.930391 6.52787C0.146678 5.95846 0.549452 4.71885 1.51818 4.71885H4.25283C4.68606 4.71885 5.07001 4.43989 5.20389 4.02786L6.04894 1.42705Z" sroke="black"></path>

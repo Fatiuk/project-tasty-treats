@@ -1,4 +1,5 @@
 import { fetchDataByPath } from './request-handler.js';
+import { fillStars } from './fill-stars.js';
 
 const refs = {
   allCards: document.querySelector('.cards-list'),
@@ -22,6 +23,7 @@ async function handlerGetIdCard(event) {
   const dataById = await fetchDataByPath(`/recipes/${buttonId}`);
   const modalMarkup = createMarkupModal(dataById);
   refs.modalCardCont.innerHTML = modalMarkup;
+  fillStars();
 
   refs.modalBackdrop.classList.add('is-open');
   refs.allCards.removeEventListener('click', handlerGetIdCard);
@@ -97,9 +99,9 @@ export function createMarkupModal(data) {
         ></iframe>
         <h2 class="modal-recipe-name">${data.title}</h2>
         <div class="modal-general-inf">
-          <div class="card-star-modal">
-            <p class="modal-raiting">${roundedRating}</p>
-            <div class="starts-modal">
+          <div class="card-star-modal card_star-rating">
+            <p class="modal-raiting cards-raiting">${roundedRating}</p>
+            <div class="starts-modal rating-wrapper">
               <svg class="card-rating-icon" data-raiting="one" id="all-stars">
                 <path
                   id="Star 1"
