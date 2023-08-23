@@ -183,11 +183,14 @@
   fill: #fff;
 }
 
-.rating-wrapper {
+.wrapper {
   display: flex;
   position: absolute;
   bottom: 20px;
   left: 45px;
+}
+
+.rating-wrapper {
 }
 
 .card-rating-icon {
