@@ -1,262 +1,258 @@
 $pagination-disabled-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none'%3E%3Cpath fill='%23F8F8F8' fill-opacity='0.5' d='M10.6 12.71a1.002 1.002 0 0 1 0-1.42l4.59-4.58a1 1 0 1 0-1.41-1.42L9.19 9.88a3 3 0 0 0 0 4.24l4.59 4.59a1 1 0 0 0 1.41-1.42l-4.59-4.58Z'/%3E%3C/svg%3E");
 $pagination-enabled-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none'%3E%3Cpath fill='%23050505' d='M10.6 12.71a1.002 1.002 0 0 1 0-1.42l4.59-4.58a1 1 0 1 0-1.41-1.42L9.19 9.88a3 3 0 0 0 0 4.24l4.59 4.59a1 1 0 0 0 1.41-1.42l-4.59-4.58Z'/%3E%3C/svg%3E");
 
-
 .pagination-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 80px;
-    
-    @include respondTo(tablet) {   
-        margin-top: 64px; 
-        margin-bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+
+  @include respondTo(tablet) {
+    margin-top: 64px;
   }
-  }
-
-  .tui-pagination {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: 8px;
-
-    @include respondTo(tablet) {
-        gap: 10px;
-    }
-  }
-  
-  .tui-page-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.22;
-    transition: color $transition, 
-    background-color $transition, 
-    border-color $transition;
-
- 
-
-    @include respondTo(tablet) {   
-        width: 44px;
-        height: 44px;
-  }
-
-    body.light-theme & {
-        color: $black-full;
-        border-color: lightColor('black-low')
-      }
-    
-      body.dark-theme & {
-        color: darkColor('white-full');
-        border-color: darkColor('white-semi-low');
-      }
-
-  }
-
-  .tui-page-btn:hover {
-    body.light-theme & {
-        color: lightColor('white-full');
-        background-color: $green-full;
-        border-color: $green-full;
-      }
-    
-      body.dark-theme & {
-        color: $black-full;
-        background-color: $green-full;
-        border-color: $green-full;
-      }
 }
 
-.tui-first, .tui-prev, .tui-next, .tui-last {
+.tui-pagination {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 8px;
+
+  @include respondTo(tablet) {
+    gap: 10px;
+  }
+}
+
+.tui-page-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.22;
+  transition: color $transition, background-color $transition,
+    border-color $transition;
+
+  @include respondTo(tablet) {
+    width: 44px;
+    height: 44px;
+  }
+
+  body.light-theme & {
+    color: $black-full;
+    border-color: lightColor('black-low');
+  }
+
+  body.dark-theme & {
+    color: darkColor('white-full');
+    border-color: darkColor('white-semi-low');
+  }
+}
+
+.tui-page-btn:hover {
+  body.light-theme & {
+    color: lightColor('white-full');
+    background-color: $green-full;
+    border-color: $green-full;
+  }
+
+  body.dark-theme & {
+    color: $black-full;
+    background-color: $green-full;
+    border-color: $green-full;
+  }
+}
+
+.tui-first,
+.tui-prev,
+.tui-next,
+.tui-last {
   transition: color $transition, background-color $transition;
 }
 
-.tui-first:hover, .tui-prev:hover, .tui-next:hover, .tui-last:hover {
-    body.light-theme & {
-        background-color: lightColor('white-full');
-      }
-    
-      body.dark-theme & {
-        background-color: lightColor('white-full');
-      }
+.tui-first:hover,
+.tui-prev:hover,
+.tui-next:hover,
+.tui-last:hover {
+  body.light-theme & {
+    background-color: lightColor('white-full');
+  }
+
+  body.dark-theme & {
+    background-color: lightColor('white-full');
+  }
 }
 
-  .tui-page-btn.tui-is-selected {
-    body.light-theme & {
-        color: $black-full;
-        border-color: $green-full;
-        background-color: $green-full;
-      }
-    
-      body.dark-theme & {
-        color: lightColor('white-full');
-        border-color: $green-full;
-        background-color: $green-full;
-      }
-  }
-  
-  .tui-first {
-    margin-right: -4px;
-    width: 40px;
-    height: 40px;
-    background-image: $pagination-enabled-icon, $pagination-enabled-icon;
-    background-position: 35%, 65%;
-    background-repeat: no-repeat, no-repeat;
-
-    body.light-theme & {
-        border-color: $green-full;
-        background-color: $green-full;
-      }
-    
-      body.dark-theme & {
-        border-color: $green-full;
-        background-color: $green-full;
-      }
-
-    @include respondTo(tablet) {
-     margin-right: -2px;
-     width: 44px;
-     height: 44px;
-     background-size: 24px 24px;
-     background-position: 25%, 70%;
-    }
+.tui-page-btn.tui-is-selected {
+  body.light-theme & {
+    color: $black-full;
+    border-color: $green-full;
+    background-color: $green-full;
   }
 
-  .tui-first.tui-is-disabled {
-        background-image: $pagination-disabled-icon, $pagination-disabled-icon;
+  body.dark-theme & {
+    color: lightColor('white-full');
+    border-color: $green-full;
+    background-color: $green-full;
+  }
+}
 
-    body.light-theme & {
-        border-color: $black-full;
-        background-color: $black-full;
-      }
-    
-      body.dark-theme & {
-        border-color: $black-full;
-        background-color: $black-full;
-      }
+.tui-first {
+  margin-right: -4px;
+  width: 40px;
+  height: 40px;
+  background-image: $pagination-enabled-icon, $pagination-enabled-icon;
+  background-position: 35%, 65%;
+  background-repeat: no-repeat, no-repeat;
+
+  body.light-theme & {
+    border-color: $green-full;
+    background-color: $green-full;
   }
 
-  .tui-prev {
-    margin-right: 4px;
-    background-image: $pagination-enabled-icon;
-    background-repeat: no-repeat;
-    background-position: center;
-    body.light-theme & {
-        border-color: $green-full;
-        background-color: $green-full;
-      }
-    
-      body.dark-theme & {
-        border-color: $green-full;
-        background-color: $green-full;
-      }
+  body.dark-theme & {
+    border-color: $green-full;
+    background-color: $green-full;
+  }
 
-    @include respondTo(tablet) {
-     margin-right: 14px;
-     width: 44px;
+  @include respondTo(tablet) {
+    margin-right: -2px;
+    width: 44px;
     height: 44px;
     background-size: 24px 24px;
-    }
+    background-position: 25%, 70%;
+  }
+}
+
+.tui-first.tui-is-disabled {
+  background-image: $pagination-disabled-icon, $pagination-disabled-icon;
+
+  body.light-theme & {
+    border-color: $black-full;
+    background-color: $black-full;
   }
 
-  .tui-prev.tui-is-disabled {
-        background-image: $pagination-disabled-icon;
-        body.light-theme & {
-        border-color: $black-full;
-        background-color: $black-full;
-      }
-    
-      body.dark-theme & {
-        border-color: $black-full;
-        background-color: $black-full;
-      }
+  body.dark-theme & {
+    border-color: $black-full;
+    background-color: $black-full;
   }
-  
-  .tui-next {
-    margin-left: 4px;
-    background-image: $pagination-enabled-icon;
-    transform: scale(-1);
-    background-repeat: no-repeat;
-    background-position: center;
-    body.light-theme & {
-        border-color: $green-full;
-        background-color: $green-full;
-      }
-    
-      body.dark-theme & {
-        border-color: $green-full;
-        background-color: $green-full;
-      }
+}
 
-    @include respondTo(tablet) {
-     margin-left: 14px;
-     width: 44px;
+.tui-prev {
+  margin-right: 4px;
+  background-image: $pagination-enabled-icon;
+  background-repeat: no-repeat;
+  background-position: center;
+  body.light-theme & {
+    border-color: $green-full;
+    background-color: $green-full;
+  }
+
+  body.dark-theme & {
+    border-color: $green-full;
+    background-color: $green-full;
+  }
+
+  @include respondTo(tablet) {
+    margin-right: 14px;
+    width: 44px;
     height: 44px;
     background-size: 24px 24px;
-    }
+  }
+}
+
+.tui-prev.tui-is-disabled {
+  background-image: $pagination-disabled-icon;
+  body.light-theme & {
+    border-color: $black-full;
+    background-color: $black-full;
   }
 
-  .tui-next.tui-is-disabled {
-    background-image: $pagination-disabled-icon;
-    body.light-theme & {
-        border-color: $black-full;
-        background-color: $black-full;
-      }
-    
-      body.dark-theme & {
-        border-color: $black-full;
-        background-color: $black-full;
-      }
+  body.dark-theme & {
+    border-color: $black-full;
+    background-color: $black-full;
+  }
+}
+
+.tui-next {
+  margin-left: 4px;
+  background-image: $pagination-enabled-icon;
+  transform: scale(-1);
+  background-repeat: no-repeat;
+  background-position: center;
+  body.light-theme & {
+    border-color: $green-full;
+    background-color: $green-full;
   }
 
-    .tui-last {
-        margin-left: -4px;
-        width: 40px;
-        height: 40px;
-        background-image: $pagination-enabled-icon, $pagination-enabled-icon;
-        background-position: 35%, 65%;
-        background-repeat: no-repeat, no-repeat;
-        transform: scale(-1);
-    
-        body.light-theme & {
-            border-color: $green-full;
-            background-color: $green-full;
-          }
-        
-          body.dark-theme & {
-            border-color: $green-full;
-            background-color: $green-full;
-          }
-    
-        @include respondTo(tablet) {
-         margin-left: -2px;
-         width: 44px;
-         height: 44px;
-         background-size: 24px 24px;
-         background-position: 25%, 70%;
-        }
-    }
-  
-    .tui-last.tui-is-disabled {
-      background-image: $pagination-disabled-icon, $pagination-disabled-icon;
+  body.dark-theme & {
+    border-color: $green-full;
+    background-color: $green-full;
+  }
 
-    body.light-theme & {
-        border-color: $black-full;
-        background-color: $black-full;
-      }
-    
-      body.dark-theme & {
-        border-color: $black-full;
-        background-color: $black-full;
-      }
-    }
+  @include respondTo(tablet) {
+    margin-left: 14px;
+    width: 44px;
+    height: 44px;
+    background-size: 24px 24px;
+  }
+}
 
+.tui-next.tui-is-disabled {
+  background-image: $pagination-disabled-icon;
+  body.light-theme & {
+    border-color: $black-full;
+    background-color: $black-full;
+  }
 
-  
+  body.dark-theme & {
+    border-color: $black-full;
+    background-color: $black-full;
+  }
+}
+
+.tui-last {
+  margin-left: -4px;
+  width: 40px;
+  height: 40px;
+  background-image: $pagination-enabled-icon, $pagination-enabled-icon;
+  background-position: 35%, 65%;
+  background-repeat: no-repeat, no-repeat;
+  transform: scale(-1);
+
+  body.light-theme & {
+    border-color: $green-full;
+    background-color: $green-full;
+  }
+
+  body.dark-theme & {
+    border-color: $green-full;
+    background-color: $green-full;
+  }
+
+  @include respondTo(tablet) {
+    margin-left: -2px;
+    width: 44px;
+    height: 44px;
+    background-size: 24px 24px;
+    background-position: 25%, 70%;
+  }
+}
+
+.tui-last.tui-is-disabled {
+  background-image: $pagination-disabled-icon, $pagination-disabled-icon;
+
+  body.light-theme & {
+    border-color: $black-full;
+    background-color: $black-full;
+  }
+
+  body.dark-theme & {
+    border-color: $black-full;
+    background-color: $black-full;
+  }
+}

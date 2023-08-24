@@ -125,10 +125,30 @@
 }
 
 .modal-ingr-list {
+  margin-top: 20px;
+  max-height: 156px;
+  overflow: hidden;
+  overflow-y: auto;
   margin-bottom: 40px;
   @include respondTo(tablet) {
     margin-bottom: 32px;
   }
+}
+
+.modal-ingr-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-ingr-list::-webkit-scrollbar-thumb {
+  body.light-theme & {
+    background-color: lightColor('black-max-opacity');
+  }
+
+  body.dark-theme & {
+    background-color: darkColor('white-semi-max-opacity');
+  }
+
+  border-radius: 5px;
 }
 
 .modal-card-ingr {
@@ -136,6 +156,7 @@
   justify-content: space-between;
   padding-top: 14px;
   padding-bottom: 6px;
+  padding-right: 6px;
   border-bottom: 1px solid rgba(5, 5, 5, 0.1);
 }
 

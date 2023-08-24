@@ -14,3 +14,9 @@ import './js/favorites-card.js';
 import './js/favorites-all-categoriel.js';
 
 import './js/modal.js';
+
+import './js/order-now.js';
+
+import './js/order-form.js';
+
+import './js/rating-modal.js';

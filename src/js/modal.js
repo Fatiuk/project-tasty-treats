@@ -24,28 +24,7 @@ async function handlerGetIdCard(event) {
   const modalMarkup = createMarkupModal(dataById);
   refs.modalCardCont.innerHTML = modalMarkup;
   fillStars();
-
-  refs.modalBackdrop.classList.add('is-open');
-  refs.allCards.removeEventListener('click', handlerGetIdCard);
-
-  //  Додаю слухачі
-  refs.modalBackdrop.addEventListener('click', closeModalsOnBackdropOrEsc);
-  document.addEventListener('keydown', closeModalsOnBackdropOrEsc);
-  // Для зупинки відео після закриття модалки
-  const youtubeIframe = document.querySelector('.iframe-video');
-
-  document.body.style.overflow = 'hidden';
-
-  refs.modalButtonClose.addEventListener('click', () => {
-    refs.modalBackdrop.classList.remove('is-open');
-    refs.allCards.addEventListener('click', handlerGetIdCard);
-    document.body.style.overflow = 'auto';
-    //  Знімаю слухачі
-    refs.modalBackdrop.removeEventListener('click', closeModalsOnBackdropOrEsc);
-    document.removeEventListener('keydown', closeModalsOnBackdropOrEsc);
-    // зупиняю відео
-    youtubeIframe.src = '';
-  });
+  openModal();
 }
 
 export function createMarkupModal(data) {
@@ -66,7 +45,6 @@ export function createMarkupModal(data) {
   const roundedRating = parseFloat(data.rating).toFixed(1);
   // !------------------------------------------
   const tagsToRender = data.tags.slice(0, 3);
-  console.log(tagsToRender);
 
   const tagsMarkup = tagsToRender
     .map(
@@ -149,43 +127,55 @@ export function createMarkupModal(data) {
   return modalCardMarkup;
 }
 
-refs.giveRatingModalBtn.addEventListener('click', handlerOpenRating);
-
-function handlerOpenRating(event) {
-  refs.modalBackdrop.classList.remove('is-open');
-  refs.ratingModal.classList.add('is-open');
-  refs.ratingModal.addEventListener('click', closeModalsOnBackdropOrEsc);
-  document.addEventListener('keydown', closeModalsOnBackdropOrEsc);
-
-  refs.ratingClose.addEventListener('click', () => {
-    refs.ratingModal.classList.remove('is-open');
-    refs.allCards.addEventListener('click', handlerGetIdCard);
-    document.body.style.overflow = 'auto';
-
-    refs.ratingModal.removeEventListener('click', closeModalsOnBackdropOrEsc);
-    document.removeEventListener('keydown', closeModalsOnBackdropOrEsc);
-  });
+export function openModal() {
+  refs.modalButtonClose.addEventListener('click', closeModal);
+  refs.modalBackdrop.addEventListener('click', closeModalOnBackdrop);
+  refs.giveRatingModalBtn.addEventListener('click', openRatingModal);
+  window.addEventListener('keydown', handleKeyDown);
+  refs.modalBackdrop.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
 }
 
-// Закриття модалки по кліку та Esc
-// !------------------------------------------
-function closeModalsOnBackdropOrEsc(event) {
-  if (event.code === 'Escape' || event.target === refs.modalBackdrop) {
-    refs.modalBackdrop.classList.remove('is-open');
-    refs.allCards.addEventListener('click', handlerGetIdCard);
-    document.body.style.overflow = 'auto';
-    refs.modalBackdrop.removeEventListener('click', closeModalsOnBackdropOrEsc);
-    document.removeEventListener('keydown', closeModalsOnBackdropOrEsc);
-    // зупинка відео
-    const youtubeIframe = document.querySelector('.iframe-video');
-    youtubeIframe.src = '';
+function handleKeyDown(event) {
+  if (event.key === 'Escape') {
+    closeModal();
+    closeRatingModal();
   }
+}
 
-  if (event.code === 'Escape' || event.target === refs.ratingModal) {
-    refs.ratingModal.classList.remove('is-open');
-    refs.allCards.addEventListener('click', handlerGetIdCard);
+export function closeModal() {
+  refs.modalButtonClose.removeEventListener('click', closeModal);
+  refs.modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
+  window.removeEventListener('keydown', handleKeyDown);
+  refs.modalBackdrop.classList.remove('is-open');
+  document.body.style.overflow = 'auto';
+}
+
+export function closeModalOnBackdrop() {
+  if (event && event.target === refs.modalBackdrop) {
+    refs.modalButtonClose.removeEventListener('click', closeModal);
+    refs.modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
+    window.removeEventListener('keydown', handleKeyDown);
+    refs.modalBackdrop.classList.remove('is-open');
     document.body.style.overflow = 'auto';
-    refs.ratingModal.removeEventListener('click', closeModalsOnBackdropOrEsc);
-    document.removeEventListener('keydown', closeModalsOnBackdropOrEsc);
+  }
+}
+
+function openRatingModal() {
+  refs.ratingClose.addEventListener('click', closeRatingModal);
+  refs.ratingModal.addEventListener('click', closeRatingOnBackdrop);
+  refs.modalBackdrop.classList.remove('is-open');
+  refs.ratingModal.classList.add('is-open');
+}
+
+function closeRatingModal() {
+  refs.ratingModal.classList.remove('is-open');
+  document.body.style.overflow = 'auto';
+}
+
+export function closeRatingOnBackdrop() {
+  if (event && event.target === refs.ratingModal) {
+    refs.ratingModal.classList.remove('is-open');
+    document.body.style.overflow = 'auto';
   }
 }
