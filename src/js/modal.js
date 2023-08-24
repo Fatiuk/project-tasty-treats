@@ -1,5 +1,6 @@
 import { fetchDataByPath } from './request-handler.js';
 import { fillStars } from './fill-stars.js';
+import { reset } from './rating-modal.js';
 
 const refs = {
   allCards: document.querySelector('.cards-list'),
@@ -149,6 +150,8 @@ export function closeModal() {
   window.removeEventListener('keydown', handleKeyDown);
   refs.modalBackdrop.classList.remove('is-open');
   document.body.style.overflow = 'auto';
+  const youtubeIframe = document.querySelector('.iframe-video');
+  youtubeIframe.src = '';
 }
 
 export function closeModalOnBackdrop() {
@@ -158,6 +161,8 @@ export function closeModalOnBackdrop() {
     window.removeEventListener('keydown', handleKeyDown);
     refs.modalBackdrop.classList.remove('is-open');
     document.body.style.overflow = 'auto';
+    const youtubeIframe = document.querySelector('.iframe-video');
+    youtubeIframe.src = '';
   }
 }
 
@@ -166,6 +171,7 @@ function openRatingModal() {
   refs.ratingModal.addEventListener('click', closeRatingOnBackdrop);
   refs.modalBackdrop.classList.remove('is-open');
   refs.ratingModal.classList.add('is-open');
+  reset();
 }
 
 function closeRatingModal() {
