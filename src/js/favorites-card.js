@@ -4,6 +4,9 @@ import { saveIdToLocaleStorage } from './local-storage';
 // Change current color
 const homeNavLink = document.querySelector('.nav-item:first-child');
 const favoritesNavLink = document.querySelector('.nav-item:nth-child(2)');
+const favHeroContainer = document.querySelector('.favorites-hero');
+const favCategoriesContainer = document.querySelector('.favorites-categories');
+const favDefaultContainer = document.querySelector('.favorites-default');
 homeNavLink.classList.remove('current');
 favoritesNavLink.classList.add('current');
 // ----
@@ -13,9 +16,10 @@ const startList = document.querySelector('.cards-list');
 function fetchCardsFromLocal() {
   const localData = localStorage.getItem('heartedButtons');
 
-  if (localData !== null) {
+  if (localData !== '[]') {
     const parsedData = JSON.parse(localData);
     createCard(parsedData);
+    removeEmptyFavoritesMessage();
     saveIdToLocaleStorage();
     removeIdToLocaleStorage();
   }
@@ -81,4 +85,15 @@ function removeIdToLocaleStorage() {
       card2.style.display = 'none';
     });
   });
+}
+
+function removeEmptyFavoritesMessage() {
+  if (window.innerWidth > 768) {
+    favHeroContainer.style.display = 'block';
+    favCategoriesContainer.style.display = 'block';
+    favDefaultContainer.style.display = 'none';
+  } else {
+    favCategoriesContainer.style.display = 'block';
+    favDefaultContainer.style.display = 'none';
+  }
 }
