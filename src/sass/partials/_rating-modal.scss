@@ -106,6 +106,10 @@ input[type='radio']:checked ~ svg.star {
   }
 }
 
+.rating-send-btn:disabled {
+  background-color: $gray-full;
+}
+
 // ======== Темна тема ========
 body.dark-theme {
   .rating-modal-card {
@@ -122,4 +126,9 @@ body.dark-theme {
   .rating-email-input::placeholder {
     color: darkColor('white-semi-light');
   }
+}
+
+.js-stars {
+  fill: #eea10c;
+  stroke: transparent;
 }

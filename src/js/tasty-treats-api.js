@@ -35,23 +35,33 @@ export default class TastyTreatsAPI {
         formData
       );
       Report.success(
-        'Notiflix Success',
+        'Success',
         '"Do not try to become a person of success but try to become a person of value." <br/><br/>- Albert Einstein',
         'Okay'
       );
       return response.data;
     } catch (error) {
-      Report.failure(
-        'Notiflix Failure',
-        '"Failure is simply the opportunity to begin again, this time more intelligently." <br/><br/>- Henry Ford',
-        'Okay'
-      );
+      Report.failure(error.response.data.message);
       console.log(error);
     }
   }
 
   // Update existing treats data using the Tasty Treats API.
-  async updateTreats(apiPath) {
-    return await axios.patch(`${this.#BASE_URL}${apiPath}`);
+  async updateTreats(apiPath, formData) {
+    try{
+      const response = await axios.patch(
+      `${this.#BASE_URL}${apiPath}`,
+      formData);
+      Report.success(
+        'Success',
+        '"Do not try to become a person of success but try to become a person of value." <br/><br/>- Albert Einstein',
+        'Okay'
+      );
+      return response.data
+    }catch(error){
+      Report.failure(error.response.data.message);
+      
+    }
+    
   }
 }
