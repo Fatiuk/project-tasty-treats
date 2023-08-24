@@ -1,4 +1,5 @@
 import TastyTreatsAPI from './tasty-treats-api';
+import { Notify } from 'notiflix';
 
 const tastyTreatsApi = new TastyTreatsAPI();
 
@@ -11,9 +12,8 @@ formBtnEl.setAttribute('disabled', true);
 async function addOrder(data) {
   try {
     const response = await tastyTreatsApi.createTreats('/orders/add', data);
-    console.log(response);
   } catch (error) {
-    console.log(error);
+    Notify.error(error);
   }
 }
 

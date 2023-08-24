@@ -1,0 +1,19 @@
+$font-family-inter: 'Inter';
+
+@mixin font-face($font-family, $font-weight, $font-file) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('#{$font-file}.eot');
+    src: url('#{$font-file}.eot?#iefix') format('embedded-opentype'),
+      url('#{$font-file}.woff2') format('woff2'),
+      url('#{$font-file}.woff') format('woff'),
+      url('#{$font-file}.ttf') format('truetype');
+    font-weight: $font-weight;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+@include font-face($font-family-inter, normal, '../fonts/Inter-Regular');
+@include font-face($font-family-inter, 500, '../fonts/Inter-Medium');
+@include font-face($font-family-inter, 600, '../fonts/Inter-SemiBold');

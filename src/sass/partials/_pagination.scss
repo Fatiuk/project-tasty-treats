@@ -1,6 +1,16 @@
 $pagination-disabled-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none'%3E%3Cpath fill='%23F8F8F8' fill-opacity='0.5' d='M10.6 12.71a1.002 1.002 0 0 1 0-1.42l4.59-4.58a1 1 0 1 0-1.41-1.42L9.19 9.88a3 3 0 0 0 0 4.24l4.59 4.59a1 1 0 0 0 1.41-1.42l-4.59-4.58Z'/%3E%3C/svg%3E");
 $pagination-enabled-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none'%3E%3Cpath fill='%23050505' d='M10.6 12.71a1.002 1.002 0 0 1 0-1.42l4.59-4.58a1 1 0 1 0-1.41-1.42L9.19 9.88a3 3 0 0 0 0 4.24l4.59 4.59a1 1 0 0 0 1.41-1.42l-4.59-4.58Z'/%3E%3C/svg%3E");
 
+.tui-next-is-ellip,
+.tui-prev-is-ellip {
+  @include respondTo(mobile) {
+    display: none !important;
+  }
+  @include respondTo(tablet) {
+    display: flex !important;
+  }
+}
+
 .pagination-wrapper {
   display: flex;
   align-items: center;
@@ -22,7 +32,7 @@ $pagination-enabled-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.or
     gap: 10px;
   }
 }
-.pagination{
+.pagination {
   display: inline;
 }
 .tui-page-btn {

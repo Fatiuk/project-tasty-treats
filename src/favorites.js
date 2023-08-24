@@ -15,6 +15,8 @@ import './js/favorites-all-categoriel.js';
 
 import './js/modal.js';
 
+import './js/add-to-favorite.js';
+
 import './js/order-now.js';
 
 import './js/order-form.js';

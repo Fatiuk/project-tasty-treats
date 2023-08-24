@@ -18,9 +18,8 @@ async function updateTreats(id, data) {
       `/recipes/${id}/rating`,
       data
     );
-    console.log(response);
   } catch (error) {
-    console.error(error);
+    Notify.error(error);
   }
 }
 
@@ -28,7 +27,6 @@ btnSubmit.addEventListener('click', handleBtnClick);
 
 function handleBtnClick() {
   const id = btnSubmit.id;
-  console.log(id);
   const emailValue = inputEmail.value.trim();
 
   let ratingValue = 0;
@@ -36,7 +34,6 @@ function handleBtnClick() {
   inputStar.forEach(input => {
     if (input.checked) {
       ratingValue = input.value;
-      console.log(ratingValue);
     }
   });
 

@@ -11,6 +11,7 @@ const refs = {
   ratingModal: document.querySelector('.rating-backdrop'),
   ratingButton: document.querySelector('.rating-send-btn'),
   ratingClose: document.querySelector('.modal-rating-close'),
+  addToFavorite: document.querySelector('.modal-add-favorite'),
 };
 
 refs.allCards.addEventListener('click', handlerGetIdCard);
@@ -21,6 +22,7 @@ async function handlerGetIdCard(event) {
   }
   const buttonId = event.target.getAttribute('id');
   refs.ratingButton.id = buttonId;
+  refs.addToFavorite.id = buttonId;
   const dataById = await fetchDataByPath(`/recipes/${buttonId}`);
   const modalMarkup = createMarkupModal(dataById);
   refs.modalCardCont.innerHTML = modalMarkup;
@@ -45,7 +47,7 @@ export function createMarkupModal(data) {
 
   const roundedRating = parseFloat(data.rating).toFixed(1);
   // !------------------------------------------
-  const tagsToRender = data.tags.slice(0, 3);
+  const tagsToRender = data.tags.slice(0, 2);
 
   const tagsMarkup = tagsToRender
     .map(
