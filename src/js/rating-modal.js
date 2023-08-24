@@ -78,3 +78,18 @@ function resetRating() {
   ratingEl.textContent = '0.0';
   closeModal.classList.remove('is-open');
 }
+// !---------------------------------
+export function reset() {
+  inputEmail.value = '';
+  ratingEl.textContent = '0.0';
+  inputStar.forEach(input => {
+    input.checked = false;
+  });
+  starEl.forEach((star, index) => {
+    if (index < 5) {
+      star.classList.remove('js-stars');
+    } else {
+      star.classList.add('js-stars');
+    }
+  });
+}

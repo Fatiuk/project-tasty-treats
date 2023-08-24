@@ -99,6 +99,7 @@
 .modal-general-inf {
   display: flex;
   flex-direction: column;
+  padding-top: 3px;
 }
 
 .hashtag-btn-list-tablet {
@@ -111,7 +112,8 @@
   margin-bottom: 33px;
   color: lightColor('black-semi');
   @include respondTo(tablet) {
-    margin-bottom: 38px;
+    margin-bottom: 32px;
+    margin-left: auto;
   }
 }
 
@@ -121,11 +123,11 @@
 
 .starts-modal {
   display: flex;
-  margin-right: 16px;
+  margin-right: 6px;
 }
 
 .modal-ingr-list {
-  margin-top: 20px;
+  // margin-top: 20px;
   max-height: 156px;
   overflow: hidden;
   overflow-y: auto;
@@ -169,7 +171,7 @@
   margin-bottom: 24px;
   @include respondTo(tablet) {
     position: absolute;
-    top: 325;
+    top: 295;
     margin-bottom: 0px;
   }
 }
