@@ -1,8 +1,21 @@
+.popular-recipes-wrap {
+  transition: filter $transition;
+  &:hover {
+    filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.3));
+  }
+}
+
 .popular-recipes-wrap:nth-last-child(-n + 2) {
   display: none;
 
   @include respondTo(tablet) {
     display: flex;
+  }
+}
+
+body.dark-theme {
+  .popular-recipes-wrap:hover {
+    filter: drop-shadow(4px 4px 12px rgba(255, 255, 255, 0.1));
   }
 }
 

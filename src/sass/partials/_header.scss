@@ -18,7 +18,9 @@
     font-size: 12px;
   }
 }
-.nav-link {
+
+.nav-item {
+  position: relative;
   display: block;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -31,6 +33,27 @@
 
 .current {
   color: $green-full;
+}
+
+.icon-fork {
+  position: absolute;
+  top: -60;
+  left: 0;
+  fill: $green-full;
+  stroke: black;
+  width: 36px;
+  height: 36px;
+  transform: rotate(-45deg);
+  pointer-events: none;
+  transition: top $transition;
+}
+
+.icon-fork.fav {
+  left: 8;
+}
+
+.nav-item:hover .icon-fork {
+  top: -26;
 }
 
 // --------- Header Logo --------- //

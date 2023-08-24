@@ -38,7 +38,6 @@
 
 .card-img {
   // background-color: black;
-  border-radius: 15px;
   @include respondTo(tablet) {
     width: 240px;
     height: 264px;
@@ -57,6 +56,13 @@
   width: 335px;
   height: 335px;
   margin-bottom: 24px;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+  overflow: hidden;
+
+  &:hover {
+    filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.3));
+  }
 
   @include respondTo(tablet) {
     width: 240px;
@@ -68,6 +74,23 @@
     width: 250px;
     height: 287px;
   }
+}
+
+body.dark-theme {
+  .cards-item:hover {
+    filter: drop-shadow(4px 4px 12px rgba(255, 255, 255, 0.1));
+  }
+}
+
+picture,
+img {
+  transition: all 0.5s ease;
+}
+
+.cards-item:hover img {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transform: scale(1.5);
 }
 
 .cards-item-title {
