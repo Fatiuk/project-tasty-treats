@@ -48,14 +48,14 @@ document.addEventListener('DOMContentLoaded', async () => {
   <div class="slider-cards">
     <div class="card-shef">
       <picture>
-        <source srcset="${item.cook.imgUrl}" type="image/webp">
+        <source srcset="${item.cook.imgWebpUrl}" type="image/webp">
         <source srcset="${item.cook.imgUrl}" type="image/jpeg">
         <img class="img-shef" src="${item.cook.imgUrl}" width="125" height="305" alt="${item.cook.name}">
       </picture>
     </div>
     <div class="card-food">
       <picture>
-        <source srcset="${item.topic.previewUrl}" type="image/webp">
+        <source srcset="${item.topic.previewWebpUrl}" type="image/webp">
         <source srcset="${item.topic.previewUrl}" type="image/jpeg">
         <img class="img-food" src="${item.topic.previewUrl}" width="150" height="150" alt="${item.topic.name}">
       </picture>
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     </div>
     <div class="card-tasty">
       <picture>
-        <source srcset="${item.topic.imgUrl}" type="image/webp">
+        <source srcset="${item.topic.imgWebpUrl}" type="image/webp">
         <source srcset="${item.topic.imgUrl}" type="image/jpeg">
         <img class="img-tasty" src="${item.topic.imgUrl}" width="185" height="280" alt="${item.topic.name}">
       </picture>

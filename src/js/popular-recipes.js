@@ -1,5 +1,6 @@
 import { fetchDataByPath } from './request-handler';
-import { createMarkupModal } from './modal';
+import { fillStars } from './fill-stars.js';
+import { closeModal, createMarkupModal, openModal } from './modal';
 
 const API_URL = '/recipes/popular';
 
@@ -40,16 +41,8 @@ async function handleRecipeClick(event) {
   const recipeId = clickedRecipe.dataset.id;
   const dataRecipe = await fetchDataByPath(`/recipes/${recipeId}`);
   modalCardCont.innerHTML = createMarkupModal(dataRecipe);
-  modalFormRecipes();
+  fillStars();
+  openModal();
 }
 
 createMarkup();
-function modalFormRecipes() {
-  document.querySelector('.modal-backdrop').classList.add('is-open');
-  document.body.style.overflow = 'hidden';
-
-  document.querySelector('.modal-btn-close').addEventListener('click', () => {
-    document.querySelector('.modal-backdrop').classList.remove('is-open');
-    document.body.style.overflow = 'auto';
-  });
-}
