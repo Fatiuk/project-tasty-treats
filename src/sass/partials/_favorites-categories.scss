@@ -1,41 +1,83 @@
-.favorites-categories{
-    padding-bottom: 32px;
+.favorites-categories {
+  height: 48px;
+  display: flex !important;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  gap: 12px;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  @include respondTo(tablet) {
+    margin-bottom: 32px;
+    gap: 15px;
+  }
 }
 
-.favorites-categories-btn {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 18px;
-
-    border-radius: 15px;
-    padding: 14px 18px;
-    
-    body.light-theme & {
-        color: lightColor('black-low');
-        border: 1px solid lightColor('black-very-low');
-        &:hover {
-            background-color: $green-full;
-            color: lightColor( 'white-full');
-            border: none;
-          }
+.all-categories.fav-btn {
+  white-space: nowrap;
+  body.light-theme & {
+    color: lightColor('black-low') !important;
+    &:hover {
+      color: lightColor('white-full') !important;
     }
 
     body.dark-theme & {
-        color: darkColor('white-semi-low');
-        border: 1px solid darkColor('white-semi-very-very-low');
-        &:hover {
-            background-color: $green-full;
-            color: lightColor( 'white-full');
-            border: none;
-          }    
-          }
-    transition: background-color $transition;  
-    transition: color $transition;
+      color: darkColor('white-semi-low') !important;
+      &:hover {
+        color: lightColor('white-full') !important;
+      }
+    }
+  }
+}
 
-@include respondTo(tablet) {
+.favorites-category-button {
+  height: 48px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  white-space: nowrap;
+
+  border-radius: 15px;
+  padding: 14px 18px;
+
+  body.light-theme & {
+    color: lightColor('black-low');
+    border: 1px solid lightColor('black-very-low');
+    &:hover {
+      background-color: $green-full;
+      color: lightColor('white-full');
+      border: 1px solid transparent;
+    }
+  }
+
+  body.dark-theme & {
+    color: darkColor('white-semi-low');
+    border: 1px solid darkColor('white-semi-very-very-low');
+    &:hover {
+      background-color: $green-full;
+      color: lightColor('white-full');
+      border: 1px solid transparent;
+    }
+  }
+  transition: background-color $transition, color $transition;
+
+  @include respondTo(tablet) {
     font-size: 16px;
     line-height: 20px;
+  }
 }
 
+.favorites-category-list {
+  display: flex;
+  gap: 12px;
+  @include respondTo(tablet) {
+    gap: 15px;
+  }
 }
-

@@ -1,6 +1,5 @@
 import { fillStars } from './fill-stars';
 import { saveIdToLocaleStorage } from './local-storage';
-import { fetchDataByPath } from './request-handler';
 
 const startList = document.querySelector('.cards-list');
 
@@ -9,11 +8,11 @@ export function createCard(data) {
     ({ _id, title, description, rating, preview, category }) => {
       const roundedRating = parseFloat(rating).toFixed(1);
       return `
-        <li class="cards-item">
+        <li class="cards-item" data-category="${category}">
                 <picture>
                   <source srcset="${preview}" type="image/webp">
                   <source srcset="${preview}" type="image/jpeg">
-                  <img src="${preview}" width="335" height="335" alt="${category}" class="card-img" loading="lazy">
+                  <img src="${preview}" width="335" height="335" alt="${title}" class="card-img" loading="lazy">
                 </picture>
                 <div class="test-div"></div>
                 <button type="button" class="btn-heard-icone" aria-label="Add to Favorites">

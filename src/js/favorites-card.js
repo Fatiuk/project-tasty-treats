@@ -14,7 +14,7 @@ favoritesNavLink.classList.add('current');
 const startList = document.querySelector('.cards-list');
 
 function fetchCardsFromLocal() {
-  const localData = localStorage.getItem('heartedButtons');
+  const localData = localStorage.getItem('localRecipes');
 
   if (localData !== '[]') {
     const parsedData = JSON.parse(localData);
@@ -31,11 +31,11 @@ function createCard(data) {
     ({ _id, title, description, rating, preview, category }) => {
       const roundedRating = parseFloat(rating).toFixed(1);
       return `
-        <li class="cards-item favorites-li">
+        <li class="cards-item favorites-li" data-category="${category}">
                 <picture>
                   <source srcset="${preview}" type="image/webp">
                   <source srcset="${preview}" type="image/jpeg">
-                  <img src="${preview}" width="335" height="335" alt="${category}" class="card-img favorites-img" loading="lazy">
+                  <img src="${preview}" width="335" height="335" alt="${title}" class="card-img favorites-img" loading="lazy">
                 </picture>
                 <div class="test-div"></div>
                 <button type="button" class="btn-heard-icone favorites-icone-btn" aria-label="Add to Favorites">

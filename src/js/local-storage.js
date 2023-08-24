@@ -5,11 +5,11 @@ export function saveIdToLocaleStorage() {
     button.addEventListener('click', () => {
       const card = button.closest('.cards-item');
       const buttonId = card.querySelector('.cards-item-btn').getAttribute('id');
-      let savedData = localStorage.getItem('heartedButtons');
+      let savedData = localStorage.getItem('localRecipes');
       savedData = savedData ? JSON.parse(savedData) : [];
       const cardData = {
         _id: buttonId,
-        category: card.querySelector('.card-img').getAttribute('alt'),
+        category: card.getAttribute('data-category'),
         preview: card.querySelector('.card-img').getAttribute('src'),
         title: card.querySelector('.cards-item-title').textContent,
         rating: card.querySelector('.cards-raiting').textContent,
@@ -24,7 +24,7 @@ export function saveIdToLocaleStorage() {
         button.querySelector('path').classList.add('js-fill');
       }
 
-      localStorage.setItem('heartedButtons', JSON.stringify(savedData));
+      localStorage.setItem('localRecipes', JSON.stringify(savedData));
     });
   });
 }

@@ -11,4 +11,6 @@ import './js/scroll-to-top.js';
 
 import './js/favorites-card.js';
 
+import './js/favorites-all-categoriel.js';
+
 import './js/modal.js';
