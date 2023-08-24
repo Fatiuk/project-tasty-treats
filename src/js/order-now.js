@@ -6,8 +6,8 @@ const refs = {
 };
 
 refs.headerOpenCartBtn.addEventListener('click', openOrderModal);
-if (window.location.pathname.includes('favorites.html')) {
-  refs.orderBtnClose = document.querySelector('.order-btn-close');
+if (!window.location.pathname.includes('favorites.html')) {
+  refs.heroOrderBtn.addEventListener('click', openOrderModal);
 }
 
 function openOrderModal() {
