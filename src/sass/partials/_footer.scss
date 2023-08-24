@@ -79,14 +79,16 @@
 
   border: 1px solid black;
   border-radius: 10px;
-
-  transition: background-color $transition;
+  body.dark-theme & {
+    border:  1px solid darkColor('white-semi-light');
+  }
+  transition: all $transition;
 }
 
 .footer-social-link {
   display: flex;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   @include respondTo(tablet) {
     width: 40px;
     height: 40px;
@@ -104,20 +106,34 @@
 .footer-social-item:nth-child(3):hover {
   background-color: #e64a41;
 }
+.footer-social-item:hover .footer-social-icon {
+  fill: white;
+}
+
+
+.footer-social-item:nth-child(3):hover {
+  background-color: #e64a41;
+}
 
 .footer-social-icon {
-  width: 15px;
-  height: 15px;
+  width: 19px;
+  height: 19px;
 
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  fill: white;
   @include respondTo(tablet) {
     width: 24px;
     height: 24px;
+  }
+  body.light-theme & {
+    fill: lightColor('black-semi');
+  }
+
+  body.dark-theme & {
+    fill: darkColor('white-semi-light');
   }
 }
 .footer-information {
