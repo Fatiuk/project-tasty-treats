@@ -2,6 +2,7 @@ import { fetchDataByPath } from './request-handler.js';
 import debounce from 'lodash.debounce';
 import { createCard } from './cards-recipes-tmpl.js';
 import Pagination from 'tui-pagination';
+import Notiflix from 'notiflix';
 
 const API_PATH = '/recipes';
 const searchEl = document.querySelector('.input');
@@ -11,6 +12,8 @@ const timeSelectForm = document.querySelector('.time-select');
 const allCategoriesBtn = document.querySelector('.all-categories');
 const categoriesSelectorList = document.querySelector('.category-list');
 const container = document.getElementById('pagination');
+const resetBtn = document.querySelector('.reset-btn');
+const failureTextEl = document.querySelector('.failure-wrap');
 const viewportWidth = window.innerWidth;
 
 let inputValueArea = null;
@@ -22,10 +25,11 @@ let clickedCategoryBtn = null;
 let itemsPerPage = 9;
 let totalItems = 360;
 let page = 1;
-
+let visiblePages = 3;
 
 if (viewportWidth < 768) {
   itemsPerPage = 6;
+  visiblePages = 2;
 } else if (viewportWidth >= 768 && viewportWidth < 1280) {
   itemsPerPage = 8;
 } else {
@@ -35,7 +39,7 @@ if (viewportWidth < 768) {
 const options = {
   totalItems: totalItems,
   itemsPerPage: itemsPerPage,
-  visiblePages: 3, // Кількість видимих сторінок в пагінаторі
+  visiblePages: visiblePages, // Кількість видимих сторінок в пагінаторі
   page: 1, // Початкова активна сторінка
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
@@ -63,12 +67,10 @@ const pagination = new Pagination(container, options);
 function getCurrentPage() {
   pagination.on('afterMove', async event => {
     page = event.page;
-    console.log('Current page:', page);
     const data = await viewportAnalizer(API_PATH);
     createCard(data.results);
   });
 }
-
 
 async function viewportAnalizer(API_PATH) {
   return await fetchDataByPath(
@@ -82,8 +84,6 @@ async function viewportAnalizer(API_PATH) {
     inputValueSearch
   );
 }
-
-console.log('Filter and search file on');
 
 async function handleFilterChange(event, filterType) {
   event.preventDefault();
@@ -130,7 +130,20 @@ async function handleFilterChange(event, filterType) {
   page = 1;
   dataAndPagination();
 }
-
+function checkInTotalPages(totalItems) {
+  if (totalItems < itemsPerPage) {
+    container.classList.add('hide');
+    failureTextEl.classList.remove('hide');
+    Notiflix.Notify.failure('We have no matches for this query');
+  }
+  else if ((totalItems == itemsPerPage)) {
+    container.classList.add('hide');
+  }
+  else {
+    container.classList.remove('hide');
+    failureTextEl.classList.add('hide');
+  }
+}
 function resetAllParams() {
   inputValueArea = null;
   inputValueTime = null;
@@ -142,7 +155,6 @@ function resetAllParams() {
 
 function clearAllFilters() {
   searchEl.value = '';
-  console.log('Filters are clear');
 }
 
 async function handleAllCategoriesBtn(event) {
@@ -183,6 +195,7 @@ async function dataAndPagination() {
   const data = await viewportAnalizer(API_PATH);
   totalItems = Number(data.totalPages) * itemsPerPage;
   pagination.reset(totalItems);
+  checkInTotalPages(totalItems);
   createCard(data.results);
 }
 searchEl.addEventListener(
@@ -200,7 +213,7 @@ ingredientsSelectForm.addEventListener('change', event =>
 );
 allCategoriesBtn.addEventListener('click', handleAllCategoriesBtn);
 categoriesSelectorList.addEventListener('click', handleCategoriesSelectorList);
-
+resetBtn.addEventListener('click', handleAllCategoriesBtn);
 document.addEventListener(
   'DOMContentLoaded',
   dataAndPagination(),

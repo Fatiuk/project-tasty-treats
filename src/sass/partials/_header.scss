@@ -133,7 +133,11 @@
   height: 0;
   width: 0;
 }
-
+.checkbox-burger{
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
 .slider {
   position: absolute;
   inset: 0;
@@ -173,6 +177,13 @@ body.dark-theme {
 }
 
 .checkbox:checked + .slider::before {
+  transform: translateX(26px);
+}
+.checkbox-burger + .slider {
+  background-color: $green-full;
+}
+
+.checkbox-burger:checked + .slider::before {
   transform: translateX(26px);
 }
 
