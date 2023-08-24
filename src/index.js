@@ -21,12 +21,11 @@ import './js/filter-and-search.js';
 
 import './js/popular-recipes.js';
 
-//templ cards of recipes
 import './js/cards-recipes-tmpl.js';
 
-import './js/pagination.js';
-
 import './js/modal.js';
+
+import './js/add-to-favorite.js';
 
 import './js/order-now.js';
 
@@ -34,4 +33,4 @@ import './js/order-form.js';
 
 import './js/filter-and-search-render.js';
 
-import './js/rating-modal.js'
+import './js/rating-modal.js';

@@ -34,7 +34,7 @@ async function loadDataAndInsertOptions(apiPath, selectForm) {
       },
     });
   } catch (error) {
-    console.error('Error:', error);
+    Notify.error('Error: ' + error);
   }
 }
 function initializeSelectTime() {

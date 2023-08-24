@@ -30,7 +30,7 @@ async function createMarkup() {
     recipesContainer.insertAdjacentHTML('beforeend', markup);
     recipesContainer.addEventListener('click', handleRecipeClick);
   } catch (error) {
-    console.log(error.message);
+    Notify.error(error.message);
   }
 }
 

@@ -8,12 +8,6 @@
       content="Explore a variety of delicious and easy-to-make recipes on our site. From appetizers to desserts, discover culinary delights for every occasion."
     />
     <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
     <title>Favorites</title>
     <link rel="stylesheet" href="./sass/main.scss" />
   </head>
@@ -24,7 +18,11 @@
       <a id="button"></a>
       <!-- Hero -->
       <include src="./partials/favorites-hero.html"></include>
-      <section class="favorites-section section">
+      <section
+        class="favorites-section section"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+      >
         <!-- Categories -->
         <include src="./partials/favorites-categories.html"></include>
         <!-- Default -->
@@ -34,6 +32,8 @@
       </section>
     </main>
 
+    <!-- Footer -->
+    <include src="./partials/footer.html"></include>
     <!-- Modal recipe -->
     <include src="./partials/modal.html"></include>
     <!-- Modal order -->

@@ -46,14 +46,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       markup += `
 <div class="swiper-slide">
   <div class="slider-cards">
-    <div class="card-shef">
+    <div class="card-shef" data-aos="fade-up" data-aos-duration="1000">
       <picture>
         <source srcset="${item.cook.imgWebpUrl}" type="image/webp">
         <source srcset="${item.cook.imgUrl}" type="image/jpeg">
         <img class="img-shef" src="${item.cook.imgUrl}" width="125" height="305" alt="${item.cook.name}">
       </picture>
     </div>
-    <div class="card-food">
+    <div class="card-food" data-aos="zoom-in">
       <picture>
         <source srcset="${item.topic.previewWebpUrl}" type="image/webp">
         <source srcset="${item.topic.previewUrl}" type="image/jpeg">
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         <p class="swiper-area">${item.topic.area}</p>
       </div>
     </div>
-    <div class="card-tasty">
+    <div class="card-tasty" data-aos="fade-down" data-aos-duration="1000">
       <picture>
         <source srcset="${item.topic.imgWebpUrl}" type="image/webp">
         <source srcset="${item.topic.imgUrl}" type="image/jpeg">

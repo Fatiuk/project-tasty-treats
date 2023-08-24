@@ -8,7 +8,7 @@ export function createCard(data) {
     ({ _id, title, description, rating, preview, category }) => {
       const roundedRating = parseFloat(rating).toFixed(1);
       return `
-        <li class="cards-item" data-category="${category}">
+        <li class="cards-item" data-category="${category}" data-aos="flip-left" data-aos-duration="1000">
                 <picture>
                   <source srcset="${preview}" type="image/webp">
                   <source srcset="${preview}" type="image/jpeg">

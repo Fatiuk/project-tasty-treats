@@ -15,7 +15,6 @@ fetchDataByPath('/categories')
 function createCategoryList(categories) {
   categoriesList.innerHTML = '';
   categories.forEach(category => {
-    console.log();
     const categoryItem = document.createElement('li');
 
     const categoryButton = document.createElement('button');

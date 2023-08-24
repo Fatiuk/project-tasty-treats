@@ -42,26 +42,25 @@ export default class TastyTreatsAPI {
       return response.data;
     } catch (error) {
       Report.failure(error.response.data.message);
-      console.log(error);
+      Notify.error(error);
     }
   }
 
   // Update existing treats data using the Tasty Treats API.
   async updateTreats(apiPath, formData) {
-    try{
+    try {
       const response = await axios.patch(
-      `${this.#BASE_URL}${apiPath}`,
-      formData);
+        `${this.#BASE_URL}${apiPath}`,
+        formData
+      );
       Report.success(
         'Success',
         '"Do not try to become a person of success but try to become a person of value." <br/><br/>- Albert Einstein',
         'Okay'
       );
-      return response.data
-    }catch(error){
+      return response.data;
+    } catch (error) {
       Report.failure(error.response.data.message);
-      
     }
-    
   }
 }

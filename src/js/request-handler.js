@@ -22,7 +22,6 @@ export async function fetchDataByPath(
   tastyTreatsApi.title = title;
   try {
     const { data } = await tastyTreatsApi.fetchTreats(apiPath);
-    console.log(data);
     return data;
   } catch (error) {
     Notiflix.Notify.failure(error.message);
