@@ -4,16 +4,22 @@
 
 .footer-container {
   position: relative;
-  padding-top: 40px;
-  padding-bottom: 40px;
-
+  padding-top: 20px;
+  padding-bottom: 30px;
+  gap: 15px;
   @include respondTo(tablet) {
     padding-top: 30px;
     padding-bottom: 30px;
+    display: flex;
+    gap: 60px;
+    align-items: center;
   }
+
   @include respondTo(desktop) {
     padding-top: 20px;
     padding-bottom: 20px;
+    
+    gap: 128px;
   }
 }
 
@@ -21,6 +27,16 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  gap: 15px;
+  @include respondTo(tablet) {
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+  }
+  @include respondTo(desktop) {
+    
+    gap: 100px;
+  }
 }
 
 .footer-logo {
@@ -42,10 +58,20 @@
 .current.footer-link {
   color: $green-full;
 }
-
+.footer-social {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 .footer-social-list {
   display: flex;
-  gap: 14px;
+  justify-content: center;
+  gap: 9px;
+  @include respondTo(tablet) {
+    gap: 14px;
+  }
+  @include respondTo(desktop) {
+    gap: 40px;
+  }
 }
 
 .footer-social-item {
@@ -53,14 +79,20 @@
 
   border: 1px solid black;
   border-radius: 10px;
-
-  transition: background-color $transition;
+  body.dark-theme & {
+    border:  1px solid darkColor('white-semi-light');
+  }
+  transition: all $transition;
 }
 
 .footer-social-link {
   display: flex;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
+  @include respondTo(tablet) {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .footer-social-item:nth-child(1):hover {
@@ -74,19 +106,81 @@
 .footer-social-item:nth-child(3):hover {
   background-color: #e64a41;
 }
+.footer-social-item:hover .footer-social-icon {
+  fill: white;
+}
+
+
+.footer-social-item:nth-child(3):hover {
+  background-color: #e64a41;
+}
 
 .footer-social-icon {
-  width: 24px;
-  height: 24px;
+  width: 19px;
+  height: 19px;
 
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  fill: white;
-}
+  @include respondTo(tablet) {
+    width: 24px;
+    height: 24px;
+  }
+  body.light-theme & {
+    fill: lightColor('black-semi');
+  }
 
+  body.dark-theme & {
+    fill: darkColor('white-semi-light');
+  }
+}
+.footer-information {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 15px;
+  @include respondTo(tablet) {
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 0px;
+  }
+  @include respondTo(desktop) {
+    gap: 24px;
+  }
+}
+.footer-information-item {
+  display: block;
+  text-align: justify;
+  font-weight: 400;
+  font-size: 9px;
+  line-height: normal;
+  text-align: center;
+  @include respondTo(tablet) {
+    font-weight: 500;
+    font-size: 12px;
+  }
+  @include respondTo(desktop) {
+  white-space: nowrap;
+  }
+}
+.footer-information-li {
+  @include respondTo(tablet) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  @include respondTo(desktop) {
+  flex-direction: row;
+  gap: 40px;
+  }
+}
+.footer-information-li:last-child{
+  @include respondTo(desktop) {
+  gap: 3px;
+  }
+}
 // .footer-list {
 //   display: none;
 

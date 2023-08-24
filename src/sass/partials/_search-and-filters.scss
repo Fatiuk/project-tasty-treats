@@ -1,4 +1,5 @@
 .search-and-filters {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -78,6 +79,12 @@
   &:focus + .input-icon {
     fill: $green-full;
   }
+  &:hover {
+    outline: none;
+  }
+  &:hover + .input-icon {
+    fill: $green-full;
+  }
 }
 
 .input-icon {
@@ -136,4 +143,49 @@
   @include respondTo(desktop) {
     width: 188px;
   }
+}
+.reset-btn{
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+  line-height: 1.33;
+  font-size: 12px;
+  transform: all $transition;
+  body.light-theme & {
+    color: lightColor('black-semi');
+  }
+
+  body.dark-theme & {
+    color: darkColor('white-semi-light');
+  }
+  
+  &:hover > .reset-btn-icon{
+    stroke: $green-full;
+  }
+}
+.reset-btn-icon{
+  width: 16px;
+  width: 16px;
+  position: absolute;
+  top: 47%;
+  transform: translateY(-50%);
+  left: -15px;
+  
+  body.light-theme & {
+    stroke: lightColor('black-semi');
+  }
+
+  body.dark-theme & {
+    stroke: darkColor('white-semi-light');
+  }
+  
+}
+.failure-wrap{
+  display: block;
+}
+.pagination-wrapper .hide{
+  display: none;
+}
+.hide{
+  display: none;
 }

@@ -22,7 +22,9 @@ $pagination-enabled-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.or
     gap: 10px;
   }
 }
-
+.pagination{
+  display: inline;
+}
 .tui-page-btn {
   display: flex;
   align-items: center;
