@@ -50,14 +50,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       <picture>
         <source srcset="${item.cook.imgWebpUrl}" type="image/webp">
         <source srcset="${item.cook.imgUrl}" type="image/jpeg">
-        <img class="img-shef" src="${item.cook.imgUrl}" width="125" height="305" alt="${item.cook.name}">
+        <img class="img-shef" src="${item.cook.imgUrl}" width="250" height="610" alt="${item.cook.name}">
       </picture>
     </div>
     <div class="card-food" data-aos="zoom-in">
       <picture>
         <source srcset="${item.topic.previewWebpUrl}" type="image/webp">
         <source srcset="${item.topic.previewUrl}" type="image/jpeg">
-        <img class="img-food" src="${item.topic.previewUrl}" width="150" height="150" alt="${item.topic.name}">
+        <img class="img-food" src="${item.topic.previewUrl}" width="300" height="300" alt="${item.topic.name}">
       </picture>
       <div class="swiper-title">
         <p class="swiper-name">${item.topic.name}</p>
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       <picture>
         <source srcset="${item.topic.imgWebpUrl}" type="image/webp">
         <source srcset="${item.topic.imgUrl}" type="image/jpeg">
-        <img class="img-tasty" src="${item.topic.imgUrl}" width="185" height="280" alt="${item.topic.name}">
+        <img class="img-tasty" src="${item.topic.imgUrl}" width="370" height="560" alt="${item.topic.name}">
       </picture>
     </div>
   </div>

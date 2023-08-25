@@ -1,10 +1,22 @@
+.favorites-categories.hidden {
+  @at-root .site-footer {
+    margin-top: 200px;
+  }
+}
+
+.favorites-categories:not(.hidden) {
+  @at-root .site-footer {
+    margin-top: 0;
+  }
+}
+
 .favorites-section {
   padding-top: 0;
 }
 
 .favorites-default {
   position: absolute;
-  top: 50%;
+  top: 150%;
   left: 50%;
   transform: translate(-50%, -50%);
 
