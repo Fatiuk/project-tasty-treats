@@ -24,8 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
     localStorage.setItem('theme', theme);
   }
 
-  // Отримання поточної теми з localStorage та встановлення стану перемикачів
-  const selectedTheme = localStorage.getItem('theme');
+  let selectedTheme = localStorage.getItem('theme');
+  if (selectedTheme === null) {
+    selectedTheme = 'light'; // по умолчанию
+  }
+
   applyTheme(selectedTheme);
   themeToggle1.checked = selectedTheme === 'dark';
   themeToggle2.checked = selectedTheme === 'dark';
