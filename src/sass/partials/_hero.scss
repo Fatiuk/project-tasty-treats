@@ -64,9 +64,10 @@
   border-radius: 15px;
   border: 1px solid $green-full;
   transition: background-color $transition, color $transition;
+  color: $black-full;
 
   body.dark-theme & {
-    color: darkColor('white-full');
+    color: darkColor('white-semi-medium');
   }
 
   @include respondTo(tablet) {
@@ -76,7 +77,8 @@
     margin-bottom: 0px;
   }
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: lightColor('white-full');
     background-color: $green-full;
   }
