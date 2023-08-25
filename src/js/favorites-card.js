@@ -7,6 +7,8 @@ const favoritesNavLink = document.querySelector('.nav-item:nth-child(2)');
 const favHeroContainer = document.querySelector('.favorites-hero');
 const favCategoriesContainer = document.querySelector('.favorites-categories');
 const favDefaultContainer = document.querySelector('.favorites-default');
+const footer = document.querySelector('.site-footer');
+
 homeNavLink.classList.remove('current');
 favoritesNavLink.classList.add('current');
 // ----
@@ -24,6 +26,7 @@ function fetchCardsFromLocal() {
     removeIdToLocaleStorage();
   } else {
     favCategoriesContainer.style.display = 'none';
+    footer.style.display = 'none';
   }
 }
 

@@ -6,6 +6,7 @@ const API_URL = '/recipes/popular';
 
 const recipesContainer = document.querySelector('.popular-recipes-container');
 const modalCardCont = document.querySelector('.card-markup-modal');
+const addToFavorite = document.querySelector('.modal-add-favorite');
 
 async function createMarkup() {
   try {
@@ -41,6 +42,7 @@ async function handleRecipeClick(event) {
   const recipeId = clickedRecipe.dataset.id;
   const dataRecipe = await fetchDataByPath(`/recipes/${recipeId}`);
   modalCardCont.innerHTML = createMarkupModal(dataRecipe);
+  addToFavorite.id = recipeId;
   fillStars();
   openModal();
 }

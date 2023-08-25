@@ -1,15 +1,3 @@
-.favorites-categories.hidden {
-  @at-root .site-footer {
-    margin-top: 200px;
-  }
-}
-
-.favorites-categories:not(.hidden) {
-  @at-root .site-footer {
-    margin-top: 0;
-  }
-}
-
 .favorites-section {
   padding-top: 0;
 }

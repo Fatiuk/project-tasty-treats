@@ -1,4 +1,5 @@
 import { fetchDataByPath } from './request-handler';
+import { Notify } from 'notiflix';
 
 const addToFavorite = document.querySelector('.modal-add-favorite');
 
@@ -26,10 +27,11 @@ async function addToLocalStorage() {
 
   if (existingRecipeIndex !== -1) {
     savedData.splice(existingRecipeIndex, 1);
-    console.log('Recipe removed from local storage:', recipeObject);
+    console.log();
+    Notify.warning(`Recipe removed from local storage:, ${recipeObject.title}`);
   } else {
     savedData.push(recipeObject);
-    console.log('Recipe added to local storage:', recipeObject);
+    Notify.success(`Recipe added from local storage:, ${recipeObject.title}`);
   }
   localStorage.setItem('localRecipes', JSON.stringify(savedData));
 }
