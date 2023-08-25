@@ -513,7 +513,7 @@ body.dark-theme .ss-content .ss-list .ss-option:not(.ss-disabled).ss-selected{
 body.dark-theme .ss-main {
   border: 1px solid #fff3;
 }
-body.light-theme .ss-main {
+.ss-main {
   border: 1px solid #05050533;
 }
 body.light-theme .ss-main .ss-values .ss-placeholder {
