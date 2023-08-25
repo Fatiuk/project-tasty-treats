@@ -24,7 +24,7 @@
   line-height: 50px;
   color: #fff;
 }
-#button:hover {
+#button:hover,#button:focus {
   cursor: pointer;
   background: #333;
 }

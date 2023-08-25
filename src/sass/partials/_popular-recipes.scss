@@ -1,6 +1,7 @@
 .popular-recipes-wrap {
   transition: filter $transition;
-  &:hover {
+  &:hover,
+  &:focus {
     filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.3));
   }
 }
@@ -14,7 +15,8 @@
 }
 
 body.dark-theme {
-  .popular-recipes-wrap:hover {
+  .popular-recipes-wrap:hover,
+  .popular-recipes-wrap:focus {
     filter: drop-shadow(4px 4px 12px rgba(255, 255, 255, 0.1));
   }
 }

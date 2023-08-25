@@ -55,7 +55,7 @@
   transition: transform $transition;
 }
 
-.modal-btn-close:hover .modal-button-icon {
+.modal-btn-close:hover .modal-button-icon, .modal-btn-close:focus .modal-button-icon {
   transform: scale(1.2);
 }
 
@@ -211,14 +211,14 @@
   color: lightColor('white-full');
   background-color: $green-full;
   transition: color $transition;
-  &:hover {
+  &:hover,  &:focus {
     color: $black-full;
   }
 }
 .modal-give-rating {
   border: solid 1px $green-full;
   transition: color $transition, background-color $transition;
-  &:hover {
+  &:hover, &:focus {
     color: lightColor('white-full');
     background-color: $green-full;
   }
@@ -257,7 +257,7 @@ body.dark-theme {
   .modal-give-rating {
     color: lightColor('white-full');
     transition: color $transition, background-color $transition;
-    &:hover {
+    &:hover, &:focus {
       color: $black-full;
       background-color: $green-full;
     }

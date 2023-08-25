@@ -20,7 +20,8 @@
   body.light-theme & {
     color: lightColor('black-semi');
     background-color: lightColor('white-full');
-    &:hover {
+    &:hover,
+    &:focus {
       color: lightColor('white-full');
       background-color: $green-full;
     }
@@ -30,7 +31,7 @@
     color: darkColor('white-semi-light');
     background-color: darkColor('dark-black');
     border-color: darkColor('white-semi-very-very-low');
-    &:hover {
+    &:hover, &:focus {
       color: lightColor('white-full');
       background-color: $green-full;
     }
@@ -64,13 +65,13 @@
 .category-button {
   body.light-theme & {
     color: lightColor('black-low');
-    &:hover {
+    &:hover, &:focus {
       color: $green-full;
     }
   }
   body.dark-theme & {
     color: darkColor('white-semi-low');
-    &:hover {
+    &:hover, &:focus {
       color: $green-full;
     }
   }
@@ -113,7 +114,7 @@
     color: white;
   }
 }
-.active{
+.active {
   body.light-theme & {
     color: $green-full;
   }

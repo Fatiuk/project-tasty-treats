@@ -26,7 +26,8 @@
   height: 43px;
   transition: text-shadow $transition;
 
-  &:hover {
+  &:hover,
+  &:focus {
     text-shadow: 0px 0px 10px currentColor;
   }
 }
@@ -57,7 +58,8 @@
   left: 8;
 }
 
-.nav-item:hover .icon-fork {
+.nav-item:hover .icon-fork,
+.nav-item:focus .icon-fork {
   top: -26;
 }
 
@@ -99,14 +101,16 @@
 
   body.light-theme & {
     stroke: $black-full;
-    &:hover {
+    &:hover,
+    &:focus {
       stroke: $green-full;
     }
   }
 
   body.dark-theme & {
     stroke: darkColor('white-full');
-    &:hover {
+    &:hover,
+    &:focus {
       stroke: $green-full;
     }
   }
@@ -269,7 +273,8 @@ body.dark-theme {
   line-height: normal;
   color: lightColor('white-full');
   transition: text-shadow $transition;
-  &:hover {
+  &:hover,
+  &:focus {
     text-shadow: 0px 0px 10px currentColor;
   }
 }
@@ -280,7 +285,8 @@ body.dark-theme {
   line-height: normal;
   color: lightColor('white-full');
   transition: text-shadow $transition;
-  &:hover {
+  &:hover,
+  &:focus {
     text-shadow: 0px 0px 10px currentColor;
   }
 }

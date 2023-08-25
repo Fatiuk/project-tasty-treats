@@ -1,12 +1,18 @@
 export function saveIdToLocaleStorage() {
   const heartButtons = document.querySelectorAll('.btn-heard-icone');
+  const savedData = JSON.parse(localStorage.getItem('localRecipes')) || [];
 
   heartButtons.forEach(button => {
+    const buttonId = button
+      .closest('.cards-item')
+      .querySelector('.cards-item-btn').id;
+
+    if (savedData.some(data => data._id === buttonId)) {
+      button.querySelector('path').classList.add('js-fill');
+    }
+
     button.addEventListener('click', () => {
       const card = button.closest('.cards-item');
-      const buttonId = card.querySelector('.cards-item-btn').getAttribute('id');
-      let savedData = localStorage.getItem('localRecipes');
-      savedData = savedData ? JSON.parse(savedData) : [];
       const cardData = {
         _id: buttonId,
         category: card.getAttribute('data-category'),
@@ -16,8 +22,10 @@ export function saveIdToLocaleStorage() {
         description: card.querySelector('.cards-item-text').textContent,
       };
 
-      if (savedData.some(data => data._id === buttonId)) {
-        savedData = savedData.filter(data => data._id !== buttonId);
+      const index = savedData.findIndex(data => data._id === buttonId);
+
+      if (index !== -1) {
+        savedData.splice(index, 1);
         button.querySelector('path').classList.remove('js-fill');
       } else {
         savedData.push(cardData);

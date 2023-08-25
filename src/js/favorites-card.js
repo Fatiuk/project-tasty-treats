@@ -48,7 +48,7 @@ function createCard(data) {
                         <path  stroke-linecap="round" stroke-linejoin="round" stroke-width="2.909" d="M15.991 6.848C13.325 3.731 8.88 2.893 5.54 5.747s-3.81 7.625-1.187 11c2.181 2.806 8.781 8.725 10.944 10.641.242.214.363.321.504.364a.668.668 0 0 0 .381 0c.141-.042.262-.149.504-.364 2.163-1.916 8.763-7.834 10.944-10.641 2.623-3.375 2.21-8.177-1.187-11.001s-7.785-2.015-10.451 1.101z" opacity=".5"/>
                     </svg>
                 </button>
-                <h2 class="cards-item-title favorites-item-title">${title}</h2>
+                <h3 class="cards-item-title favorites-item-title">${title}</h3>
                 <p class="cards-item-text favorites-item-text">${description}</p>
                 
                  <div class="card_star-rating favorites_star-rating"> 

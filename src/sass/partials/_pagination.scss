@@ -65,7 +65,8 @@ $pagination-enabled-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.or
   }
 }
 
-.tui-page-btn:hover {
+.tui-page-btn:hover,
+.tui-page-btn:focus {
   body.light-theme & {
     color: lightColor('white-full');
     background-color: $green-full;
@@ -89,7 +90,11 @@ $pagination-enabled-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.or
 .tui-first:hover,
 .tui-prev:hover,
 .tui-next:hover,
-.tui-last:hover {
+.tui-last:hover,
+.tui-first:focus,
+.tui-prev:focus,
+.tui-next:focus,
+.tui-last:focus {
   body.light-theme & {
     background-color: lightColor('white-full');
   }

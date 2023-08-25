@@ -20,7 +20,8 @@
   letter-spacing: 2px;
 }
 
-.site-footer a:hover {
+.site-footer a:hover,
+.site-footer a:focus {
   color: #3366cc;
   text-decoration: none;
 }
@@ -112,16 +113,20 @@
   width: 34px;
   font-size: 14px;
 }
-.social-icons a.facebook:hover {
+.social-icons a.facebook:hover,
+.social-icons a.facebook:focus {
   background-color: #3b5998;
 }
-.social-icons a.twitter:hover {
+.social-icons a.twitter:hover,
+.social-icons a.twitter:focus {
   background-color: #00aced;
 }
-.social-icons a.youtube:hover {
+.social-icons a.youtube:hover,
+.social-icons a.youtube:focus {
   background-color: #e64a41;
 }
-.social-icons a.instagram:hover {
+.social-icons a.instagram:hover,
+.social-icons a.instagram:focus {
   background-color: #ea4c89;
 }
 @media (max-width: 767px) {

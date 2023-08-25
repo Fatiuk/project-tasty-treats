@@ -24,13 +24,13 @@
   white-space: nowrap;
   body.light-theme & {
     color: lightColor('black-low') !important;
-    &:hover {
+    &:hover, &:focus {
       color: lightColor('white-full') !important;
     }
 
     body.dark-theme & {
       color: darkColor('white-semi-low') !important;
-      &:hover {
+      &:hover, &:focus {
         color: lightColor('white-full') !important;
       }
     }
@@ -50,7 +50,7 @@
   body.light-theme & {
     color: lightColor('black-low');
     border: 1px solid lightColor('black-very-low');
-    &:hover {
+    &:hover, &:focus {
       background-color: $green-full;
       color: lightColor('white-full');
       border: 1px solid transparent;
@@ -60,7 +60,7 @@
   body.dark-theme & {
     color: darkColor('white-semi-low');
     border: 1px solid darkColor('white-semi-very-very-low');
-    &:hover {
+    &:hover, &:focus {
       background-color: $green-full;
       color: lightColor('white-full');
       border: 1px solid transparent;

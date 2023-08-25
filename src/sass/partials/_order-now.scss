@@ -30,7 +30,8 @@
   transition: transform $transition;
 }
 
-.order-btn-close:hover .modal-button-icon {
+.order-btn-close:hover .modal-button-icon,
+.order-btn-close:focus .modal-button-icon {
   transform: scale(1.2);
 }
 

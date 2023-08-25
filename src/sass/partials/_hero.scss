@@ -76,7 +76,7 @@
     margin-bottom: 0px;
   }
 
-  &:hover {
+  &:hover, &:focus {
     color: lightColor('white-full');
     background-color: $green-full;
   }

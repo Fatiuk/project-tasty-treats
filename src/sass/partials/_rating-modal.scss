@@ -30,7 +30,8 @@
   transition: transform $transition;
 }
 
-.modal-rating-close:hover .modal-button-icon {
+.modal-rating-close:hover .modal-button-icon,
+.modal-rating-close:focus .modal-button-icon {
   transform: scale(1.2);
 }
 
@@ -101,7 +102,8 @@ input[type='radio']:checked ~ svg.star {
   color: lightColor('white-full');
   background-color: $green-full;
   transition: color $transition;
-  &:hover {
+  &:hover,
+  &:focus {
     color: $black-full;
   }
 }

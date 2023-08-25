@@ -78,7 +78,7 @@ export function createMarkupModal(data) {
           allowfullscreen
           class="iframe-video"
         ></iframe>
-        <h2 class="modal-recipe-name">${data.title}</h2>
+        <h3 class="modal-recipe-name">${data.title}</h3>
         <div class="modal-general-inf">
           <div class="card-star-modal card_star-rating">
             <p class="modal-raiting cards-raiting">${roundedRating}</p>
