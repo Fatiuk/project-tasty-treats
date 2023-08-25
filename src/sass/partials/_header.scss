@@ -25,16 +25,15 @@
   align-items: center;
   height: 43px;
   transition: text-shadow $transition;
-
-  &:hover,
-  &:focus {
-    text-shadow: 0px 0px 10px currentColor;
-  }
 }
 
 .nav-link {
   padding-top: 15px;
   padding-bottom: 15px;
+  &:hover,
+  &:focus {
+    text-shadow: 0px 0px 10px currentColor;
+  }
 }
 
 .current {
@@ -94,6 +93,11 @@
   margin-right: 14px;
 }
 
+.cart-button:hover .cart-icon,
+.cart-button:focus .cart-icon {
+  stroke: $green-full;
+}
+
 .cart-icon {
   fill: transparent;
   stroke: $black-full;
@@ -101,18 +105,10 @@
 
   body.light-theme & {
     stroke: $black-full;
-    &:hover,
-    &:focus {
-      stroke: $green-full;
-    }
   }
 
   body.dark-theme & {
     stroke: darkColor('white-full');
-    &:hover,
-    &:focus {
-      stroke: $green-full;
-    }
   }
 }
 

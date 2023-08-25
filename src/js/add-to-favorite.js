@@ -27,11 +27,12 @@ async function addToLocalStorage() {
 
   if (existingRecipeIndex !== -1) {
     savedData.splice(existingRecipeIndex, 1);
-    console.log();
-    Notify.warning(`Recipe removed from local storage:, ${recipeObject.title}`);
+    Notify.warning(`Recipe removed from local storage: ${recipeObject.title}`);
+    addToFavorite.textContent = 'Add to favorite';
   } else {
     savedData.push(recipeObject);
-    Notify.success(`Recipe added from local storage:, ${recipeObject.title}`);
+    Notify.success(`Recipe added to local storage: ${recipeObject.title}`);
+    addToFavorite.textContent = 'Remove favorite';
   }
   localStorage.setItem('localRecipes', JSON.stringify(savedData));
 }

@@ -3,6 +3,7 @@ import debounce from 'lodash.debounce';
 import { createCard } from './cards-recipes-tmpl.js';
 import Pagination from 'tui-pagination';
 import Notiflix from 'notiflix';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 const API_PATH = '/recipes';
 const searchEl = document.querySelector('.input');
@@ -67,8 +68,10 @@ const pagination = new Pagination(container, options);
 function getCurrentPage() {
   pagination.on('afterMove', async event => {
     page = event.page;
+    Loading.standard('Loading...', { svgColor: '#9bb537' });
     const data = await viewportAnalizer(API_PATH);
     createCard(data.results);
+    Loading.remove();
   });
 }
 
@@ -135,11 +138,9 @@ function checkInTotalPages(totalItems) {
     container.classList.add('hide');
     failureTextEl.classList.remove('hide');
     Notiflix.Notify.failure('We have no matches for this query');
-  }
-  else if ((totalItems == itemsPerPage)) {
+  } else if (totalItems == itemsPerPage) {
     container.classList.add('hide');
-  }
-  else {
+  } else {
     container.classList.remove('hide');
     failureTextEl.classList.add('hide');
   }
@@ -192,11 +193,13 @@ async function handleCategoriesSelectorList(event) {
   dataAndPagination();
 }
 async function dataAndPagination() {
+  Loading.standard('Loading...', { svgColor: '#9bb537' });
   const data = await viewportAnalizer(API_PATH);
   totalItems = Number(data.totalPages) * itemsPerPage;
   pagination.reset(totalItems);
   checkInTotalPages(totalItems);
   createCard(data.results);
+  Loading.remove();
 }
 searchEl.addEventListener(
   'input',

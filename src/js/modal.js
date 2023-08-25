@@ -1,6 +1,7 @@
 import { fetchDataByPath } from './request-handler.js';
 import { fillStars } from './fill-stars.js';
 import { reset } from './rating-modal.js';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 const refs = {
   allCards: document.querySelector('.cards-list'),
@@ -20,6 +21,7 @@ async function handlerGetIdCard(event) {
   if (event.target.nodeName !== 'BUTTON') {
     return;
   }
+  Loading.standard('Loading...', { svgColor: '#9bb537' });
   const buttonId = event.target.getAttribute('id');
   refs.ratingButton.id = buttonId;
   refs.addToFavorite.id = buttonId;
@@ -28,6 +30,7 @@ async function handlerGetIdCard(event) {
   refs.modalCardCont.innerHTML = modalMarkup;
   fillStars();
   openModal();
+  Loading.remove();
 }
 
 export function createMarkupModal(data) {

@@ -1,10 +1,12 @@
 import { fetchDataByPath } from './request-handler';
 import { fillStars } from './fill-stars.js';
 import { closeModal, createMarkupModal, openModal } from './modal';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 const API_URL = '/recipes/popular';
 
 const recipesContainer = document.querySelector('.popular-recipes-container');
+const recipesWrap = document.querySelector('.popular-recipes-wrap');
 const modalCardCont = document.querySelector('.card-markup-modal');
 const addToFavorite = document.querySelector('.modal-add-favorite');
 
@@ -36,6 +38,11 @@ async function createMarkup() {
 }
 
 async function handleRecipeClick(event) {
+  if (!event.target.closest('.popular-recipes-wrap')) {
+    return;
+  }
+
+  Loading.standard('Loading...', { svgColor: '#9bb537' });
   const clickedRecipe = event.target.closest('.popular-recipes-wrap');
   if (!clickedRecipe) return;
 
@@ -44,6 +51,7 @@ async function handleRecipeClick(event) {
   modalCardCont.innerHTML = createMarkupModal(dataRecipe);
   addToFavorite.id = recipeId;
   fillStars();
+  Loading.remove();
   openModal();
 }
 

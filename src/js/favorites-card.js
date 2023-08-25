@@ -18,7 +18,7 @@ const startList = document.querySelector('.cards-list');
 function fetchCardsFromLocal() {
   const localData = localStorage.getItem('localRecipes');
 
-  if (localData !== '[]') {
+  if (localData && localData !== '[]') {
     const parsedData = JSON.parse(localData);
     createCard(parsedData);
     removeEmptyFavoritesMessage();

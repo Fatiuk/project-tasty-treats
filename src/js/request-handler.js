@@ -1,6 +1,7 @@
 import Notiflix from 'notiflix';
 //* API Handler for Tasty Treats API.
 import TastyTreatsAPI from './tasty-treats-api.js';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 
 const tastyTreatsApi = new TastyTreatsAPI();
 export async function fetchDataByPath(
