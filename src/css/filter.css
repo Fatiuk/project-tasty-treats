@@ -2,9 +2,9 @@
   --ss-primary-color: transparent;
   --ss-bg-color: transparent;
   --ss-font-color: #ffffff;
-  --ss-font-placeholder-color: #ffffff80;
+  --ss-font-placeholder-color: #05050580;
   --ss-disabled-color: #dcdee2;
-  --ss-border-color: #ffffff33;
+  --ss-border-color: #05050533;
   --ss-highlight-color: #fffb8c;
   --ss-success-color: #00b755;
   --ss-error-color: #dc3545;
@@ -513,13 +513,16 @@ body.dark-theme .ss-content .ss-list .ss-option:not(.ss-disabled).ss-selected{
 body.dark-theme .ss-main {
   border: 1px solid #fff3;
 }
-body.light-theme .ss-main {
+.ss-main {
   border: 1px solid #05050533;
 }
 body.light-theme .ss-main .ss-values .ss-placeholder {
   color: rgba(5, 5, 5, 0.5);
 }
-body.light-theme .ss-main .ss-arrow path {
+body.dark-theme .ss-main .ss-values .ss-placeholder {
+  color: #FFFFFF80;
+}
+.ss-main .ss-arrow path {
   stroke: black;
 }
 body.dark-theme .ss-main .ss-arrow path {
