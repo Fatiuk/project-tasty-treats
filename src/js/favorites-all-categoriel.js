@@ -45,6 +45,16 @@ if (localStorage.getItem('localRecipes')) {
       ulElement.appendChild(liElement);
     }
   });
+
+  const favoritesIconButtons = document.querySelectorAll(
+    '.favorites-icone-btn'
+  );
+
+  favoritesIconButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      location.reload();
+    });
+  });
 } else {
   Notify.warning('In favorites, there is no data about recipes.');
 }
