@@ -36,7 +36,7 @@ function createCard(data) {
     ({ _id, title, description, rating, preview, category }) => {
       const roundedRating = parseFloat(rating).toFixed(1);
       return `
-        <li class="cards-item favorites-li" data-category="${category}" data-aos="flip-left" data-aos-duration="1000">
+        <li class="cards-item favorites-li" data-category="${category}">
                 <picture>
                   <source srcset="${preview}" type="image/webp">
                   <source srcset="${preview}" type="image/jpeg">
