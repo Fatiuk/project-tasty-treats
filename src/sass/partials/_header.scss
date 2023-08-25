@@ -21,14 +21,19 @@
 
 .nav-item {
   position: relative;
-  display: block;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  height: 43px;
   transition: text-shadow $transition;
 
   &:hover {
     text-shadow: 0px 0px 10px currentColor;
   }
+}
+
+.nav-link {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 .current {
@@ -37,7 +42,7 @@
 
 .icon-fork {
   position: absolute;
-  top: -60;
+  top: -65;
   left: 0;
   fill: $green-full;
   stroke: black;
@@ -133,7 +138,7 @@
   height: 0;
   width: 0;
 }
-.checkbox-burger{
+.checkbox-burger {
   opacity: 0;
   height: 0;
   width: 0;
