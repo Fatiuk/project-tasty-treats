@@ -1,4 +1,4 @@
-![Watch the Tasty Treats Video](./assets/tastytreatsvideo.mp4)
+[Watch the Tasty Treats Video](https://youtu.be/KLXs-_FNIlw)
 
 # Development team :
 
@@ -49,4 +49,4 @@
 - Docs(README) Documentation update
 
 - `Look at Figma layout`
-  [**Layout Figma**](https://www.figma.com/file/MrdZUmIfeT1bKd8u5GWLRt/English-Excellence-2.0?type=design&node-id=0-1&mode=design&t=4jJkOR8gcvoKgG1k-0)
+  [**Layout Figma**](https://www.figma.com/file/DfLTK1bjDwKKxkEJ1FTyFF/TastyTreats?node-id=0%3A1&t=o1FdgCAP1yd69DBN-1)
