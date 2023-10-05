@@ -1,5 +1,7 @@
-[Watch the Tasty Treats Video](https://youtu.be/KLXs-_FNIlw)
+
 ![Watch the Tasty Treats Video](/assets/tastytreatsvideo.gif)
+
+[Watch the Tasty Treats Video](https://youtu.be/KLXs-_FNIlw)
 
 # Development team :
 
